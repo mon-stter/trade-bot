@@ -186,6 +186,7 @@ def test_cli_status_prints_not_halted(mem):
     out = subprocess.run(
         [sys.executable, "scripts/guard.py", "status"],
         capture_output=True, text=True, env=env,
+        stdin=subprocess.DEVNULL,
     )
     assert out.returncode == 0
     assert "not halted" in out.stdout.lower()
