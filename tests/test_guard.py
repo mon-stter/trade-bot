@@ -7,6 +7,21 @@ import guard  # noqa: E402
 from conftest import FakeClient  # noqa: E402
 
 
+def test_load_dotenv_fills_missing_but_does_not_override(tmp_path, monkeypatch):
+    env = tmp_path / ".env"
+    env.write_text("# comment\nFOO_NEW=abc\nFOO_EXISTING=fromfile\n\n")
+    monkeypatch.setenv("FOO_EXISTING", "fromenv")
+    monkeypatch.delenv("FOO_NEW", raising=False)
+    guard.load_dotenv(env)
+    import os
+    assert os.environ["FOO_NEW"] == "abc"          # gap filled
+    assert os.environ["FOO_EXISTING"] == "fromenv"  # process env wins
+
+
+def test_load_dotenv_missing_file_is_noop(tmp_path):
+    guard.load_dotenv(tmp_path / "nope.env")  # must not raise
+
+
 def test_load_state_returns_defaults_when_missing(tmp_path):
     state = guard.load_state(tmp_path / "nope.json")
     assert state["halted"] is False

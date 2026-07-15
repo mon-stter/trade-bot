@@ -29,6 +29,21 @@ class GateError(Exception):
     """Raised when a rule blocks an action."""
 
 
+def load_dotenv(path=ROOT / ".env"):
+    """Load KEY=VALUE lines from a local .env into the environment, WITHOUT
+    overriding anything already set. Cloud routines set real process env vars,
+    so those always win; this only fills gaps for local runs."""
+    p = Path(path)
+    if not p.exists():
+        return
+    for line in p.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, val = line.split("=", 1)
+        os.environ.setdefault(key.strip(), val.strip())
+
+
 class AlpacaClient:
     def __init__(self):
         self.key = os.environ["ALPACA_API_KEY"]
@@ -134,7 +149,7 @@ def validate_buy(order, account, positions, weekly_count, halted):
     cost = qty * price
     equity = float(account["equity"])
     cash = float(account["cash"])
-    daytrades = int(account.get("daytrade_count", 0))
+    daytrades = int(account.get("daytrade_count") or 0)
     held = {p["symbol"] for p in positions}
 
     if halted:
@@ -235,6 +250,7 @@ def wait_for_fill(client, order_id, tries=15, delay=1.0):
 
 
 def main(argv=None):
+    load_dotenv()
     parser = argparse.ArgumentParser(prog="guard.py")
     sub = parser.add_subparsers(dest="cmd", required=True)
     sub.add_parser("status")
