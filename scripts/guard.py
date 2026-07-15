@@ -153,3 +153,18 @@ def validate_buy(order, account, positions, weekly_count, halted):
         reasons.append(f"PDT: daytrade_count {daytrades} >= {PDT_LIMIT}")
 
     return (len(reasons) == 0, reasons)
+
+
+def evaluate_risk(equity, state):
+    state = dict(state)
+    hwm = max(float(state.get("high_water_mark") or 0.0), equity)
+    state["high_water_mark"] = hwm
+    drawdown = (equity - hwm) / hwm if hwm else 0.0
+    last = float(state.get("last_equity") or 0.0)
+    daily = (equity - last) / last if last else 0.0
+
+    if drawdown <= MAX_DRAWDOWN:
+        return state, True, f"drawdown {drawdown:.1%} <= {MAX_DRAWDOWN:.0%}"
+    if last and daily <= MAX_DAILY_LOSS:
+        return state, True, f"daily P&L {daily:.1%} <= {MAX_DAILY_LOSS:.0%}"
+    return state, False, ""

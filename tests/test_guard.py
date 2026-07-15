@@ -95,3 +95,28 @@ def test_rejects_cost_over_cash():
 def test_rejects_when_pdt_exhausted():
     ok, reasons = guard.validate_buy(_order(), _account(daytrade_count="3"), [], 0, False)
     assert not ok and any("PDT" in r for r in reasons)
+
+
+def test_risk_updates_high_water_mark_and_does_not_halt_on_new_high():
+    state = dict(guard.DEFAULT_STATE)
+    state["high_water_mark"] = 10000.0
+    new_state, halt, reason = guard.evaluate_risk(11000.0, state)
+    assert not halt and new_state["high_water_mark"] == 11000.0
+
+
+def test_risk_halts_on_drawdown_breach():
+    state = {**guard.DEFAULT_STATE, "high_water_mark": 10000.0}
+    new_state, halt, reason = guard.evaluate_risk(8900.0, state)  # -11%
+    assert halt and "drawdown" in reason
+
+
+def test_risk_halts_on_daily_loss_breach():
+    state = {**guard.DEFAULT_STATE, "high_water_mark": 10000.0, "last_equity": 10000.0}
+    new_state, halt, reason = guard.evaluate_risk(9400.0, state)  # -6% day
+    assert halt and "daily" in reason
+
+
+def test_risk_no_daily_halt_when_last_equity_zero():
+    state = {**guard.DEFAULT_STATE, "high_water_mark": 10000.0, "last_equity": 0.0}
+    new_state, halt, reason = guard.evaluate_risk(9700.0, state)  # -3% dd only
+    assert not halt
