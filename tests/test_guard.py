@@ -176,3 +176,16 @@ def test_place_buy_places_order_then_stop_and_records(mem):
     assert abs(float(stop["stop_price"]) - 93.0) < 0.01   # 100 * (1 - 0.07)
     records = guard.read_jsonl(mem / "trades.jsonl")
     assert records[-1]["symbol"] == "AAPL" and records[-1]["side"] == "buy"
+
+
+def test_cli_status_prints_not_halted(mem):
+    import subprocess, os
+    env = dict(os.environ)
+    env["GUARD_STATE_PATH"] = str(mem / "state.json")
+    env["GUARD_TRADES_PATH"] = str(mem / "trades.jsonl")
+    out = subprocess.run(
+        [sys.executable, "scripts/guard.py", "status"],
+        capture_output=True, text=True, env=env,
+    )
+    assert out.returncode == 0
+    assert "not halted" in out.stdout.lower()

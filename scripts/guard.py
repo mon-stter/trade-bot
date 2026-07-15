@@ -221,3 +221,79 @@ def place_buy(client, order, state_path=STATE_PATH, trades_path=TRADES_PATH, ref
         "target": order.get("target", ""), "rr": order.get("rr", ""),
     })
     return {"fill_price": fill_price, "stop_price": stop_price}
+
+
+def wait_for_fill(client, order_id, tries=15, delay=1.0):
+    """Safety-net poller: re-check an order until filled. Paper market orders
+    usually fill immediately, so this rarely loops."""
+    for _ in range(tries):
+        for o in client.orders(status="all"):
+            if o.get("id") == order_id and o.get("status") == "filled":
+                return o
+        time.sleep(delay)
+    raise GateError(f"order {order_id} did not fill in time")
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(prog="guard.py")
+    sub = parser.add_subparsers(dest="cmd", required=True)
+    sub.add_parser("status")
+    sub.add_parser("resume")
+    h = sub.add_parser("halt"); h.add_argument("reason", nargs="?", default="manual")
+    b = sub.add_parser("buy"); b.add_argument("json")
+    r = sub.add_parser("reconcile"); r.add_argument("--fix", action="store_true")
+    sub.add_parser("weekly-trades")
+    sub.add_parser("check-risk")
+    sub.add_parser("is-trading-day")
+    args = parser.parse_args(argv)
+
+    if args.cmd == "status":
+        s = load_state()
+        print(f"HALTED: {s['halt_reason']}" if s["halted"] else "not halted")
+        return 0
+    if args.cmd == "halt":
+        save_state(set_halt(load_state(), args.reason)); print(f"halted: {args.reason}"); return 0
+    if args.cmd == "resume":
+        save_state(clear_halt(load_state())); print("resumed"); return 0
+    if args.cmd == "weekly-trades":
+        print(weekly_trade_count(read_jsonl(), date.today())); return 0
+
+    client = AlpacaClient()
+    if args.cmd == "is-trading-day":
+        ok = is_trading_day(client, date.today())
+        print("open" if ok else "closed"); return 0 if ok else 1
+    if args.cmd == "check-risk":
+        equity = float(client.account()["equity"])
+        state, halt, reason = evaluate_risk(equity, load_state())
+        if halt:
+            state = set_halt(state, reason); print(f"HALT: {reason}")
+        else:
+            print("risk ok")
+        save_state(state); return 0
+    if args.cmd == "reconcile":
+        positions = client.positions()
+        naked = find_naked_positions(positions, client.orders())
+        if not naked:
+            print("all positions protected"); return 0
+        print("naked: " + ", ".join(naked))
+        if args.fix:
+            for sym in naked:
+                pos = next(p for p in positions if p["symbol"] == sym)
+                price = float(pos["current_price"])
+                stop = round(price * (1 - INITIAL_STOP_PCT), 2)
+                client.submit_order({"symbol": sym, "qty": pos["qty"], "side": "sell",
+                                     "type": "stop", "stop_price": f"{stop:.2f}",
+                                     "time_in_force": "gtc"})
+                print(f"placed stop for {sym} @ {stop:.2f}")
+        return 0
+    if args.cmd == "buy":
+        try:
+            result = place_buy(client, json.loads(args.json), ref=date.today())
+            print(f"BOUGHT: fill {result['fill_price']} stop {result['stop_price']}")
+            return 0
+        except GateError as e:
+            print(f"BLOCKED: {e}", file=sys.stderr); return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main())
