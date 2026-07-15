@@ -1,7 +1,9 @@
 import sys, json
+from datetime import date
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 import guard  # noqa: E402
+from conftest import FakeClient  # noqa: E402
 
 
 def test_load_state_returns_defaults_when_missing(tmp_path):
@@ -138,3 +140,13 @@ def test_find_naked_positions_none_when_all_protected():
     positions = [{"symbol": "AAA"}]
     orders = [{"symbol": "AAA", "side": "sell", "type": "stop"}]
     assert guard.find_naked_positions(positions, orders) == []
+
+
+def test_is_trading_day_true_when_calendar_lists_today():
+    client = FakeClient(calendar=[{"date": "2026-07-15", "open": "09:30", "close": "16:00"}])
+    assert guard.is_trading_day(client, date(2026, 7, 15)) is True
+
+
+def test_is_trading_day_false_when_calendar_empty():
+    client = FakeClient(calendar=[])
+    assert guard.is_trading_day(client, date(2026, 7, 15)) is False

@@ -179,3 +179,9 @@ def find_naked_positions(positions, orders):
         if o.get("side") == "sell" and o.get("type") in PROTECTIVE_TYPES
     }
     return [p["symbol"] for p in positions if p["symbol"] not in protected]
+
+
+def is_trading_day(client, ref):
+    iso = ref.isoformat()
+    cal = client.calendar(iso, iso)
+    return any(c.get("date") == iso for c in cal)
