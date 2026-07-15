@@ -26,3 +26,14 @@ def test_set_halt_sets_flag_and_reason():
 def test_clear_halt_resets():
     s = guard.clear_halt({"halted": True, "halt_reason": "x"})
     assert s["halted"] is False and s["halt_reason"] == ""
+
+
+def test_weekly_trade_count_counts_only_buys_in_current_week(tmp_path):
+    p = tmp_path / "trades.jsonl"
+    guard.append_jsonl(p, {"date": "2026-07-13", "side": "buy", "symbol": "AAA"})   # Mon
+    guard.append_jsonl(p, {"date": "2026-07-15", "side": "buy", "symbol": "BBB"})   # Wed
+    guard.append_jsonl(p, {"date": "2026-07-15", "side": "sell", "symbol": "AAA"})  # sell ignored
+    guard.append_jsonl(p, {"date": "2026-07-06", "side": "buy", "symbol": "OLD"})   # prev week
+    from datetime import date
+    n = guard.weekly_trade_count(guard.read_jsonl(p), date(2026, 7, 15))
+    assert n == 2

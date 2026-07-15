@@ -92,3 +92,31 @@ def clear_halt(state):
     state["halted"] = False
     state["halt_reason"] = ""
     return state
+
+
+def read_jsonl(path=TRADES_PATH):
+    path = Path(path)
+    if not path.exists():
+        return []
+    return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+
+
+def append_jsonl(path, record):
+    with open(path, "a") as f:
+        f.write(json.dumps(record) + "\n")
+
+
+def week_start(ref):
+    return ref - timedelta(days=ref.weekday())  # Monday
+
+
+def weekly_trade_count(records, ref):
+    start = week_start(ref)
+    n = 0
+    for r in records:
+        if r.get("side") != "buy":
+            continue
+        d = date.fromisoformat(r["date"])
+        if start <= d <= ref:
+            n += 1
+    return n
