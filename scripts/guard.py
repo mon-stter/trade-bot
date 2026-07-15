@@ -120,3 +120,36 @@ def weekly_trade_count(records, ref):
         if start <= d <= ref:
             n += 1
     return n
+
+
+def is_plain_stock(symbol):
+    return symbol.isalpha() and 1 <= len(symbol) <= 5
+
+
+def validate_buy(order, account, positions, weekly_count, halted):
+    reasons = []
+    symbol = order["symbol"]
+    qty = float(order["qty"])
+    price = float(order["price"])
+    cost = qty * price
+    equity = float(account["equity"])
+    cash = float(account["cash"])
+    daytrades = int(account.get("daytrade_count", 0))
+    held = {p["symbol"] for p in positions}
+
+    if halted:
+        reasons.append("kill-switch active")
+    if not is_plain_stock(symbol):
+        reasons.append(f"{symbol} is not a plain stock")
+    if symbol not in held and len(positions) + 1 > MAX_POSITIONS:
+        reasons.append(f"would exceed {MAX_POSITIONS} open positions")
+    if weekly_count + 1 > MAX_WEEKLY_TRADES:
+        reasons.append(f"would exceed {MAX_WEEKLY_TRADES} trades this week")
+    if cost > MAX_POSITION_PCT * equity:
+        reasons.append(f"cost {cost:.2f} exceeds 20% of equity ({MAX_POSITION_PCT*equity:.2f})")
+    if cost > cash:
+        reasons.append(f"cost {cost:.2f} exceeds available cash {cash:.2f}")
+    if daytrades >= PDT_LIMIT:
+        reasons.append(f"PDT: daytrade_count {daytrades} >= {PDT_LIMIT}")
+
+    return (len(reasons) == 0, reasons)
