@@ -16,3 +16,13 @@ def test_save_then_load_roundtrips(tmp_path):
                       "high_water_mark": 5.0, "week_start_equity": 1.0,
                       "last_equity": 2.0}, p)
     assert guard.load_state(p)["halt_reason"] == "x"
+
+
+def test_set_halt_sets_flag_and_reason():
+    s = guard.set_halt(dict(guard.DEFAULT_STATE), "drawdown -12%")
+    assert s["halted"] is True and s["halt_reason"] == "drawdown -12%"
+
+
+def test_clear_halt_resets():
+    s = guard.clear_halt({"halted": True, "halt_reason": "x"})
+    assert s["halted"] is False and s["halt_reason"] == ""

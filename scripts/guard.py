@@ -78,3 +78,17 @@ def load_state(path=STATE_PATH):
 
 def save_state(state, path=STATE_PATH):
     Path(path).write_text(json.dumps(state, indent=2) + "\n")
+
+
+def set_halt(state, reason):
+    state = dict(state)
+    state["halted"] = True
+    state["halt_reason"] = reason
+    return state
+
+
+def clear_halt(state):
+    state = dict(state)
+    state["halted"] = False
+    state["halt_reason"] = ""
+    return state
