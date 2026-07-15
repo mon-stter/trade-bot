@@ -11,7 +11,7 @@ count today's trades in memory/trades.jsonl, and this week's trades:
 
 STEP 2 — Pull final state: account, positions, orders (via alpaca.sh).
 
-STEP 3 — Compute: Day P&L ($ and %) vs yesterday's equity; Phase P&L vs $10,000;
+STEP 3 — Compute: Day P&L ($ and %) vs yesterday's equity; Phase P&L vs $100,000;
 trades today; trades this week.
 
 STEP 4 — Update risk state so tomorrow's daily-loss math works, and refresh high-water:

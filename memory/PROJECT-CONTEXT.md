@@ -2,7 +2,7 @@
 
 ## Overview
 - What: Autonomous paper-trading bot (hardened build)
-- Starting capital: ~$10,000 (Alpaca paper)
+- Starting capital: ~$100,000 (Alpaca paper)
 - Strategy: Swing trading stocks, no options
 - Enforcement: scripts/guard.py (unit-tested rules)
 
