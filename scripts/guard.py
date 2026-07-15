@@ -185,3 +185,39 @@ def is_trading_day(client, ref):
     iso = ref.isoformat()
     cal = client.calendar(iso, iso)
     return any(c.get("date") == iso for c in cal)
+
+
+def place_buy(client, order, state_path=STATE_PATH, trades_path=TRADES_PATH, ref=None):
+    ref = ref or date.today()
+    account = client.account()
+    positions = client.positions()
+    records = read_jsonl(trades_path)
+    state = load_state(state_path)
+    wc = weekly_trade_count(records, ref)
+
+    ok, reasons = validate_buy(order, account, positions, wc, state["halted"])
+    if not ok:
+        raise GateError("; ".join(reasons))
+
+    buy_body = {
+        "symbol": order["symbol"], "qty": str(order["qty"]),
+        "side": "buy", "type": "market", "time_in_force": "day",
+    }
+    fill = client.submit_order(buy_body)
+    fill_price = float(fill.get("filled_avg_price") or order["price"])
+
+    stop_price = round(fill_price * (1 - INITIAL_STOP_PCT), 2)
+    stop_body = {
+        "symbol": order["symbol"], "qty": str(order["qty"]),
+        "side": "sell", "type": "stop", "stop_price": f"{stop_price:.2f}",
+        "time_in_force": "gtc",
+    }
+    client.submit_order(stop_body)
+
+    append_jsonl(trades_path, {
+        "date": ref.isoformat(), "symbol": order["symbol"], "side": "buy",
+        "qty": float(order["qty"]), "price": fill_price, "stop": stop_price,
+        "sector": order.get("sector", ""), "thesis": order.get("thesis", ""),
+        "target": order.get("target", ""), "rr": order.get("rr", ""),
+    })
+    return {"fill_price": fill_price, "stop_price": stop_price}

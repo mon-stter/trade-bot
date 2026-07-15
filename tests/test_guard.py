@@ -1,6 +1,7 @@
 import sys, json
 from datetime import date
 from pathlib import Path
+import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 import guard  # noqa: E402
 from conftest import FakeClient  # noqa: E402
@@ -150,3 +151,28 @@ def test_is_trading_day_true_when_calendar_lists_today():
 def test_is_trading_day_false_when_calendar_empty():
     client = FakeClient(calendar=[])
     assert guard.is_trading_day(client, date(2026, 7, 15)) is False
+
+
+def test_place_buy_rejected_by_gate_raises(mem):
+    client = FakeClient(account=_account(cash="10"))  # too little cash
+    with pytest.raises(guard.GateError):
+        guard.place_buy(client, _order(qty="10", price="100"),
+                        state_path=mem / "state.json",
+                        trades_path=mem / "trades.jsonl",
+                        ref=date(2026, 7, 15))
+    assert client.submitted == []  # nothing sent to broker
+
+
+def test_place_buy_places_order_then_stop_and_records(mem):
+    client = FakeClient(fills=[{"id": "b1", "status": "filled", "filled_avg_price": "100"}])
+    guard.place_buy(client, _order(symbol="AAPL", qty="10", price="100"),
+                    state_path=mem / "state.json",
+                    trades_path=mem / "trades.jsonl",
+                    ref=date(2026, 7, 15))
+    assert len(client.submitted) == 2
+    buy, stop = client.submitted
+    assert buy["side"] == "buy" and buy["type"] == "market"
+    assert stop["side"] == "sell" and stop["type"] == "stop"
+    assert abs(float(stop["stop_price"]) - 93.0) < 0.01   # 100 * (1 - 0.07)
+    records = guard.read_jsonl(mem / "trades.jsonl")
+    assert records[-1]["symbol"] == "AAPL" and records[-1]["side"] == "buy"
