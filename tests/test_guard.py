@@ -120,3 +120,21 @@ def test_risk_no_daily_halt_when_last_equity_zero():
     state = {**guard.DEFAULT_STATE, "high_water_mark": 10000.0, "last_equity": 0.0}
     new_state, halt, reason = guard.evaluate_risk(9700.0, state)  # -3% dd only
     assert not halt
+
+
+def test_find_naked_positions_flags_unprotected():
+    positions = [{"symbol": "AAA"}, {"symbol": "BBB"}]
+    orders = [{"symbol": "AAA", "side": "sell", "type": "trailing_stop"}]
+    assert guard.find_naked_positions(positions, orders) == ["BBB"]
+
+
+def test_find_naked_positions_ignores_buy_orders():
+    positions = [{"symbol": "AAA"}]
+    orders = [{"symbol": "AAA", "side": "buy", "type": "market"}]
+    assert guard.find_naked_positions(positions, orders) == ["AAA"]
+
+
+def test_find_naked_positions_none_when_all_protected():
+    positions = [{"symbol": "AAA"}]
+    orders = [{"symbol": "AAA", "side": "sell", "type": "stop"}]
+    assert guard.find_naked_positions(positions, orders) == []

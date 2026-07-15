@@ -168,3 +168,14 @@ def evaluate_risk(equity, state):
     if last and daily <= MAX_DAILY_LOSS:
         return state, True, f"daily P&L {daily:.1%} <= {MAX_DAILY_LOSS:.0%}"
     return state, False, ""
+
+
+PROTECTIVE_TYPES = {"stop", "stop_limit", "trailing_stop"}
+
+
+def find_naked_positions(positions, orders):
+    protected = {
+        o["symbol"] for o in orders
+        if o.get("side") == "sell" and o.get("type") in PROTECTIVE_TYPES
+    }
+    return [p["symbol"] for p in positions if p["symbol"] not in protected]
