@@ -61,3 +61,20 @@ class AlpacaClient:
 
     def calendar(self, start, end):
         return self._req("GET", f"{self.api}/calendar?start={start}&end={end}")
+
+
+DEFAULT_STATE = {
+    "halted": False, "halt_reason": "", "high_water_mark": 0.0,
+    "week_start_equity": 0.0, "last_equity": 0.0,
+}
+
+
+def load_state(path=STATE_PATH):
+    path = Path(path)
+    if not path.exists():
+        return dict(DEFAULT_STATE)
+    return {**DEFAULT_STATE, **json.loads(path.read_text())}
+
+
+def save_state(state, path=STATE_PATH):
+    Path(path).write_text(json.dumps(state, indent=2) + "\n")
