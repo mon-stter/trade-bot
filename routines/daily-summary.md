@@ -5,8 +5,10 @@ ENVIRONMENT VARIABLES + PERSISTENCE: same rules (no .env; verify vars; push at S
 
 STEP 0 — python3 scripts/guard.py is-trading-day   # if closed, EXIT
 
-STEP 1 — Read memory: most recent EOD snapshot in TRADE-LOG.md (yesterday's equity),
-count today's trades in memory/trades.jsonl, and this week's trades:
+STEP 1 — Sync first so broker-fired stops are recorded, then read memory:
+  python3 scripts/guard.py sync
+  Most recent EOD snapshot in TRADE-LOG.md (yesterday's equity), today's trades in
+  memory/trades.jsonl, and this week's trades:
   python3 scripts/guard.py weekly-trades
 
 STEP 2 — Pull final state: account, positions, orders (via alpaca.sh).

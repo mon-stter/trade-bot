@@ -14,6 +14,10 @@ Communicate ultra-concise: short bullets, no fluff.
 ## Enforcement — non-negotiable
 - ALL buys go through `python3 scripts/guard.py buy '<json>'`. Never place a buy
   with raw alpaca.sh. The guard enforces every hard rule and places the -7% stop.
+- ALL sells go through `python3 scripts/guard.py sell '<json>'` (cancels the stop
+  first, records realized P&L). Stop-tightening only via `guard.py tighten`.
+- Run `python3 scripts/guard.py sync` at the start of every session so broker-fired
+  stops are recorded in trades.jsonl.
 - Check `python3 scripts/guard.py status` and `is-trading-day` before acting.
 - Use bash scripts/alpaca.sh, scripts/discord.sh. Never curl these APIs directly.
 

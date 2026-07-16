@@ -141,21 +141,44 @@ def test_risk_no_daily_halt_when_last_equity_zero():
 
 
 def test_find_naked_positions_flags_unprotected():
-    positions = [{"symbol": "AAA"}, {"symbol": "BBB"}]
-    orders = [{"symbol": "AAA", "side": "sell", "type": "trailing_stop"}]
+    positions = [{"symbol": "AAA", "qty": "10"}, {"symbol": "BBB", "qty": "5"}]
+    orders = [{"symbol": "AAA", "side": "sell", "type": "trailing_stop", "qty": "10"}]
     assert guard.find_naked_positions(positions, orders) == ["BBB"]
 
 
 def test_find_naked_positions_ignores_buy_orders():
-    positions = [{"symbol": "AAA"}]
-    orders = [{"symbol": "AAA", "side": "buy", "type": "market"}]
+    positions = [{"symbol": "AAA", "qty": "10"}]
+    orders = [{"symbol": "AAA", "side": "buy", "type": "market", "qty": "10"}]
     assert guard.find_naked_positions(positions, orders) == ["AAA"]
 
 
 def test_find_naked_positions_none_when_all_protected():
-    positions = [{"symbol": "AAA"}]
-    orders = [{"symbol": "AAA", "side": "sell", "type": "stop"}]
+    positions = [{"symbol": "AAA", "qty": "10"}]
+    orders = [{"symbol": "AAA", "side": "sell", "type": "stop", "qty": "10"}]
     assert guard.find_naked_positions(positions, orders) == []
+
+
+def test_find_naked_positions_flags_partial_coverage():
+    positions = [{"symbol": "AAA", "qty": "50"}]
+    orders = [{"symbol": "AAA", "side": "sell", "type": "stop", "qty": "10"}]
+    assert guard.find_naked_positions(positions, orders) == ["AAA"]
+
+
+def test_unprotected_qty_counts_uncovered_shares():
+    pos = {"symbol": "AAA", "qty": "50"}
+    orders = [{"symbol": "AAA", "side": "sell", "type": "stop", "qty": "10"}]
+    assert guard.unprotected_qty(pos, orders) == 40
+
+
+def test_fix_naked_places_stop_for_uncovered_qty_only():
+    positions = [{"symbol": "AAA", "qty": "50", "current_price": "100"}]
+    orders = [{"symbol": "AAA", "side": "sell", "type": "stop", "qty": "10"}]
+    client = FakeClient(positions=positions, orders=orders)
+    placed = guard.fix_naked(client)
+    assert placed == [("AAA", 40.0)]
+    stop = client.submitted[0]
+    assert stop["qty"] == "40" and stop["type"] == "stop"
+    assert abs(float(stop["stop_price"]) - 93.0) < 0.01
 
 
 def test_is_trading_day_true_when_calendar_lists_today():
@@ -191,6 +214,179 @@ def test_place_buy_places_order_then_stop_and_records(mem):
     assert abs(float(stop["stop_price"]) - 93.0) < 0.01   # 100 * (1 - 0.07)
     records = guard.read_jsonl(mem / "trades.jsonl")
     assert records[-1]["symbol"] == "AAPL" and records[-1]["side"] == "buy"
+
+
+def test_pdt_not_enforced_above_25k_equity():
+    ok, reasons = guard.validate_buy(
+        _order(qty="10", price="100"),
+        _account(equity="100000", cash="50000", daytrade_count="3"), [], 0, False)
+    assert ok, reasons
+
+
+def test_place_buy_waits_for_fill_and_anchors_stop_to_actual_fill(mem):
+    client = FakeClient(
+        fills=[{"id": "b1", "status": "accepted", "filled_avg_price": None}],
+        closed_orders=[{"id": "b1", "status": "filled", "filled_avg_price": "105"}])
+    guard.place_buy(client, _order(symbol="AAPL", qty="10", price="100"),
+                    state_path=mem / "state.json",
+                    trades_path=mem / "trades.jsonl",
+                    ref=date(2026, 7, 15))
+    buy, stop = client.submitted
+    assert abs(float(stop["stop_price"]) - 105 * 0.93) < 0.01
+    rec = guard.read_jsonl(mem / "trades.jsonl")[-1]
+    assert rec["price"] == 105.0 and rec["order_id"] == "b1"
+
+
+def test_place_buy_cancels_and_aborts_when_buy_never_fills(mem, monkeypatch):
+    monkeypatch.setattr(guard, "FILL_TRIES", 2)
+    monkeypatch.setattr(guard, "FILL_DELAY", 0)
+    client = FakeClient(fills=[{"id": "b1", "status": "accepted"}],
+                        orders=[{"id": "b1", "status": "accepted"}])
+    with pytest.raises(guard.GateError):
+        guard.place_buy(client, _order(symbol="AAPL", qty="10", price="100"),
+                        state_path=mem / "state.json",
+                        trades_path=mem / "trades.jsonl",
+                        ref=date(2026, 7, 15))
+    assert client.canceled == ["b1"]
+    assert len(client.submitted) == 1          # buy only — no orphaned stop
+    assert guard.read_jsonl(mem / "trades.jsonl") == []
+
+
+def test_notify_falls_back_to_log_file_when_webhook_unset(tmp_path, monkeypatch):
+    monkeypatch.delenv("DISCORD_WEBHOOK_URL", raising=False)
+    log = tmp_path / "notifications.log"
+    assert guard.notify("AUTO-HALT: test", log_path=log) == "fallback"
+    assert "AUTO-HALT: test" in log.read_text()
+
+
+def test_place_sell_cancels_stop_first_and_records_pnl(mem):
+    positions = [{"symbol": "AAPL", "qty": "10",
+                  "avg_entry_price": "100", "current_price": "95"}]
+    orders = [{"id": "s1", "symbol": "AAPL", "side": "sell", "type": "stop", "qty": "10"}]
+    client = FakeClient(positions=positions, orders=orders,
+                        fills=[{"id": "x1", "status": "filled", "filled_avg_price": "95"}])
+    guard.append_jsonl(mem / "trades.jsonl",
+                       {"date": "2026-07-13", "symbol": "AAPL", "side": "buy",
+                        "qty": 10, "price": 100.0, "sector": "tech"})
+    guard.place_sell(client, {"symbol": "AAPL", "reason": "cut at -7%"},
+                     trades_path=mem / "trades.jsonl", ref=date(2026, 7, 15))
+    assert client.canceled == ["s1"]           # stop canceled BEFORE selling
+    sell = client.submitted[0]
+    assert sell["side"] == "sell" and sell["type"] == "market" and sell["qty"] == "10"
+    rec = guard.read_jsonl(mem / "trades.jsonl")[-1]
+    assert rec["side"] == "sell" and rec["pnl"] == -50.0
+    assert rec["sector"] == "tech" and rec["order_id"] == "x1"
+
+
+def test_place_sell_rejects_when_no_position(mem):
+    client = FakeClient()
+    with pytest.raises(guard.GateError):
+        guard.place_sell(client, {"symbol": "AAPL"},
+                         trades_path=mem / "trades.jsonl", ref=date(2026, 7, 15))
+    assert client.submitted == []
+
+
+def test_sync_records_fired_stop_and_is_idempotent(mem):
+    closed = [
+        {"id": "st9", "symbol": "AAPL", "side": "sell", "type": "stop",
+         "status": "filled", "filled_qty": "10", "filled_avg_price": "93",
+         "filled_at": "2026-07-15T14:00:00Z"},
+        {"id": "b1", "symbol": "AAPL", "side": "buy", "type": "market",
+         "status": "filled", "filled_qty": "10", "filled_avg_price": "100"},
+    ]
+    client = FakeClient(closed_orders=closed)
+    guard.append_jsonl(mem / "trades.jsonl",
+                       {"date": "2026-07-13", "symbol": "AAPL", "side": "buy",
+                        "qty": 10, "price": 100.0, "sector": "tech", "order_id": "b1"})
+    added = guard.sync_trades(client, trades_path=mem / "trades.jsonl",
+                              ref=date(2026, 7, 15))
+    assert len(added) == 1
+    rec = guard.read_jsonl(mem / "trades.jsonl")[-1]
+    assert rec["order_id"] == "st9" and rec["pnl"] == -70.0
+    assert rec["date"] == "2026-07-15" and rec["sector"] == "tech"
+    assert guard.sync_trades(client, trades_path=mem / "trades.jsonl",
+                             ref=date(2026, 7, 15)) == []
+
+
+def test_sector_streak_counts_consecutive_losses():
+    records = [
+        {"side": "sell", "sector": "tech", "pnl": -10},
+        {"side": "sell", "sector": "energy", "pnl": -5},
+        {"side": "sell", "sector": "tech", "pnl": 20},
+        {"side": "sell", "sector": "tech", "pnl": -1},
+        {"side": "sell", "sector": "tech", "pnl": -2},
+    ]
+    assert guard.sector_streak(records, "tech") == 2
+    assert guard.sector_streak(records, "energy") == 1
+    assert guard.sector_streak(records, "health") == 0
+
+
+def test_rejects_buy_in_sector_with_two_straight_losses():
+    ok, reasons = guard.validate_buy(_order(), _account(), [], 0, False,
+                                     sector_streak=2)
+    assert not ok and any("sector" in r for r in reasons)
+
+
+def test_place_buy_blocked_by_sector_streak(mem):
+    for pnl in (-5, -3):
+        guard.append_jsonl(mem / "trades.jsonl",
+                           {"date": "2026-07-13", "symbol": "XX", "side": "sell",
+                            "qty": 1, "price": 10, "pnl": pnl, "sector": "tech"})
+    client = FakeClient(account=_account(equity="100000", cash="100000"))
+    with pytest.raises(guard.GateError):
+        guard.place_buy(client, {**_order(), "sector": "tech"},
+                        state_path=mem / "state.json",
+                        trades_path=mem / "trades.jsonl",
+                        ref=date(2026, 7, 15))
+    assert client.submitted == []
+
+
+def _pos(symbol="AAPL", qty="10", plpc="0.16", price="116"):
+    return {"symbol": symbol, "qty": qty, "unrealized_plpc": plpc,
+            "current_price": price}
+
+
+def test_tighten_replaces_fixed_stop_with_7pct_trail_at_15pct_gain():
+    orders = [{"id": "s1", "symbol": "AAPL", "side": "sell", "type": "stop",
+               "qty": "10", "stop_price": "93.00"}]
+    client = FakeClient(positions=[_pos(plpc="0.16")], orders=orders)
+    assert guard.tighten_stops(client) == [("AAPL", 7.0)]
+    assert client.canceled == ["s1"]
+    new = client.submitted[0]
+    assert new["type"] == "trailing_stop" and new["trail_percent"] == "7"
+
+
+def test_tighten_uses_5pct_trail_at_20pct_gain():
+    orders = [{"id": "s1", "symbol": "AAPL", "side": "sell", "type": "stop",
+               "qty": "10", "stop_price": "93.00"}]
+    client = FakeClient(positions=[_pos(plpc="0.21", price="121")], orders=orders)
+    assert guard.tighten_stops(client) == [("AAPL", 5.0)]
+
+
+def test_tighten_skips_when_already_trailing_at_target():
+    orders = [{"id": "s1", "symbol": "AAPL", "side": "sell",
+               "type": "trailing_stop", "qty": "10", "trail_percent": "7"}]
+    client = FakeClient(positions=[_pos(plpc="0.16")], orders=orders)
+    assert guard.tighten_stops(client) == []
+    assert client.canceled == [] and client.submitted == []
+
+
+def test_tighten_ignores_positions_below_15pct():
+    orders = [{"id": "s1", "symbol": "AAPL", "side": "sell", "type": "stop",
+               "qty": "10", "stop_price": "93.00"}]
+    client = FakeClient(positions=[_pos(plpc="0.10", price="110")], orders=orders)
+    assert guard.tighten_stops(client) == []
+    assert client.canceled == [] and client.submitted == []
+
+
+def test_tighten_reasserts_old_stop_when_replacement_fails():
+    orders = [{"id": "s1", "symbol": "AAPL", "side": "sell", "type": "stop",
+               "qty": "10", "stop_price": "93.00"}]
+    client = FakeClient(positions=[_pos(plpc="0.16")], orders=orders,
+                        fills=[RuntimeError("rejected")])
+    assert guard.tighten_stops(client) == []   # failed replacement not counted
+    reassert = client.submitted[-1]
+    assert reassert["type"] == "stop" and reassert["stop_price"] == "93.00"
 
 
 def test_cli_status_prints_not_halted(mem):

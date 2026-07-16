@@ -15,9 +15,10 @@ Running on an Alpaca PAPER account until proven.
 3. 5–6 positions max, max 20% each ✅
 4. Max 3 new trades per week ✅
 5. Initial stop: fixed −7% GTC on every new position ✅ (guard place_buy)
-6. Convert to trailing once profitable: 7% trail at +15%, 5% at +20%
-7. Never within 3% of current price; never move a stop down
-8. Follow sector momentum; exit a sector after 2 consecutive failed trades
+6. Convert to trailing once profitable: 7% trail at +15%, 5% at +20% ✅ (guard tighten)
+7. Never within 3% of current price; never move a stop down ✅ (tighten never loosens)
+8. Follow sector momentum; exit a sector after 2 consecutive failed trades ✅
+   (guard buy-gate blocks the sector; sells recorded via guard sell/sync)
 9. Kill-switch: no new buys while halted ✅; auto-halt at −10% drawdown or −5% day ✅
 10. Patience > activity
 

@@ -16,7 +16,8 @@ STEP 0 — Gate checks:
 STEP 1 — Read TODAY's entry in memory/RESEARCH-LOG.md. If missing, run the pre-market
 research steps inline first — NEVER trade without documented research.
 
-STEP 2 — Reconcile protective stops FIRST (covers any position left unprotected):
+STEP 2 — Sync then reconcile protective stops FIRST:
+  python3 scripts/guard.py sync             # records any overnight stop fills
   python3 scripts/guard.py reconcile --fix
 
 STEP 3 — Re-validate each planned trade with fresh data:
@@ -27,9 +28,8 @@ STEP 4 — Execute each approved trade THROUGH THE GUARD (never raw alpaca.sh or
   - The guard validates all rules and places the -7% stop automatically.
   - If it prints "BLOCKED: <reason>", skip that trade and note the reason.
 
-STEP 5 — For any position already up big, tighten toward trailing only if +15% (7%)
-or +20% (5%), never within 3% of price, never move a stop down. Use
-bash scripts/alpaca.sh cancel <id> then bash scripts/alpaca.sh order '<trailing_stop json>'.
+STEP 5 — Tighten winners through the guard (never raw cancel/order):
+  python3 scripts/guard.py tighten
 
 STEP 6 — Append each executed trade to memory/TRADE-LOG.md (guard already wrote trades.jsonl).
 
