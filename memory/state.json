@@ -1,7 +1,7 @@
 {
   "halted": false,
   "halt_reason": "",
-  "high_water_mark": 0.0,
+  "high_water_mark": 100000.0,
   "week_start_equity": 0.0,
   "last_equity": 0.0
 }
