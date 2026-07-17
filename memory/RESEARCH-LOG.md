@@ -40,3 +40,29 @@ TRADE or HOLD (default HOLD if no edge)
 
 ### Decision
 HOLD — Day 1, no held positions to protect, no idea meets a clean specific-catalyst + confirmed-entry setup yet (CAT/XOM lack immediate trigger, UNH has earnings-day binary risk). Patience > activity; revisit post-earnings/post-testimony reaction tomorrow.
+
+## 2026-07-17 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. guard sync: trade log in sync, not halted.
+
+### Market Context
+- VIX futures ~16.6, calm regime, slightly up from yesterday.
+- Nasdaq futures -0.3% after underlying index -1.6% Thursday; NFLX -8%+ after-hours on guidance for a second straight quarter of slowing subscriber/revenue growth. ([Bloomberg](https://www.bloomberg.com/news/articles/2026-07-16/stock-market-today-dow-s-p-live-updates))
+- Data today: June housing starts/permits, June industrial production, prelim July Michigan consumer sentiment. No CPI/PPI/jobs/FOMC today. ([Kiplinger](https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar))
+- Earnings today: Travelers (TRV), Truist (TFC), Fifth Third (FITB) — regional banks/financials focus. ([Kiplinger earnings calendar](https://www.kiplinger.com/investing/stocks/17494/next-week-earnings-calendar-stocks))
+- "Great Rotation" continuing: capital moving out of mega-cap tech/semis into industrials, energy, financials, small-caps; Russell 2000 +22.6% H1 2026 (best since 1991). Energy +22% YTD. ([Morningstar](https://www.morningstar.com/stocks/6-stocks-driving-2026-stock-market-rotation), [StockCharts](https://articles.stockcharts.com/article/the-great-rotation-continues-as-financials-take-lead/))
+- CAT closed $840.75 Thu (down from ~$900 ref two sessions ago, a ~6-7% pullback) — despite industrial-rotation tailwind, watch for follow-through before treating as a dip-buy. XOM ~$137.75, flat vs yesterday.
+
+### Trade Ideas
+1. TFC/FITB (regional banks) — reporting today, rotation tailwind into financials, but earnings-day binary risk — watch reaction, no pre-print entry.
+2. XOM — energy rotation tailwind persists, price stable ~$137.75. Entry only on confirmed breakout above recent range, stop -7% (~$128), target ~$150 (~2:1). Still no fresh trigger today.
+3. CAT — industrial rotation theme intact but stock just pulled back ~7% in a session; contradicts the "rotation tailwind" thesis short-term. Skip until it stabilizes / find catalyst for the drop.
+
+### Risk Factors
+- Tech/semi leg of the market rotating down hard (NFLX -8%, Nasdaq futures red) — broad risk-off in growth names could spill into risk appetite generally.
+- CAT's overnight drop despite favorable sector theme is unexplained from search results — avoid until catalyst is clear.
+- Bank earnings today (TRV, TFC, FITB) — binary risk for financials sector ideas.
+
+### Decision
+HOLD — no held positions to protect, no idea has both a specific catalyst and a confirmed entry trigger today. Rotation theme (industrials/energy/financials/small-caps) still favored for future ideas, but today's setups are either binary (bank earnings) or unconfirmed (XOM) or contradicted by price action (CAT). Patience > activity.
