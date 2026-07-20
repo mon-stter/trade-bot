@@ -66,3 +66,29 @@ HOLD — Day 1, no held positions to protect, no idea meets a clean specific-cat
 
 ### Decision
 HOLD — no held positions to protect, no idea has both a specific catalyst and a confirmed entry trigger today. Rotation theme (industrials/energy/financials/small-caps) still favored for future ideas, but today's setups are either binary (bank earnings) or unconfirmed (XOM) or contradicted by price action (CAT). Patience > activity.
+
+## 2026-07-20 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted.
+
+### Market Context
+- VIX futures ~18.8, up from ~16.6 last week — vol regime creeping higher.
+- S&P futures mixed/slightly up (+0.13%), Nasdaq 100 futures +0.43%, Dow futures flat; SPX "up open" odds ~68%. 10Y yield ~4.5%, easing on softer inflation reads. ([Yahoo Finance](https://finance.yahoo.com/markets/stocks/articles/us-stock-market-today-p-080840351.html), [Investing.com](https://www.investing.com/indices/us-spx-vix-futures))
+- Top catalyst: escalating US military campaign against Iran, rising American casualties, renewed oil-supply concerns — crude-driven volatility risk elevated. ([Yahoo Finance](https://finance.yahoo.com/markets/stocks/articles/us-stock-market-today-p-080840351.html))
+- No CPI/PPI/jobs/FOMC today (FOMC meets July 28-29, after this week) — heavy earnings week instead: 42 reports today (Domino's, W.R. Berkley, Steel Dynamics), building to 168 Thursday; TSLA reports Wed after close; GM, 3M, Halliburton, Danaher, Northrop Grumman also this week. ([Kiplinger](https://www.kiplinger.com/investing/stocks/17494/next-week-earnings-calendar-stocks), [CNBC](https://www.cnbc.com/2026/07/17/stock-market-next-week-outlook-for-july-20-24-2026.html))
+- Rotation theme intact and accelerating: capital out of mega-cap tech/Nasdaq into industrials, energy, financials, small-caps. Energy +22% YTD, consumer defensive +13.3%, Russell 2000 +22.6% H1 (best since 1991). Tech had a violent Q3-open reversal after a +43.5% Q2. ([Morningstar](https://www.morningstar.com/markets/is-stock-market-rotation-underway-these-sectors-are-outpacing-tech-2026), [Intellectia](https://intellectia.ai/blog/market-rotation-beyond-magnificent-7-july-2026))
+
+### Trade Ideas
+1. XOM — energy rotation + Iran-driven crude/oil-supply spike, sector momentum leader (+22% YTD). Ref ~$137-138. Entry only on confirmed breakout above recent range, stop -7% (~$128), target ~$152 (~2:1). Catalyst still geopolitical/volatile — no clean trigger yet, third session watching without confirmation.
+2. Small-cap industrial (e.g. Russell 2000 constituent in AI-capex/reshoring theme) — rotation tailwind strongest of the year (R2K +22.6% H1). No single name identified with a specific catalyst yet; needs a screen before sizing an entry.
+3. Regional bank/financial — rotation into financials continuing, earnings season underway (KeyCorp, Synchrony this week). Binary earnings-day risk — watch reactions, no pre-print entry.
+
+### Risk Factors
+- Iran conflict escalation + oil supply risk = elevated headline/gap risk across the board, not just energy.
+- VIX drifting up (15.7 -> 16.6 -> 18.8 over 3 sessions) — rising vol regime, size and timing need more confirmation than usual.
+- Heavy earnings week — single-name gap risk high; avoid entries into unreported names.
+- Tech reversal could spill into broad risk appetite even for rotation beneficiaries.
+
+### Decision
+HOLD — no held positions to protect, no idea has a confirmed entry trigger yet (XOM still lacks breakout confirmation, small-cap idea lacks a specific name/catalyst, financials are binary on earnings). Rising VIX and active Iran conflict argue for extra patience. Patience > activity.
