@@ -24,3 +24,10 @@ No positions yet. Bot launches next trading day.
 |---|---|---|---|---|---|
 | — | — | — | — | — | — |
 **Notes:** No trades placed today. Account still flat at $100,000 cash, no open positions. Not halted.
+
+### Jul 21 — EOD Snapshot (Day 4)
+**Portfolio:** $100,000.00 | **Cash:** $100,000.00 (100%) | **Day P&L:** $0 (0.0%) | **Phase P&L:** $0 (0.0%)
+| Ticker | Shares | Entry | Close | Unrealized P&L | Stop |
+|---|---|---|---|---|---|
+| — | — | — | — | — | — |
+**Notes:** No trades placed today. Account still flat at $100,000 cash, no open positions. No trades this week (0/3). Not halted.
