@@ -92,3 +92,30 @@ HOLD — no held positions to protect, no idea has both a specific catalyst and 
 
 ### Decision
 HOLD — no held positions to protect, no idea has a confirmed entry trigger yet (XOM still lacks breakout confirmation, small-cap idea lacks a specific name/catalyst, financials are binary on earnings). Rising VIX and active Iran conflict argue for extra patience. Patience > activity.
+
+## 2026-07-21 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~17.6, down from ~18.8 Monday — vol easing but still elevated vs last week's ~15.7. ([Investing.com](https://www.investing.com/indices/us-spx-vix-futures))
+- Futures up on peace-talk hopes: Dow +166pts (+0.3%), S&P futures +0.6%, Nasdaq 100 futures +1.4%. Chips rebounding after last week's selloff. ([CNBC](https://www.cnbc.com/2026/07/20/stock-market-today-live-updates.html), [Schwab](https://www.schwab.com/learn/story/stock-market-update-open))
+- Top catalyst: US-Iran situation whipsawing — deal declared void July 15 after US strikes, now Iran signaling openness to resume diplomacy; oil steady but Red Sea shipping risk flagged. Headline risk remains high and erratic. ([Schwab](https://www.schwab.com/learn/story/stock-market-update-open))
+- 10Y yield ~4.52%, easing on cooler inflation data. No CPI/PPI/jobs/FOMC this week (FOMC meets July 28-29) — lighter macro calendar. ([Kiplinger](https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar))
+- Heavy earnings week: MMM and GM beat and reported pre-open today (MMM premarket +7%, GM premarket +2%); NOC also reports today. TSLA, GOOGL, IBM report later this week. 87% of ~54 S&P 500 reporters so far have beaten on EPS. ([Benzinga](https://www.benzinga.com/markets/prediction-markets/26/07/60569710/sp500-july-21-open-up-or-down-polymarket-iran-ceasefire-oil-earnings-ai))
+- Rotation theme intact: capital continuing out of mega-cap tech into industrials, energy, financials, small-caps; Russell 2000 led H1 (+22.6%), energy +22% YTD, tech showing fatigue after +43.5% Q2. ([Intellectia](https://intellectia.ai/blog/market-rotation-beyond-magnificent-7-july-2026), [Morningstar](https://www.morningstar.com/markets/is-stock-market-rotation-underway-these-sectors-are-outpacing-tech-2026))
+
+### Trade Ideas
+1. MMM — industrial rotation leader, Q2 beat, premarket +7%. Ref pre-market ~$182 (prior close ~$170). Entry only if it holds the gap and confirms above pre-market high after open, stop -7% (~$169), target ~$200 (~2:1). Big gap — chasing pre-confirmation is exactly what the rules warn against; watch for hold, not print.
+2. GM — industrial/rotation beneficiary, Q2 beat, premarket +2%. Ref pre-market ~$52. Entry on confirmed breakout above premarket high, stop -7% (~$48), target ~$58 (~2:1). Smaller gap than MMM, less binary, but still needs open confirmation.
+3. XOM — energy rotation still a theme but oil steady, no fresh breakout trigger; fourth session watching, no confirmed entry. Drop from active watchlist unless a new catalyst appears.
+
+### Risk Factors
+- Iran situation erratic (deal void → peace-talk hopes in days) — headline risk can reverse gains fast; avoid sizing into gap-driven moves tied to it.
+- Heavy earnings week (NOC today, TSLA/GOOGL/IBM later) — single-name and index-level gap risk elevated.
+- MMM/GM both gapped on earnings pre-open — chasing an unconfirmed gap violates entry-checklist discipline; need post-open confirmation, not pre-market print.
+- VIX still above last week's low, regime not fully calm.
+
+### Decision
+HOLD — no held positions to protect. MMM/GM have real catalysts (earnings beats + rotation tailwind) but no confirmed entry yet pre-open; XOM has gone stale. Will watch MMM/GM for post-open hold/breakout confirmation before any buy. Patience > activity.
