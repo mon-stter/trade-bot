@@ -119,3 +119,31 @@ HOLD — no held positions to protect, no idea has a confirmed entry trigger yet
 
 ### Decision
 HOLD — no held positions to protect. MMM/GM have real catalysts (earnings beats + rotation tailwind) but no confirmed entry yet pre-open; XOM has gone stale. Will watch MMM/GM for post-open hold/breakout confirmation before any buy. Patience > activity.
+
+## 2026-07-22 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~17.4, up ~2% — vol ticking up again on Iran headline risk. ([Investing.com](https://www.investing.com/indices/us-spx-vix-futures))
+- Futures red: S&P -0.3%, Dow -0.1%, Nasdaq-100 -0.7%; Polymarket pricing only ~15% odds of a green S&P open. ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-wednesday-july-22-dow-sp-500-nasdaq-alphabet-tesla-083644887.html), [Benzinga](https://www.benzinga.com/markets/prediction-markets/26/07/60599715/sp500-july-22-open-up-or-down-polymarket-oil-fed-earnings-ai-stocks))
+- Top catalyst: Trump played down near-term Iran talks and threatened broader strikes (incl. a suspected nuclear site) plus Red Sea shipping threats — Brent ~$92, WTI >$85. ([Bloomberg](https://www.bloomberg.com/news/articles/2026-07-21/latest-oil-market-news-and-analysis-for-july-22))
+- Tariff watch: Section 122 import surcharge deadline July 24 — fresh tariff headlines weighing on futures alongside oil. (Yahoo Finance, above)
+- No CPI/PPI/jobs/FOMC today (FOMC meets July 28-29) — but huge earnings catalyst: GE Vernova (GEV) reports before open (options pricing an 11.5% swing, stock +62% YTD); Tesla (TSLA) and Alphabet (GOOGL) report after close today, kicking off Big Tech earnings — index-moving event risk into tomorrow's open. ([Benzinga](https://www.benzinga.com/markets/earnings/26/07/60592947/tesla-earnings-could-move-83-billion-in-market-value), [Yahoo Finance GEV](https://finance.yahoo.com/markets/stocks/articles/ge-vernovas-next-earnings-report-131225168.html))
+- Rotation theme intact: financials/energy/industrials/small-caps continuing to draw inflows out of mega-cap tech; Russell 2000 +22.6% H1 (best since 1991), energy benefiting from stabilized-to-rising crude. ([Intellectia](https://intellectia.ai/blog/market-rotation-beyond-magnificent-7-july-2026), [Morningstar](https://www.morningstar.com/markets/is-stock-market-rotation-underway-these-sectors-are-outpacing-tech-2026))
+
+### Trade Ideas
+1. XOM — energy rotation tailwind + fresh Iran-driven crude spike (Brent ~$92, WTI >$85), most concrete catalyst of the week for this name. Ref ~$138. Entry only on confirmed breakout above recent range, stop -7% (~$128), target ~$152 (~2:1). Fifth session watching — still no breakout confirmation; oil move is real but headline-driven and reversible.
+2. GEV — industrial/AI-power-buildout theme, reports before open with large expected move (options implying 11.5% swing). Pure binary earnings-day risk — no pre-print entry; watch post-earnings reaction for a possible momentum setup tomorrow.
+3. Broad market — futures red across the board (S&P -0.3%, Nasdaq -0.7%) ahead of TSLA/GOOGL after close tonight; any new position today carries overnight event risk into tomorrow's gap regardless of sector. Favor waiting for post-earnings clarity before sizing anything new.
+
+### Risk Factors
+- Iran escalation (strike threats incl. nuclear site, Red Sea shipping risk) driving oil and weighing on futures — headline risk can reverse or extend violently, avoid entries reliant solely on the oil spike.
+- TSLA + GOOGL earnings after close tonight are index-moving; any position opened today is exposed to a large overnight gap risk tomorrow.
+- GEV reporting before open with market pricing a double-digit swing — binary, avoid pre-print.
+- Tariff deadline (Section 122 surcharge, July 24) adds a second source of headline risk this week.
+- VIX ticking back up (~17.4) after easing — regime not calm.
+
+### Decision
+HOLD — no held positions to protect, no idea has a confirmed entry trigger, and today carries unusually high event risk (TSLA/GOOGL after close, GEV before open, active Iran escalation, tariff deadline in 2 days). Patience > activity; reassess post-earnings tomorrow.
