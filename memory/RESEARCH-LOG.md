@@ -147,3 +147,33 @@ HOLD — no held positions to protect. MMM/GM have real catalysts (earnings beat
 
 ### Decision
 HOLD — no held positions to protect, no idea has a confirmed entry trigger, and today carries unusually high event risk (TSLA/GOOGL after close, GEV before open, active Iran escalation, tariff deadline in 2 days). Patience > activity; reassess post-earnings tomorrow.
+
+## 2026-07-23 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $100,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~17.8, up ~7% — vol regime rising again on yields + energy. ([Investing.com](https://www.investing.com/indices/us-spx-vix-futures))
+- Futures slightly lower: S&P -0.14%, weighed by rising yields and energy jitters. 10Y yield ~4.63%, near a two-month high. ([Yahoo Finance](https://finance.yahoo.com/markets/stocks/articles/us-stock-market-today-p-081301441.html))
+- Energy: surprise US crude inventory build of 2.6M barrels; emergency reserves at 43-year low — mixed signal, adds oil-price uncertainty.
+- No CPI/PPI/jobs/FOMC confirmed for today specifically (FOMC meets July 28-29, next week); heavy earnings day instead — 166 companies reporting. Notable: Intel (after close), Honeywell (before open), Blackstone (before open), RTX, T-Mobile, Thermo Fisher, Union Pacific, Lockheed Martin. ([Earnings Whispers](https://www.earningswhispers.com/calendar/20260723/1), [Kiplinger](https://www.kiplinger.com/investing/stocks/17494/next-week-earnings-calendar-stocks))
+- Overnight: TSLA -3.8% after Q2 profitability miss; GOOGL -4%+ after raising 2026 capex guidance to $195-205B despite a revenue beat — both weigh on Nasdaq futures/tech sentiment this morning. ([CNBC](https://www.cnbc.com/2026/07/22/stocks-making-the-biggest-moves-after-hours-googl-tsla-ibm-lvs.html))
+- GEV fell ~6% yesterday despite raising FY26 guidance to ~$46B (from $45B) — EPS missed ($2.47 vs $3.10 est); some retail pushback calling the drop an overreaction, but price action is negative. ([Yahoo Finance](https://finance.yahoo.com/markets/stocks/articles/gev-stock-drops-q2-earnings-121410119.html))
+- Rotation theme intact: capital continuing out of mega-cap tech into small-caps/industrials/energy/financials. Russell 2000 +22.6% H1 (best since 1991); financials drawing inflows into bank earnings season; industrials (aerospace/defense/grid) benefiting from AI-linked physical buildout; energy supported by firm crude. ([Intellectia](https://intellectia.ai/blog/market-rotation-beyond-magnificent-7-july-2026), [Morningstar](https://www.morningstar.com/markets/is-stock-market-rotation-underway-these-sectors-are-outpacing-tech-2026))
+
+### Trade Ideas
+1. LMT/RTX (defense/industrials) — reporting today, rotation tailwind into industrials/defense, AI-linked infra buildout theme. No pre-print entry; watch post-earnings reaction for a confirmed breakout, stop -7%, target ~2:1 if a clean setup emerges.
+2. UNP (industrials, rail) — reports today, rotation-favored sector. Binary earnings-day risk — no pre-print entry; watch for post-open confirmation only.
+3. GEV — post-earnings pullback (~6% down) despite raised guidance; could set up a mean-reversion/dip-buy if it stabilizes and reclaims a level, but no confirmed trigger yet and thesis (over-reaction) is unproven. Watch, don't chase.
+4. XOM — sixth session on watchlist with no breakout confirmation despite firm energy rotation tailwind; dropping from active list until a fresh catalyst or clean trigger appears.
+
+### Risk Factors
+- TSLA/GOOGL both down post-earnings — Nasdaq/tech sentiment soft into the open, could spill into broad risk appetite.
+- Heavy earnings day (166 reports) — high single-name gap risk; avoid entries into unreported/just-reported names without post-open confirmation.
+- Rising 10Y yield (~4.63%, 2-month high) — headwind for equity valuations broadly, especially rate-sensitive growth names.
+- Oil/energy signals mixed (crude inventory build vs. low reserves) — no clean directional edge for XOM/energy right now.
+- VIX up ~7% this morning — vol regime firming, warrants extra caution on sizing.
+
+### Decision
+HOLD — no held positions to protect. No idea has a confirmed entry trigger pre-open; earnings reactions (LMT, RTX, UNP) need post-open confirmation, GEV dip-buy thesis is unconfirmed, XOM has gone stale after six sessions. Rising yields and firming VIX argue for patience. Patience > activity.
