@@ -177,3 +177,34 @@ HOLD — no held positions to protect, no idea has a confirmed entry trigger, an
 
 ### Decision
 HOLD — no held positions to protect. No idea has a confirmed entry trigger pre-open; earnings reactions (LMT, RTX, UNP) need post-open confirmation, GEV dip-buy thesis is unconfirmed, XOM has gone stale after six sessions. Rising yields and firming VIX argue for patience. Patience > activity.
+
+## 2026-07-24 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~18.9, up ~1% — elevated after Thursday's selloff, highest level in weeks. ([Investing.com](https://www.investing.com/indices/us-spx-vix-futures))
+- Futures attempting tentative recovery: Dow +0.5%, S&P +0.2%, Nasdaq-100 +0.1%, after Thursday's rout. ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-friday-july-24-dow-sp-500-nasdaq-081854465.html))
+- Major event: new 10–12.5% tariffs on 60 countries (Section 301) took effect 12:01am ET today, covering ~99.4% of US imports (fuel/food/fertilizer/autos/metals/pharma exempt). ([Yahoo Finance](https://finance.yahoo.com/economy/policy/article/trump-announces-next-phase-of-global-tariffs-affecting-994-of-us-imports-210032314.html), [Benzinga](https://www.benzinga.com/news/politics/26/07/60658332/trump-hits-60-countries-with-10-to-12-5-tariffs-as-temporary-levies-expire))
+- Thursday was the worst day in a month: S&P -0.8/-1.2%, Nasdaq-100 -1.9%, Mag7 lost ~$797B in market cap, TSLA -15% and GOOGL -7% on AI-capex/debt-sustainability fears (GOOGL raised 2026 capex guide to $195-205B). ([Motley Fool](https://www.fool.com/coverage/stock-market-today/2026/07/23/stock-market-today-july-23-tesla-drops-15-leading-tech-stock-slide/), [Bloomberg](https://www.bloomberg.com/news/articles/2026-07-23/tech-bonds-hit-by-selloff-as-ai-debt-fears-race-through-markets))
+- Middle East: oil pushed above $100/bbl (Brent, first time in 2 months) after Houthi attacks on Saudi tankers in the Red Sea; Trump threatening "major military punishment" and reportedly considering a "massive attack" on Iran. Jordan/Kuwait reported incoming Iranian fire. ([Bloomberg](https://www.bloomberg.com/news/articles/2026-07-23/latest-oil-market-news-and-analysis-for-july-24), [CNN](https://www.cnn.com/2026/07/23/world/live-news/iran-war-trump))
+- 10Y yield ~4.67%, a 52-week high — oil-driven inflation fears pressuring bonds and adding to equity valuation headwinds. FOMC meets next week (Jul 28-29) — event risk building. No CPI/PPI/jobs today.
+- Earnings before the bell today: VZ, AXP, NEE, CHTR, SLB, CNI, HCA, and others (166-name week continuing). ([Earnings Whispers](https://www.earningswhispers.com/calendar/20260724/1))
+- Rotation theme intact and reinforced: capital continuing out of mega-cap tech (AI-capex jitters) into industrials/energy/defense/financials/small-caps. Defense names (NOC +4%, LMT +3.6%, RTX +3.3%) rallying on Middle East escalation and raised FY26 guides. ([Intellectia](https://intellectia.ai/blog/market-rotation-beyond-magnificent-7-july-2026), [TipRanks](https://www.tipranks.com/news/major-defense-stocks-surge-amid-middle-east-tensions))
+
+### Trade Ideas
+1. XOM — energy rotation + oil >$100/bbl (first time in 2 months), breaking above the range it has stalled in for 7+ sessions. Trading ~$156.89 (+2.3%). Entry only on confirmed hold above premarket high after open, stop -7% (~$146), target ~$172 (~2:1). Reports Q2 earnings July 31 — avoid holding through that print or size down heading into it.
+2. LMT/RTX/NOC (defense) — Middle East escalation intensifying (Red Sea attacks, threatened broader Iran strikes) plus raised FY26 guidance already reported this week; sector up 3-4% this week on the combined tailwind. No pre-print entry needed (already reported) — watch for post-open continuation/hold above recent highs before entering, stop -7%, target ~2:1.
+3. Broad market — Thursday's rout (Mag7 -$797B, TSLA -15%, GOOGL -7%) plus today's sweeping new tariffs (99.4% of imports) stack two live shocks on top of active Iran escalation. Futures green but tentative. Avoid broad-market or momentum-chasing entries until the tape shows a clean post-open direction; favor standing aside on non-sector-specific ideas today.
+
+### Risk Factors
+- Iran/Red Sea conflict escalating and unpredictable — Trump weighing a "massive attack" on Iran; oil could spike further or reverse hard on any de-escalation headline. Avoid sizing purely on the oil spike.
+- New tariffs covering 99.4% of imports just took effect — inflation/growth impact still being priced in, added uncertainty on top of Thursday's selloff.
+- AI-capex/debt-sustainability fears (GOOGL/TSLA) could keep pressuring mega-cap tech and spill into broad risk appetite.
+- 10Y yield at a 52-week high (4.67%) — headwind for equity valuations broadly, especially growth/rate-sensitive names.
+- VIX ~18.9, elevated after worst session in a month — warrants smaller size and tighter discipline on any new entry.
+- FOMC meets July 28-29 next week — event risk building into next week.
+
+### Decision
+HOLD — no held positions to protect. Two live shocks (new tariffs + Iran escalation) stacked on Thursday's tech-led selloff make today unusually high-risk for new sizing; no idea has a confirmed post-open entry trigger yet. XOM and defense names have real catalysts worth watching for confirmation on a calmer tape. Patience > activity.
