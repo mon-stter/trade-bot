@@ -49,3 +49,51 @@ None — 2 sessions is too small a sample to change any TRADING-STRATEGY.md rule
 
 ### Grade: B
 Capital fully preserved, beat S&P 500 by +1.6pp this week, zero rule violations — but zero trades also means zero evidence the strategy can execute, not just avoid.
+
+## Week ending Jul 24, 2026
+
+### Stats
+| Metric | Value |
+|---|---|
+| Starting portfolio (Monday baseline) | $100,000.00 |
+| Ending portfolio | $100,000.00 |
+| Week return | $0.00 (0.0%) |
+| S&P 500 week return | -0.61% (7,457.69 → 7,411.98) |
+| Trades (W/L/open) | 0 / 0 / 0 |
+| Win rate | N/A (no trades) |
+| Best trade | N/A |
+| Worst trade | N/A |
+| Profit factor | N/A |
+
+### Closed Trades
+| Ticker | Entry | Exit | P&L $ | P&L % | Days Held |
+|---|---|---|---|---|---|
+| — | — | — | — | — | — |
+
+### Open Positions
+None.
+
+### What Worked
+- Zero rule violations across all 5 sessions (Jul 20-24); every HOLD decision was documented with a specific reason in RESEARCH-LOG.md.
+- Sidestepped real event risk: Thursday's tech-led rout (Mag7 -$797B, TSLA -15%, GOOGL -7%), Friday's sweeping new tariffs (99.4% of imports), and an escalating Iran/Red Sea conflict — all landed while the bot held 100% cash.
+- Correctly declined to chase MMM/GM earnings gaps (Jul 21) and GEV's post-earnings drop (Jul 23) without confirmed post-open triggers — avoided binary/gap risk.
+- Beat the S&P 500 by +0.61pp this week on pure capital preservation.
+- Defense sector thesis (LMT/RTX/NOC) identified and tracked correctly ahead of a real 3-4% sector rally this week, even though no position was taken.
+
+### What Didn't
+- Second consecutive week, 10th consecutive session, with zero trades placed. XOM was flagged as a watchlist idea in every single session this week (and last) — 7+ sessions running — without ever getting a confirmed entry, including today when it broke out to $156.89 (+2.3%) on oil >$100/bbl.
+- LMT/RTX/NOC were already-reported, already-rallying (3-4% this week) defense names with a live catalyst (Middle East escalation) — the bot never got a same-day post-open confirmation to act on despite watching for it across multiple sessions.
+- Elevated-volatility days (rising VIX, Iran escalation, tariff headlines) kept pushing the decision to HOLD even when a specific name had a real catalyst and price action — reasonable individually, but the cumulative effect is a strategy that has never executed a single trade.
+- Still no track record on stop discipline, trailing-stop logic, or sector-exit rules — those remain completely untested.
+
+### Key Lessons
+- Two full weeks (10 sessions) of zero trades is no longer a "launch week" artifact — it's a pattern. The entry checklist's "confirmed trigger" requirement, combined with an unusually volatile macro backdrop (Iran, tariffs, AI-capex jitters, rising yields) since day 1, has produced consistent HOLDs even on ideas with real catalysts and real price action (XOM breakout, defense sector rally).
+- Capital preservation during a genuinely rough 2-week stretch (S&P -1.6% then -0.6%) is a legitimate win, but it doesn't yet prove the strategy can pull the trigger when conditions are calmer — that's still unverified.
+- "Watch for post-open confirmation" has repeatedly meant no trade ever, across earnings gaps (MMM/GM), oil breakouts (XOM), and sector rallies (defense) alike — the confirmation bar as currently applied may be too vague/too strict rather than the setups being genuinely absent.
+
+### Adjustments
+- Sharpened the Entry Checklist in TRADING-STRATEGY.md to define "confirmed entry trigger" concretely (hold above a specific level for a set window) instead of the vague "watch for confirmation" language that has produced 10 straight HOLDs. This is a process/documentation clarification, not a change to any risk rule (stop %, position size, trade cap all unchanged) — those still have zero trades to prove out.
+- No change to position sizing, stop, or trade-frequency rules — untested, need actual trades first.
+
+### Grade: C+
+Capital fully preserved and index-beating for a second straight week, zero rule violations — but 10 sessions with zero executions despite recurring real catalysts (XOM breakout, defense rally) means the process needs to prove it can act, not just avoid, before another B is earned.

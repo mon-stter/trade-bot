@@ -25,5 +25,14 @@ Running on an Alpaca PAPER account until proven.
 ## Entry Checklist (documented before every buy)
 - Specific catalyst? (must be in today's RESEARCH-LOG)
 - Sector in momentum?
+- Confirmed entry trigger — defined concretely, not "watch for confirmation":
+  price holds above the specified level (premarket high / breakout level /
+  post-earnings reaction high) through at least one full 30-min bar after
+  the open, without giving it back. Vague "watch and see" is not a trigger.
 - Stop level (−7% from entry)
 - Target (min 2:1 R:R)
+
+Note (added Jul 24 wk2 review): 10 straight sessions of HOLD with no trades,
+several with a real catalyst + real price action (XOM breakout, defense
+rally), traced back to an undefined confirmation bar. Trigger definition
+above added to close that gap — no risk-rule (stop/size/frequency) changed.
