@@ -19,6 +19,8 @@ case "$cmd" in
   positions)  "${CURL[@]}" "$API/positions" ;;
   position)   "${CURL[@]}" "$API/positions/${1:?usage: position SYM}" ;;
   quote)      "${CURL[@]}" "$DATA/stocks/${1:?usage: quote SYM}/quotes/latest" ;;
+  bars)       sym="${1:?usage: bars SYM [TIMEFRAME] [START]}"
+              "${CURL[@]}" "$DATA/stocks/$sym/bars?timeframe=${2:-30Min}&start=${3:-$(date -u +%F)}&limit=100" ;;
   orders)     "${CURL[@]}" "$API/orders?status=${1:-open}" ;;
   calendar)   "${CURL[@]}" "$API/calendar?start=${1:?usage: calendar START END}&end=${2:?}" ;;
   order)      "${CURL[@]}" -H "Content-Type: application/json" -X POST \
@@ -27,6 +29,6 @@ case "$cmd" in
   cancel-all) "${CURL[@]}" -X DELETE "$API/orders" ;;
   close)      "${CURL[@]}" -X DELETE "$API/positions/${1:?usage: close SYM}" ;;
   close-all)  "${CURL[@]}" -X DELETE "$API/positions" ;;
-  *) echo "Usage: bash scripts/alpaca.sh <account|positions|position|quote|orders|calendar|order|cancel|cancel-all|close|close-all> [args]" >&2; exit 1 ;;
+  *) echo "Usage: bash scripts/alpaca.sh <account|positions|position|quote|bars|orders|calendar|order|cancel|cancel-all|close|close-all> [args]" >&2; exit 1 ;;
 esac
 echo

@@ -35,7 +35,12 @@ STEP 6 — Risk check:
 STEP 7 — Notification only if action was taken:
   bash scripts/discord.sh "<action summary>"
 
-STEP 8 — COMMIT AND PUSH (if changed):
+STEP 7b — ALWAYS append a line to TODAY's entry in memory/RESEARCH-LOG.md, including
+on no-action days — a silent session is indistinguishable from a crashed one:
+  ### Midday
+  - Positions checked: <N> | cuts: <N> | tightened: <N> | risk: OK / HALTED (<reason>)
+
+STEP 8 — COMMIT AND PUSH (ALWAYS — STEP 7b guarantees there is something to commit):
   git add memory/TRADE-LOG.md memory/trades.jsonl memory/RESEARCH-LOG.md memory/state.json
   git commit -m "midday $DATE"
   git push origin main
