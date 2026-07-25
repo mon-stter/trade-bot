@@ -7,7 +7,8 @@ Running on an Alpaca PAPER account until proven.
 ## Capital & Constraints
 - Starting capital: ~$100,000 (paper)
 - Instruments: US stocks ONLY
-- PDT limit: 3 day trades per 5 rolling days (account < $25k)
+- PDT: not binding — account equity is $100k, well above the $25k threshold.
+  Swing-trading horizon means day trades should be rare regardless.
 
 ## Core Rules (enforced by scripts/guard.py where marked ✅)
 1. NO OPTIONS — ever ✅ (guard buy-gate rejects non-stock symbols)
@@ -25,10 +26,24 @@ Running on an Alpaca PAPER account until proven.
 ## Entry Checklist (documented before every buy)
 - Specific catalyst? (must be in today's RESEARCH-LOG)
 - Sector in momentum?
-- Confirmed entry trigger — defined concretely, not "watch for confirmation":
-  price holds above the specified level (premarket high / breakout level /
-  post-earnings reaction high) through at least one full 30-min bar after
-  the open, without giving it back. Vague "watch and see" is not a trigger.
+- Confirmed entry trigger — a pass/fail arithmetic test, not a judgement call.
+  Research must name a specific level L (premarket high / breakout level /
+  post-earnings reaction high). On the first full 30-min bar of the regular
+  session (the bar stamped 13:30Z / 14:30Z in winter):
+      CONFIRMED = bar close > L  AND  bar low >= L * 0.99
+  i.e. it finished above the level, and any dip below it was a wick shallower
+  than 1%. Anything else is NOT CONFIRMED — skip. An idea with no level L in
+  today's research cannot be confirmed today. "Watch and see" is not a trigger.
+
+  Why 1% and not zero: requiring the low to never break L at all is nearly
+  unsatisfiable on the opening bar — backtested over Jul 16-24 across the five
+  recurring watchlist names (35 name-days), a zero-tolerance rule fired once,
+  which is the same never-trade failure this rule exists to fix. At 1% it fired
+  9 times: it took the defense rally (LMT/NOC Jul 17, LMT/RTX Jul 20,
+  LMT/RTX/NOC Jul 24) and rejected CAT on all 7 days and XOM's faded spike on
+  Jul 24. A 1% wick is immaterial against a -7% stop. Caveat: 7 days is a small
+  sample and the threshold was chosen with those outcomes visible — revisit it
+  in weekly review once real trades exist.
 - Stop level (−7% from entry)
 - Target (min 2:1 R:R)
 
@@ -36,3 +51,12 @@ Note (added Jul 24 wk2 review): 10 straight sessions of HOLD with no trades,
 several with a real catalyst + real price action (XOM breakout, defense
 rally), traced back to an undefined confirmation bar. Trigger definition
 above added to close that gap — no risk-rule (stop/size/frequency) changed.
+
+Note (Jul 25 evaluation): the Jul 24 note found the right symptom but the wrong
+cause. Verified against the broker: zero orders ever placed, not one. The real
+cause was scheduling — market-open, the only routine able to buy, fired at 13:30Z
+(9:30 ET, the opening bell), 30 minutes BEFORE the confirmation bar it depends on
+closes, and midday had no buy step at all. So no entry could ever qualify, no
+matter how good the setup. Fixed by moving market-open to 14:00Z (10:00 ET) and
+making the trigger a two-number arithmetic check. Still no risk-rule changed —
+stop %, position size, and the 3-trades/week cap remain untested and untouched.

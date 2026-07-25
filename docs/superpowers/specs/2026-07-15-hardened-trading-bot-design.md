@@ -196,8 +196,11 @@ conflict, never force-push).
 
 - **Pre-market** (0 6 * * 1-5): WebSearch research → `RESEARCH-LOG.md`. Silent unless urgent;
   if `check-risk` is red, alert. Default decision: HOLD.
-- **Market-open** (30 8 * * 1-5): `reconcile --fix` → `guard.py buy` per planned trade
-  (gate is now real) → notify only if a trade fired.
+- **Market-open** (0 9 * * 1-5 CT = 14:00 UTC = 10:00 ET): `reconcile --fix` → confirmation-bar
+  check on the first full 30-min session bar → `guard.py buy` per confirmed trade
+  (gate is now real) → notify only if a trade fired; commit always.
+  Revised Jul 25 from 08:30 CT (the opening bell): firing at the open made the entry
+  trigger unsatisfiable, since the bar it tests had not closed yet. See TRADING-STRATEGY.md.
 - **Midday** (0 12 * * 1-5): `reconcile --fix` → deterministic −7% cuts + stop-tightening →
   `check-risk`. Notify only on action.
 - **Daily-summary** (0 15 * * 1-5): pull final state; compute day/phase P&L; update
