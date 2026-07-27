@@ -1,5 +1,5 @@
 import sys, json
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
@@ -189,6 +189,50 @@ def test_is_trading_day_true_when_calendar_lists_today():
 def test_is_trading_day_false_when_calendar_empty():
     client = FakeClient(calendar=[])
     assert guard.is_trading_day(client, date(2026, 7, 15)) is False
+
+
+def _cal(day="2026-07-15"):
+    return FakeClient(calendar=[{"date": day, "open": "09:30", "close": "16:00"}])
+
+
+def test_confirm_bar_end_is_30min_after_open_in_utc_during_edt():
+    end = guard.confirm_bar_end(_cal(), date(2026, 7, 15))
+    assert end == datetime(2026, 7, 15, 14, 0, tzinfo=timezone.utc)
+
+
+def test_confirm_bar_end_shifts_with_dst_in_est():
+    """Same 09:30 local open is 15:00Z in winter, not 14:00Z — the gate must
+    follow the exchange calendar, never a hardcoded UTC hour."""
+    end = guard.confirm_bar_end(_cal("2026-01-15"), date(2026, 1, 15))
+    assert end == datetime(2026, 1, 15, 15, 0, tzinfo=timezone.utc)
+
+
+def test_confirm_bar_closed_false_while_bar_still_building():
+    now = datetime(2026, 7, 15, 13, 34, tzinfo=timezone.utc)  # 4 min into the bar
+    closed, remaining = guard.confirm_bar_closed(_cal(), date(2026, 7, 15), now=now)
+    assert closed is False
+    assert remaining == 26
+
+
+def test_confirm_bar_closed_true_at_the_instant_it_closes():
+    now = datetime(2026, 7, 15, 14, 0, tzinfo=timezone.utc)
+    closed, remaining = guard.confirm_bar_closed(_cal(), date(2026, 7, 15), now=now)
+    assert closed is True
+    assert remaining == 0
+
+
+def test_confirm_bar_closed_false_before_the_open():
+    now = datetime(2026, 7, 15, 11, 50, tzinfo=timezone.utc)  # premarket
+    closed, _ = guard.confirm_bar_closed(_cal(), date(2026, 7, 15), now=now)
+    assert closed is False
+
+
+def test_confirm_bar_closed_false_when_not_a_trading_day():
+    closed, remaining = guard.confirm_bar_closed(
+        FakeClient(calendar=[]), date(2026, 7, 18),
+        now=datetime(2026, 7, 18, 20, 0, tzinfo=timezone.utc))
+    assert closed is False
+    assert remaining is None
 
 
 def test_place_buy_rejected_by_gate_raises(mem):

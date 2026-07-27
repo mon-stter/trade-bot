@@ -6,6 +6,12 @@ TIMING: this routine fires at 14:00 UTC (10:00 ET) — deliberately AFTER the fi
 TRADING-STRATEGY.md is defined on that bar. Do not move it back to the opening bell:
 at 9:30 ET the confirmation bar does not exist yet and no entry can ever qualify.
 
+NEVER trust the schedule alone. If this routine is fired early — by a stale trigger, a
+manual fire, or a clock change — the session-open bar will still be OPEN, and a partial
+bar built from a few minutes of data can pass the entry test that a full bar would fail.
+Acting on it means buying on noise. STEP 0b below is a hard gate against exactly that;
+it is not optional and must run before any buy, on every firing.
+
 IMPORTANT — ENVIRONMENT VARIABLES: ALPACA_API_KEY, ALPACA_SECRET_KEY, ALPACA_ENDPOINT,
 ALPACA_DATA_ENDPOINT, DISCORD_WEBHOOK_URL are already exported. NO .env file — do not
 create one. If a wrapper prints "not set", send one Discord alert and exit. Verify:
@@ -17,6 +23,16 @@ IMPORTANT — PERSISTENCE: fresh clone; commit and push at STEP 9 or nothing per
 STEP 0 — Gate checks:
   python3 scripts/guard.py is-trading-day   # if closed, EXIT
   python3 scripts/guard.py status           # if HALTED, do NOT place buys; skip to STEP 1 read-only
+
+STEP 0b — BAR-CLOSED GATE (hard stop; no buys before this passes):
+  python3 scripts/guard.py bar-closed
+  Prints "OPEN — <mm>m remaining" and exits 1 if the session-open 30-min bar has not
+  finished, "CLOSED" and exits 0 once it has. This is derived from the bar's own
+  timestamp, so it is correct in both EDT and EST and does not depend on the cron.
+
+  If it exits non-zero: do NOT run STEP 3 or STEP 4. Positions still need protecting,
+  so run STEP 2 (sync + reconcile), then skip to STEP 7 and record
+  "skipped — confirmation bar still open, fired at <time>", then STEP 9. No buys.
 
 STEP 1 — Read TODAY's entry in memory/RESEARCH-LOG.md. If missing, run the pre-market
 research steps inline first — NEVER trade without documented research.
