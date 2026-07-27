@@ -237,3 +237,7 @@ HOLD — no held positions to protect. Two live shocks (new tariffs + Iran escal
 
 ### Decision
 HOLD — no held positions to protect. Ceasefire relief is genuine good news but lands directly ahead of FOMC (Wed) and four Big Tech earnings prints (Wed/Thu); XOM and defense theses both broke overnight as oil reversed. No idea has a confirmed entry trigger, and this week's event stacking argues for extra patience regardless. Reassess post-FOMC/earnings. Patience > activity.
+
+### Execution (market-open)
+- No idea named a level L for today (XOM: thesis broken/earnings blackout; defense: catalyst removed by ceasefire; broad market: no pre-event entry) — confirmation bar not applicable, no tickers checked.
+- Result: no trades
