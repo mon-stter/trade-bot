@@ -208,3 +208,32 @@ HOLD — no held positions to protect. No idea has a confirmed entry trigger pre
 
 ### Decision
 HOLD — no held positions to protect. Two live shocks (new tariffs + Iran escalation) stacked on Thursday's tech-led selloff make today unusually high-risk for new sizing; no idea has a confirmed post-open entry trigger yet. XOM and defense names have real catalysts worth watching for confirmation on a calmer tape. Patience > activity.
+
+## 2026-07-27 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~17.6, calm — below last week's levels after the weekend ceasefire news. ([Investing.com](https://www.investing.com/indices/volatility-s-p-500))
+- Futures sharply higher: S&P +0.8%, Dow +0.8%, Nasdaq-100 +1.6% — entering "busiest week of the quarter" (Big Tech earnings + Fed decision). ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-monday-july-27-dow-sp-500-nasdaq-080412540.html))
+- Top catalyst: US and Iran paused fighting over the weekend, raising hopes for a durable de-escalation after two weeks of strikes. Oil collapsed on the news — Brent -7.3% to ~$89.73, WTI -6.5% to ~$83.47, second straight down day after Friday's -3.9%; Brent was above $100 just last week. ([CNBC](https://www.cnbc.com/2026/07/27/oil-price-wti-brent-slide-as-iran-reportedly-may-halt-attacks.html), [US News](https://www.usnews.com/news/business/articles/2026-07-26/oil-prices-ease-after-us-and-iran-pause-their-attacks))
+- Economic calendar: FOMC meets Jul 28-29, decision + Fed Chair Kevin Warsh press conference Wednesday — CME FedWatch prices ~64% odds of a hold. No CPI/PPI this week (next CPI print Aug 12); weekly jobless claims and PCE (Fed's preferred inflation gauge) also due. ([Kiplinger](https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar))
+- Earnings: light today (Nucor before open); the week's real event risk is MSFT/META Wednesday and AAPL/AMZN Thursday — all four land right alongside the FOMC decision. ([Earnings Whispers](https://www.earningswhispers.com/calendar), [Yahoo Finance](https://finance.yahoo.com/markets/article/4-big-tech-earnings-reports-a-fed-meeting-and-100-oil-its-the-busiest-week-of-the-quarter-100000261.html))
+- XOM: reports Q2 earnings Friday Jul 31; Q2 net income tracking ~$15.7-15.9B (~3x Q1) on the oil spike + refining-margin recovery — but that windfall was priced during the now-reversing oil rally. ([StocksToTrade](https://stockstotrade.com/news/exxonmobil-holdings-corporation-xom-news-2026_07_13/))
+- Rotation: energy/defense/industrials tailwind of the last two weeks was largely escalation- and oil-driven; today's ceasefire and oil collapse directly undercut that catalyst. No fresh read yet on whether capital rotates back to mega-cap tech ahead of Wed/Thu earnings.
+
+### Trade Ideas
+1. XOM — catalyst (oil >$100, energy rotation) reversed overnight: Brent -7.3%/WTI -6.5% on the Iran ceasefire, and the name reports earnings this Friday (Jul 31). No entry — thesis broken and earnings-week blackout applies. Drop from watchlist.
+2. LMT/RTX/NOC (defense) — this week's rally was escalation-driven; the ceasefire pause removes the near-term catalyst, so no new entry. Watch only for a confirmed post-open hold if the ceasefire cracks and headlines re-escalate; otherwise stand aside.
+3. Broad market / mega-cap tech — futures up 0.8-1.6% on ceasefire relief, but FOMC (Wed) and MSFT/META/AAPL/AMZN earnings (Wed/Thu) stack directly on top of this rally. Any breakout entry now would run straight into that event cluster before an exit could react. No pre-event entry; reassess post-FOMC/earnings for a confirmed trigger, stop -7%, target 2:1 minimum.
+
+### Risk Factors
+- Iran-US ceasefire is a fragile pause, not a resolved conflict — any breakdown could re-spike oil and reverse today's relief rally intraday.
+- FOMC Wed: even at ~64% hold odds, a hawkish surprise or Warsh press-conference misstep could move the whole tape sharply.
+- MSFT/META (Wed) and AAPL/AMZN (Thu) are index-moving; last Thursday's AI-capex fear (TSLA -15%, GOOGL -7%) shows single-name misses can spill into broad risk-off.
+- Oil's sharp reversal invalidates the energy/defense rotation catalyst that has anchored the watchlist for two weeks — those ideas need a fresh catalyst, not just old momentum, before re-entry.
+- Entering anything new today means holding through FOMC and/or Big Tech earnings within 1-3 days — event risk is unusually concentrated this week.
+
+### Decision
+HOLD — no held positions to protect. Ceasefire relief is genuine good news but lands directly ahead of FOMC (Wed) and four Big Tech earnings prints (Wed/Thu); XOM and defense theses both broke overnight as oil reversed. No idea has a confirmed entry trigger, and this week's event stacking argues for extra patience regardless. Reassess post-FOMC/earnings. Patience > activity.
