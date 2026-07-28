@@ -276,3 +276,6 @@ HOLD — no held positions to protect. No idea has a confirmed entry trigger, de
 ### Execution (market-open)
 - No idea named a level L for today (defense/industrials: catalyst stale post-ceasefire; XOM: earnings blackout; broad market/mega-cap tech: no pre-event entry ahead of FOMC + Mag7 prints) — confirmation bar not applicable, no tickers checked.
 - Result: no trades
+
+### Midday
+- Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
