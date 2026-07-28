@@ -244,3 +244,31 @@ HOLD — no held positions to protect. Ceasefire relief is genuine good news but
 
 ### Midday
 - Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
+
+## 2026-07-28 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~19.0, up ~1.7% — highest in weeks, chip-driven risk-off. ([Investing.com](https://www.investing.com/indices/us-spx-vix-futures))
+- Futures red, tech-led: Nasdaq-100 futures -0.9%, S&P futures -0.2%. ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-tuesday-july-28-dow-sp-500-nasdaq-082832371.html))
+- Top catalyst: Asian memory-chip rout — Samsung -13.4% (worst day in ~20 yrs), SK Hynix -14.7%, KOSPI -10.8% (biggest drop since the March Iran conflict), on AI-infrastructure-financing worries + rising China competition. Spilling into US premarket: NVDA -1.2%, INTC/AMD >-3%, MU -5%. ([CNBC](https://www.cnbc.com/2026/07/28/sk-hynix-plunges-semiconductor-selloff-deepens-samsung-softbank.html), [CNBC Daily Open](https://www.cnbc.com/2026/07/28/daily-open-ai-boom-chip-selloff-sk-hynix.html))
+- FOMC decision Wed Jul 29, 2pm ET — fed funds expected to hold at 3.50-3.75% (~65% odds via CME FedWatch); no SEP/dot plot this meeting; September hike odds already ~82% per some analysts. Chair Warsh has dropped traditional forward guidance, adding uncertainty. ([CME Group](https://www.cmelitegroup.com/knowledge-hub/fomc-meeting-fed-decision-day/), [TradingKey](https://www.tradingkey.com/analysis/stocks/us-stocks/262054021-july-fomc-fed-oil-us-oil-tradingkey))
+- Earnings: MSFT + META report Wed (alongside FOMC); AAPL + AMZN report Thu (alongside June core PCE); KO/BA/F also this week. Mag7 capex (~$724B 2026, ~$950B 2027 combined) is the swing factor markets are fixated on. ([TradingKey](https://www.tradingkey.com/analysis/stocks/us-stocks/262054300-weekly-preview-fed-apple-microsoft-meta-amazon-earnings-reports-tradingkey), [Fortune](https://fortune.com/2026/07/26/big-tech-earnings-meta-microsoft-apple-amazon-market-revolt-ai-spending/))
+- Rotation theme intact: industrials/energy/consumer-defensive continuing to outperform (energy +22% YTD, industrials led by defense/grid-buildout); small-caps +21% YTD despite still trading at a historic discount to S&P. Today's chip rout reinforces the out-of-mega-cap-tech flow. ([Intellectia](https://intellectia.ai/blog/market-rotation-beyond-magnificent-7-july-2026), [AlphaBetaStock](https://alphabetastock.com/sector-rotation-industrials-energy-tech-narrowing-2026/))
+
+### Trade Ideas
+1. LMT/RTX/NOC (defense/industrials) — today's tech/chip rout could reinforce the rotation into defense/industrials, but the Iran ceasefire (holding since Jul 26-27) already removed the escalation catalyst that drove last week's rally; no fresh catalyst today. No pre-print entry — watch only for a confirmed post-open hold above recent highs if flows rotate here; stop -7%, target 2:1.
+2. XOM — thesis still broken (oil reversed hard last week on the ceasefire) and Q2 earnings land Friday Jul 31 — earnings blackout applies. No entry, stay off watchlist.
+3. Broad market / mega-cap tech (MSFT/META/AAPL/AMZN, NVDA/semis) — no entry of any kind. FOMC decision Wed + two of four Mag7 prints Wed, other two Thu, stacked directly on top of today's AI-financing-driven chip selloff. Any position (long or short) opened today holds through the single highest event-risk 48 hours of the summer. Wait for post-FOMC/post-earnings clarity.
+
+### Risk Factors
+- AI-infrastructure-financing fears (chip rout, Samsung/SK Hynix worst days in years) could keep spilling into US semis/mega-cap tech and broad risk appetite through the week.
+- FOMC Wed 2pm ET — even at ~65% hold odds, Warsh has dropped forward guidance, raising surprise risk; September-hike odds already elevated per some desks.
+- MSFT/META (Wed) + AAPL/AMZN (Thu) are index-moving; last week's TSLA -15%/GOOGL -7% reaction shows single-name AI-capex misses can trigger broad selloffs.
+- VIX ~19, highest in weeks — regime not calm, argues for smaller size/no size this week.
+- No held positions to protect currently, but event stacking (FOMC + 4 Mag7 prints in 2 days) makes this an unusually poor week to initiate new risk regardless of setup quality.
+
+### Decision
+HOLD — no held positions to protect. No idea has a confirmed entry trigger, defense/industrials catalyst is stale (ceasefire removed it), XOM is earnings-blackout, and initiating anything into mega-cap tech/semis right before FOMC (Wed) and four Big Tech prints (Wed/Thu) violates the "no pre-event entry" principle regardless of setup. Reassess post-FOMC/post-earnings later this week. Patience > activity.
