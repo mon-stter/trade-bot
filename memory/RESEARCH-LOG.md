@@ -279,3 +279,33 @@ HOLD — no held positions to protect. No idea has a confirmed entry trigger, de
 
 ### Midday
 - Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
+
+## 2026-07-29 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~18.9, elevated but roughly flat overnight — still highest-in-weeks regime from the chip selloff. ([Investing.com](https://www.investing.com/indices/volatility-s-p-500))
+- Futures steadying: S&P +0.2%, Nasdaq-100 ~flat — but Nasdaq-100 sits on the brink of a technical correction after a 4th straight day of chip losses. ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-wednesday-july-29-dow-sp-500-nasdaq-082009165.html))
+- Major overnight escalation: the Iran-US ceasefire broke — Iran (IRGC) launched a surprise ballistic-missile attack on US forces in the Middle East; Jordan intercepted 5 missiles, US/Saudi forces struck Iran-linked PMF sites in Iraq in response. Reverses Sunday-Monday's de-escalation. ([CNN](https://www.cnn.com/2026/07/29/world/live-news/iran-trump-news), [OPB](https://www.opb.org/article/2026/07/28/the-us-says-it-thwarted-an-iranian-missile-attack-that-ended-a-brief-pause-in-fighting/))
+- Oil jumped on the renewed attack: Brent +3.4% to ~$86.97, WTI +3.6% to ~$82.09, bouncing off Tuesday's brief-calm low (~$84) but still well below last week's >$100 escalation peak. ([Bloomberg](https://www.bloomberg.com/news/articles/2026-07-28/latest-oil-market-news-and-analysis-for-july-29))
+- FOMC decision today 2pm ET (Chair Warsh press conference) — rates expected to hold at 3.50-3.75% (~62-65% odds per CME FedWatch/Polymarket); Warsh has dropped traditional forward guidance, raising surprise risk. ([CME Group](https://www.cmelitegroup.com/knowledge-hub/fomc-meeting-fed-decision-day/), Polymarket)
+- Big Tech earnings after close today: Microsoft (MSFT, est. $4.24 EPS / $87.63B rev) and Meta (META, est. $7.18 EPS / $60.22B rev, capex guide already raised to $125-145B) plus Qualcomm — both ~95% beat odds priced in, so FY27 capex commentary is the real stock-mover. ([TipRanks](https://www.tipranks.com/news/big-tech-earnings-showdown-meta-and-microsoft-in-focus-ahead-of-july-29-earnings-report), [Benzinga](https://www.benzinga.com/markets/options/26/07/60741589/microsoft-could-swing-189-billion-in-value-after-earnings))
+- Semiconductor selloff extending to a 4th straight day: NVDA, MU, AMD, INTC, SNDK all lower pre-market; SMH ETF down >3%, pressured by SK Hynix's guidance miss despite record results and Nvidia losing its title as most-valuable company to Apple amid AI-financing concerns (report of NVDA backstopping $250B OpenAI-linked data-center funding). ([TipRanks](https://www.tipranks.com/news/semiconductor-stocks-nvda-amd-micron-and-sndk-extend-their-sell-off-in-pre-market-today-july-29-what-triggered-the-latest-slide))
+- Rotation theme intact: energy (+21-22% YTD) and industrials (+12% YTD, defense/grid-buildout led) continuing to outperform mega-cap tech, which remains under AI-capex-financing pressure. ([AlphaBetaStock](https://alphabetastock.com/sector-rotation-industrials-energy-tech-narrowing-2026/))
+
+### Trade Ideas
+1. LMT/RTX/NOC (defense/industrials) — renewed Iran attack directly reignites the escalation catalyst that drove last week's 3-4% rally in these names. No pre-print entry; watch for a confirmed post-open hold above premarket high, stop -7%, target ~2:1 if a clean level forms today.
+2. XOM — oil bounce (+3.4-3.6%) is escalation-driven and reversible, and the name still reports Q2 earnings this Friday Jul 31 — earnings-blackout applies. No entry, stay off watchlist.
+3. Broad market / mega-cap tech / semis — no entry of any kind. FOMC (2pm ET) + MSFT/META/QCOM earnings after close stack directly on top of a 4th-day chip selloff and a fresh Iran-US military escalation. Any position opened today holds through the single highest event-risk window of the week. Wait for post-FOMC/post-earnings clarity.
+
+### Risk Factors
+- Iran-US conflict reignited overnight (ceasefire broken, missiles intercepted, retaliatory strikes in Iraq) — unpredictable, could escalate further intraday and whipsaw oil/risk sentiment either direction.
+- FOMC 2pm ET — even at ~62-65% hold odds, Warsh has dropped forward guidance, raising surprise-move risk on the decision and press conference.
+- MSFT/META/QCOM earnings after close — capex guidance is the real swing factor; last week's TSLA -15%/GOOGL -7% reaction shows AI-capex commentary can trigger broad tech selloffs.
+- Semiconductor selloff now 4 sessions running, Nasdaq-100 near correction — could keep dragging broad tech/risk sentiment through the session.
+- VIX ~18.9, still elevated — regime not calm, warrants smaller size/no size today regardless of setup.
+
+### Decision
+HOLD — no held positions to protect. No idea has a confirmed entry trigger pre-open. Today stacks a reignited Iran-US military conflict, the FOMC decision (2pm ET), and MSFT/META/QCOM earnings after close directly on top of a 4th-day chip selloff — the highest event-risk combination of the week. Defense/industrials (LMT/RTX/NOC) is worth watching for a confirmed post-open reaction to the Iran news; everything else stays off-limits until after FOMC/earnings clarity. Patience > activity.
