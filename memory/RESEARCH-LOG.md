@@ -313,3 +313,6 @@ HOLD — no held positions to protect. No idea has a confirmed entry trigger pre
 ### Execution (market-open)
 - No idea named a numeric level L for today (LMT/RTX/NOC: "if a clean level forms today" — no level set; XOM: earnings blackout; broad market/tech: no pre-event entry ahead of FOMC + MSFT/META/QCOM) — confirmation bar not applicable, no tickers checked.
 - Result: no trades
+
+### Midday
+- Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
