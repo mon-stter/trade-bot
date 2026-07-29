@@ -309,3 +309,7 @@ HOLD — no held positions to protect. No idea has a confirmed entry trigger, de
 
 ### Decision
 HOLD — no held positions to protect. No idea has a confirmed entry trigger pre-open. Today stacks a reignited Iran-US military conflict, the FOMC decision (2pm ET), and MSFT/META/QCOM earnings after close directly on top of a 4th-day chip selloff — the highest event-risk combination of the week. Defense/industrials (LMT/RTX/NOC) is worth watching for a confirmed post-open reaction to the Iran news; everything else stays off-limits until after FOMC/earnings clarity. Patience > activity.
+
+### Execution (market-open)
+- No idea named a numeric level L for today (LMT/RTX/NOC: "if a clean level forms today" — no level set; XOM: earnings blackout; broad market/tech: no pre-event entry ahead of FOMC + MSFT/META/QCOM) — confirmation bar not applicable, no tickers checked.
+- Result: no trades
