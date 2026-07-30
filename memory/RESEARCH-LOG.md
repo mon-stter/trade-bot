@@ -316,3 +316,33 @@ HOLD — no held positions to protect. No idea has a confirmed entry trigger pre
 
 ### Midday
 - Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
+
+## 2026-07-30 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~19.4, down ~6% overnight but still elevated after Wednesday's spike. ([Investing.com](https://www.investing.com/indices/us-spx-vix-futures))
+- Futures rebounding: S&P +0.3-0.4%, Dow +0.2%, Nasdaq-100 +0.7%, as markets try to steady ahead of inflation data. ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-thursday-july-30-dow-sp-500-nasdaq-082255995.html))
+- FOMC (Wed 2pm ET): Fed held rates 3.50-3.75% but on an unusually split 9-3 vote — Hammack, Kashkari, and Logan all dissented in favor of a hike. Warsh's shorter, guidance-light statement raised credibility questions; 30Y Treasury yield spiked to its highest since 2007. Dow fell ~1,100 points Wednesday, its worst day in over a year. ([CNBC](https://www.cnbc.com/2026/07/29/fed-rate-decision-july-2026.html), [CNBC](https://www.cnbc.com/2026/07/29/kevin-warsh-fed-treasury-yields-inflation-credibility-interest-rates.html))
+- Iran conflict re-escalated further overnight: after Tuesday's intercepted Iranian missile attack, the US completed retaliatory strikes on Iran; Trump says "it's our turn" and has vowed to "hit them very hard" again. Highly fluid, headline-driven. ([CNN](https://www.cnn.com/2026/07/29/world/live-news/iran-trump-news))
+- Big Tech earnings (after Wed close): Microsoft beat and raised, capex +70% to $41B, shares +2.4% AH. Meta missed badly — EPS $6.18 vs $7.22 est, net income -14% YoY, capex guide raised to $130-145B — shares -6.2% AH. Mixed signal for mega-cap tech open. ([CNBC](https://www.cnbc.com/2026/07/29/microsoft-aces-earnings-call-while-meta-frustration-grows-do-we-just-need-to-be-a-bit-more-patient.html))
+- Econ calendar today: Core PCE (Fed's preferred inflation gauge, ~8:30am ET, est. +0.1-0.2% MoM / ~3.3% YoY), Q2 GDP (est. +2.3%), and weekly jobless claims — all landing pre-open, could move rates/tape sharply. ([Investing.com](https://www.investing.com/news/stock-market-news/core-pce-price-index-gdp-and-jobless-claims-due-thursday-93CH-4821457))
+- Defense (LMT/RTX/NOC): all three posted record backlogs and raised FY26 guidance last week (book-to-bill 2.4-3.2x) — strong fundamentals, but that catalyst is now several sessions old and largely priced; renewed Iran-US strikes could reignite momentum. ([Foreign Policy Journal](https://www.foreignpolicyjournal.com/2026/07/26/lockheed-martin-nyse-lmt-rtx-nyse-rtx-and-northrop-grumman-nyse-noc-post-record-backlogs-raise-guidance-after-q2-results/))
+- XOM: still on earnings blackout, reports Q2 tomorrow (Fri Jul 31, consensus EPS ~$3.68-3.88). ([Alphastreet](https://news.alphastreet.com/exxon-mobil-xom-q2-2026-preview-eps-est-3-68-reports-july-31/))
+
+### Trade Ideas
+1. LMT/RTX/NOC (defense) — record backlogs/raised guidance from last week plus fresh Iran-US strikes overnight could reignite the rally, but no new pre-market catalyst level has formed since last week's earnings pop. No pre-open entry; watch for a confirmed post-open hold above a fresh premarket high, stop -7%, target ~2:1 if a clean level appears.
+2. XOM — earnings blackout continues (reports tomorrow). No entry, stay off watchlist.
+3. Broad market / mega-cap tech — no entry of any kind. Wednesday's Fed-driven selloff (worst day in over a year, credibility-questioning dissent, 30Y yield at an 18-year high) plus Core PCE/GDP/jobless claims all landing this morning plus mixed MSFT/META earnings reactions is too much stacked event risk. Wait for the data prints and post-open tape to clarify direction.
+
+### Risk Factors
+- Dow's ~1,100-point drop Wednesday was the worst single day in over a year, driven by a divided, credibility-challenged Fed — volatility regime not settled despite VIX pulling back this morning.
+- Iran-US conflict actively escalating (US just struck Iran, Trump vowing further "very hard" retaliation) — unpredictable, headline risk can move oil/defense/broad risk appetite intraday in either direction.
+- Core PCE + GDP + jobless claims all due pre-open — a hot inflation print on top of yesterday's yield spike could extend the selloff; a cool print could spark a sharp relief rally. Binary risk into the open.
+- Mega-cap tech crosscurrents: MSFT strength vs. META's earnings miss and rising capex fatigue narrative could pull the Nasdaq either way.
+- 30Y yield at its highest since 2007 — a standing headwind for equity valuations that isn't resolved by today's calm-ish futures.
+
+### Decision
+HOLD — no held positions to protect. Yesterday's Fed-driven selloff (worst day in over a year, hawkish 9-3 split, yield spike) plus an actively escalating Iran-US conflict plus this morning's Core PCE/GDP/jobless-claims data stack far too much event risk for a new entry before the tape shows a clean, confirmed post-data/post-open direction. Defense fundamentals remain strong but the catalyst is stale without a fresh level; mega-cap tech has no clear signal after mixed MSFT/META prints. Patience > activity.
