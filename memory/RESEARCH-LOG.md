@@ -346,3 +346,7 @@ HOLD — no held positions to protect. No idea has a confirmed entry trigger pre
 
 ### Decision
 HOLD — no held positions to protect. Yesterday's Fed-driven selloff (worst day in over a year, hawkish 9-3 split, yield spike) plus an actively escalating Iran-US conflict plus this morning's Core PCE/GDP/jobless-claims data stack far too much event risk for a new entry before the tape shows a clean, confirmed post-data/post-open direction. Defense fundamentals remain strong but the catalyst is stale without a fresh level; mega-cap tech has no clear signal after mixed MSFT/META prints. Patience > activity.
+
+### Execution (market-open)
+- No idea named a numeric level L for today (LMT/RTX/NOC: "if a clean level appears" — no level set; XOM: earnings blackout; broad market/mega-cap tech: no entry ahead of stacked Fed/Iran/PCE event risk) — confirmation bar not applicable, no tickers checked.
+- Result: no trades
