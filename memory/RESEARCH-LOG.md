@@ -384,3 +384,9 @@ HOLD — no held positions to protect. Yesterday's Fed-driven selloff (worst day
 
 ### Decision
 HOLD — no held positions to protect. AMZN's gap is too large to chase without a confirmed post-open hold; defense catalyst (Iran war) hasn't moved LMT/RTX/NOC further today despite active widening of the conflict; XOM is in earnings-day blackout. No idea has a confirmed entry trigger pre-open. Reassess AMZN and defense on the post-open tape for a qualifying level. Patience > activity.
+
+### Execution (market-open)
+- AMZN: L=266.69 (premarket high) | bar 13:30Z l=262.01 c=269.16 -> NOT CONFIRMED (low 262.01 < L*0.99=264.02 — wick under the level exceeded 1%)
+- LMT/RTX/NOC: no fresh premarket high formed today (flat/mixed premarket per research) — no level L to check
+- XOM: earnings blackout, no entry regardless of print
+- Result: no trades
