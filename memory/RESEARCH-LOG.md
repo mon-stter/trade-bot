@@ -353,3 +353,34 @@ HOLD — no held positions to protect. Yesterday's Fed-driven selloff (worst day
 
 ### Midday
 - Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
+
+## 2026-07-31 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~18.5, elevated but off Wednesday's spike-highs. ([Investing.com](https://www.investing.com/indices/us-spx-vix-futures))
+- Futures higher: S&P +0.3%, Nasdaq-100 +0.5%, riding Thursday's 1.66% rally to a close of 7,437.63 on strong AI-earnings momentum. ([Bloomberg](https://www.bloomberg.com/news/articles/2026-07-30/stock-market-today-dow-s-p-live-updates))
+- Top catalyst: Big Tech earnings crosscurrents dominate the tape — Amazon (AMZN) beat and surged ~13% premarket on cloud/AI monetization strength, while Apple (AAPL) tumbled ~7.2% premarket on a Services and China revenue miss. Mixed signal for mega-cap tech open. ([TheStreet](https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-31-2026))
+- Iran-US conflict still widening: US launched a "heavy wave" of fresh strikes on Iran Thursday after the 5-night pause broke; strikes killed civilians on Qeshm Island per Iranian state media; Egypt's Damietta port was struck (first time Egypt drawn into the conflict); IRGC vows Strait of Hormuz stays disrupted and threatens retaliation. ([Bloomberg](https://www.bloomberg.com/news/articles/2026-07-30/us-launches-fresh-strikes-against-iran-as-war-escalates-again), [CNN](https://www.cnn.com/2026/07/30/world/live-news/iran-war-trump))
+- Oil calm despite the war: WTI ~$83.68 (+0.1%), Brent ~$89.34 (+0.35%) — Hormuz crude flows reported recovering to ~30-35% of pre-war levels, easing the spike-risk premium from earlier in the week. ([CNBC](https://www.cnbc.com/2026/07/31/oil-prices-today-brent-wti-hormuz-trump-iran-.html))
+- Defense (LMT/RTX/NOC): mixed/flat premarket (LMT +0.86%, RTX -0.40%, NOC -0.04%) despite the active war — last week's earnings-driven pop (record backlogs, raised FY26 guidance) is priced in and the war catalyst hasn't moved these names further today. ([Defense World](https://www.defenseworld.net/2026/07/31/promising-defense-stocks-to-follow-today-july-29th.html))
+- XOM reports Q2 2026 results before today's open (~8:30am CT call); consensus ~$3.68-3.87 EPS on ~$98B revenue, beat in each of the last 4 quarters (avg surprise +6%). Earnings-day volatility — no new position today regardless of print. ([Alphastreet](https://news.alphastreet.com/exxon-mobil-xom-q2-2026-preview-eps-est-3-68-reports-july-31/))
+- Econ calendar: Employment Cost Index at 8:30am ET, Michigan Consumer Sentiment (final) at 10am ET — lighter than the last two days, no Core PCE/GDP today (released Thursday, came in benign). ([Kiplinger](https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar))
+- Rotation: energy/industrials/defense still leading 2026 YTD, but Thursday's AI-earnings-driven tech rally (AMZN) and today's premarket action show money flowing back into mega-cap tech on strong prints, not away from it — rotation signal is muddier than prior weeks. ([Kalkine](https://kalkine.com/news/premium/us-sector-performance-analysis-energy-surges-as-investors-rotate-toward-defensive-and-value-oriented-sectors))
+
+### Trade Ideas
+1. AMZN — beat-and-raise earnings, ~13% premarket gap on cloud/AI strength. No pre-open entry: chasing a 13%+ gap has poor risk/reward and high gap-fill risk. Watch only for a confirmed hold above the premarket high on the first 30-min bar (CONFIRMED = bar close > L and bar low >= L*0.99); stop -7%, target 2:1 minimum if it qualifies.
+2. LMT/RTX/NOC (defense) — Iran war still active and widening (Egypt now involved, Hormuz disrupted) but premarket action is flat/mixed — no fresh catalyst move today, last week's guidance-raise pop already priced. No entry; watch only if headlines drive a fresh premarket high with room to confirm.
+3. XOM — reports Q2 earnings today before open. Earnings-day volatility, no defined pre-print level, thesis was already broken by the oil reversal two weeks ago. No entry, stay off watchlist today regardless of print.
+
+### Risk Factors
+- Iran-US conflict is actively widening (Egypt struck for the first time, IRGC vows Hormuz stays disrupted) — a headline escalation could spike oil and risk sentiment intraday despite today's calm open.
+- AAPL's ~7.2% premarket drop (Services/China miss) is a index-weight-heavy negative that could offset AMZN's positive pull on the Nasdaq/S&P — net tech direction is unsettled into the open.
+- XOM earnings this morning adds single-name volatility risk to the energy complex on a day already carrying war-driven oil-price uncertainty.
+- Friday session — end-of-week positioning/profit-taking on a strong Thursday close (+1.66%) could add chop regardless of headlines.
+- VIX ~18.5 still elevated versus the summer's calmer weeks — regime not fully settled even as futures point higher.
+
+### Decision
+HOLD — no held positions to protect. AMZN's gap is too large to chase without a confirmed post-open hold; defense catalyst (Iran war) hasn't moved LMT/RTX/NOC further today despite active widening of the conflict; XOM is in earnings-day blackout. No idea has a confirmed entry trigger pre-open. Reassess AMZN and defense on the post-open tape for a qualifying level. Patience > activity.
