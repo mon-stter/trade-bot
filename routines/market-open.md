@@ -18,16 +18,25 @@ STEP 0 — Gate checks:
   python3 scripts/guard.py is-trading-day   # if closed, EXIT
   python3 scripts/guard.py status           # if HALTED, do NOT place buys; skip to STEP 1 read-only
 
-STEP 1 — Read TODAY's entry in memory/RESEARCH-LOG.md. If missing, run the pre-market
-research steps inline first — NEVER trade without documented research.
+STEP 1 — Load TODAY's candidate ideas — do not eyeball the prose, parse them:
+  python3 scripts/guard.py ideas
+  - Exit 0: prints a JSON array; each entry has symbol, level (L), stop, target,
+    rr, sector, catalyst. These are the ONLY tradeable candidates today.
+  - Exit 1: today's research names no numeric level. Trading is impossible today
+    by construction. Skip to STEP 7, record it, and — because this means the
+    pre-market routine failed its STEP 4b contract — send ONE Discord alert:
+      bash scripts/discord.sh "market-open $DATE: research log has no numeric level L — pre-market produced no tradeable idea. No trades possible today."
+    Do NOT invent a level here to work around it. Fix pre-market, not this run.
+  - If memory/RESEARCH-LOG.md has no entry for today at all, run the pre-market
+    research steps inline first — NEVER trade without documented research.
 
 STEP 2 — Sync then reconcile protective stops FIRST:
   python3 scripts/guard.py sync             # records any overnight stop fills
   python3 scripts/guard.py reconcile --fix
 
-STEP 3 — CONFIRMATION BAR. For each idea in today's research that named a level L
-(premarket high / breakout level / post-earnings reaction high), pull the first full
-30-min bar of the regular session — the bar stamped 13:30:00Z (14:30:00Z in winter):
+STEP 3 — CONFIRMATION BAR. For each idea from STEP 1, using its level L, pull the
+first full 30-min bar of the regular session — the bar stamped 13:30:00Z
+(14:30:00Z in winter):
   bash scripts/alpaca.sh bars <ticker> 30Min $DATE
 
   CONFIRMED  = that bar's close > L  AND  its low >= L * 0.99
@@ -35,8 +44,8 @@ STEP 3 — CONFIRMATION BAR. For each idea in today's research that named a leve
   NOT CONFIRMED = anything else. Skip the trade and record which test failed.
 
   This is a pass/fail arithmetic check on two numbers, not a judgement call. Do not
-  substitute "looks strong" or "watch for confirmation" — an idea with no level L in
-  today's research cannot be confirmed today, full stop.
+  substitute "looks strong" or "watch for confirmation". Record BOTH numbers (bar
+  low and close) against L in STEP 7 so the decision is auditable after the fact.
 
 STEP 3b — Re-validate each CONFIRMED trade with fresh data:
   bash scripts/alpaca.sh quote <ticker>   # capture ask price P; skip if halted/zero/wide spread
@@ -61,6 +70,7 @@ STEP 6 — Append each executed trade to memory/TRADE-LOG.md (guard already wrot
 STEP 7 — ALWAYS append an execution line to TODAY's entry in memory/RESEARCH-LOG.md,
 including on no-trade days — a silent session is indistinguishable from a crashed one:
   ### Execution (market-open)
+  - Candidates from `guard.py ideas`: <N> (<SYM list>) — or "NONE — research named no numeric level L (pre-market STEP 4b failed)"
   - <TICKER>: L=<level> | bar 13:30Z l=<low> c=<close> -> CONFIRMED / NOT CONFIRMED (<which test failed>)
   - Result: <N trades placed> / no trades
 

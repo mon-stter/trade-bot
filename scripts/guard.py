@@ -3,6 +3,7 @@
 import argparse
 import json
 import os
+import re
 import sys
 import time
 import urllib.request
@@ -14,6 +15,8 @@ ROOT = Path(__file__).resolve().parent.parent
 MEMORY = ROOT / "memory"
 STATE_PATH = Path(os.environ.get("GUARD_STATE_PATH", MEMORY / "state.json"))
 TRADES_PATH = Path(os.environ.get("GUARD_TRADES_PATH", MEMORY / "trades.jsonl"))
+RESEARCH_PATH = Path(os.environ.get("GUARD_RESEARCH_PATH",
+                                    MEMORY / "RESEARCH-LOG.md"))
 
 # Rule constants (see spec section 5)
 MAX_POSITIONS = 6
@@ -28,6 +31,9 @@ MAX_SECTOR_LOSSES = 2           # sit out a sector after 2 straight losses
 FILL_TRIES = 15
 FILL_DELAY = 1.0
 TRAIL_TIERS = ((0.20, 5.0), (0.15, 7.0))  # (min unrealized gain, trail %)
+MIN_RR = 2.0                    # strategy floor: minimum 2:1 reward/risk
+WICK_TOL = 0.01                 # confirmation bar low may dip 1% under L
+PLACEHOLDER_CATALYSTS = {"", "tbd", "n/a", "na", "none", "-", "?", "unknown"}
 
 
 class GateError(Exception):
@@ -175,6 +181,91 @@ def sector_streak(records, sector):
         else:
             break
     return n
+
+
+# --- research-log entry contract -------------------------------------------
+#
+# market-open can only act on an idea whose research entry names a NUMERIC
+# trigger level L, because the entry test is arithmetic (see TRADING-STRATEGY).
+# Prose like "watch for a clean level" satisfies no test and can never confirm,
+# so a research log written in prose deadlocks the bot at zero trades forever.
+# Pre-market therefore emits one strict line per idea and this parser is the
+# gate: if nothing parses, `guard.py ideas` fails loudly instead of the bot
+# quietly logging another no-trade day.
+#
+#   - IDEA: SYM | L=<num> | stop=<num> | target=<num> | rr=<num>:1 | sector=<s> | catalyst=<text>
+#   - NO-TRADE: SYM — <reason>
+
+IDEA_RE = re.compile(
+    r"^\s*-\s*IDEA:\s*(?P<symbol>[A-Z][A-Z.\-]{0,9})\s*\|"
+    r"\s*L\s*=\s*(?P<level>\d+(?:\.\d+)?)\s*\|"
+    r"\s*stop\s*=\s*(?P<stop>\d+(?:\.\d+)?)\s*\|"
+    r"\s*target\s*=\s*(?P<target>\d+(?:\.\d+)?)\s*\|"
+    r"\s*rr\s*=\s*(?P<rr>\d+(?:\.\d+)?)\s*:\s*1\s*\|"
+    r"\s*sector\s*=\s*(?P<sector>[^|]+?)\s*\|"
+    r"\s*catalyst\s*=\s*(?P<catalyst>.*?)\s*$",
+    re.MULTILINE,
+)
+SECTION_RE = re.compile(r"^##\s+(\d{4}-\d{2}-\d{2})\b", re.MULTILINE)
+
+
+def research_section(text, ref):
+    """Return just the '## YYYY-MM-DD ...' block for `ref`, or '' if absent."""
+    want = ref.isoformat()
+    for m in SECTION_RE.finditer(text):
+        if m.group(1) != want:
+            continue
+        nxt = SECTION_RE.search(text, m.end())
+        return text[m.start():nxt.start() if nxt else len(text)]
+    return ""
+
+
+def parse_research_ideas(text, ref):
+    """Extract machine-readable IDEA lines from `ref`'s research entry.
+
+    Prose ideas are intentionally invisible here — an idea that names no
+    numeric level cannot be entered, so it is not an idea the executor can use.
+    """
+    ideas = []
+    for m in IDEA_RE.finditer(research_section(text, ref)):
+        ideas.append({
+            "symbol": m.group("symbol").upper(),
+            "level": float(m.group("level")),
+            "stop": float(m.group("stop")),
+            "target": float(m.group("target")),
+            "rr": float(m.group("rr")),
+            "sector": m.group("sector").strip().lower(),
+            "catalyst": m.group("catalyst").strip(),
+        })
+    return ideas
+
+
+def validate_research_idea(idea):
+    """Return a list of rule problems; empty list means the idea is usable."""
+    problems = []
+    level, stop, target = idea["level"], idea["stop"], idea["target"]
+    if level <= 0:
+        problems.append("level L must be positive")
+    if stop >= level:
+        problems.append(f"stop {stop:g} must sit below level L {level:g}")
+    elif level and abs((level - stop) / level - INITIAL_STOP_PCT) > 0.02:
+        problems.append(
+            f"stop {stop:g} is {((level - stop) / level) * 100:.1f}% below L, "
+            f"expected ~{INITIAL_STOP_PCT * 100:.0f}%")
+    if target <= level:
+        problems.append(f"target {target:g} must sit above level L {level:g}")
+    if idea["rr"] < MIN_RR:
+        problems.append(f"rr {idea['rr']:g}:1 is below the {MIN_RR:g}:1 minimum")
+    if idea["catalyst"].strip().lower() in PLACEHOLDER_CATALYSTS:
+        problems.append("catalyst is missing or a placeholder")
+    if not idea["sector"]:
+        problems.append("sector is missing")
+    return problems
+
+
+def confirms_entry(bar, level):
+    """The entry test: closed above L, and any dip under L was a <1% wick."""
+    return float(bar["c"]) > level and float(bar["l"]) >= level * (1 - WICK_TOL)
 
 
 def notify(msg, log_path=None):
@@ -471,6 +562,7 @@ def main(argv=None):
     sub.add_parser("weekly-trades")
     sub.add_parser("check-risk")
     sub.add_parser("is-trading-day")
+    i = sub.add_parser("ideas"); i.add_argument("--date", default=None)
     args = parser.parse_args(argv)
 
     if args.cmd == "status":
@@ -485,6 +577,22 @@ def main(argv=None):
         print(weekly_trade_count(read_jsonl(), date.today())); return 0
     if args.cmd == "sector-streak":
         print(sector_streak(read_jsonl(), args.sector)); return 0
+    if args.cmd == "ideas":
+        ref = date.fromisoformat(args.date) if args.date else date.today()
+        text = RESEARCH_PATH.read_text(encoding="utf-8") if RESEARCH_PATH.exists() else ""
+        usable, rejected = [], []
+        for idea in parse_research_ideas(text, ref):
+            problems = validate_research_idea(idea)
+            (rejected if problems else usable).append((idea, problems))
+        for idea, problems in rejected:
+            print(f"REJECTED {idea['symbol']}: {'; '.join(problems)}",
+                  file=sys.stderr)
+        if not usable:
+            print(f"no idea with a numeric level L in {ref.isoformat()} "
+                  f"research - nothing can be entered today")
+            return 1
+        print(json.dumps([idea for idea, _ in usable], indent=2))
+        return 0
 
     client = AlpacaClient()
     if args.cmd == "is-trading-day":

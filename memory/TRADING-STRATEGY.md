@@ -60,3 +60,25 @@ closes, and midday had no buy step at all. So no entry could ever qualify, no
 matter how good the setup. Fixed by moving market-open to 14:00Z (10:00 ET) and
 making the trigger a two-number arithmetic check. Still no risk-rule changed —
 stop %, position size, and the 3-trades/week cap remain untested and untouched.
+
+Note (Jul 31): the Jul 25 fix was necessary but not sufficient — four more
+sessions (Jul 27-30) passed with zero trades, and all four logged the same line:
+"no idea named a numeric level L for today". The retiming fixed the CONSUMER
+(market-open now runs after the confirmation bar exists) but nothing was ever
+fixed on the PRODUCER side: pre-market was only ever asked for "catalyst + entry
++ stop + target + R:R", which it satisfied in prose — "watch for a confirmed hold
+above a fresh premarket high ... if a clean level appears". A prose entry names no
+number, the arithmetic test has nothing to test, and every session dead-ends. The
+bot was not being cautious; it was structurally incapable of buying.
+
+Fixed by making the producer/consumer contract explicit and machine-checked:
+pre-market STEP 3b now pulls real bars and sets L from data (pre-market high /
+prior-session high / post-earnings reaction high), writes one strict
+`- IDEA: SYM | L=... | stop=... | target=... | rr=...:1 | sector=... | catalyst=...`
+line per candidate, and self-verifies with `guard.py ideas` before committing;
+market-open consumes that parsed JSON instead of re-reading prose, and alerts on
+Discord if a day produces no level. Still no risk-rule changed — stop %, position
+size, and the 3-trades/week cap remain untested and untouched.
+
+An all-NO-TRADE day is still a legitimate outcome. What is not legitimate is a day
+where no idea was even expressible as a number.
