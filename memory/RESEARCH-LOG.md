@@ -390,3 +390,6 @@ HOLD — no held positions to protect. AMZN's gap is too large to chase without 
 - LMT/RTX/NOC: no fresh premarket high formed today (flat/mixed premarket per research) — no level L to check
 - XOM: earnings blackout, no entry regardless of print
 - Result: no trades
+
+### Midday
+- Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
