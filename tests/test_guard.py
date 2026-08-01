@@ -445,3 +445,141 @@ def test_cli_status_prints_not_halted(mem):
     )
     assert out.returncode == 0
     assert "not halted" in out.stdout.lower()
+
+
+# --- research-log level contract (the never-traded deadlock) -----------------
+#
+# market-open can only buy an idea whose research entry names a NUMERIC level L.
+# Before this contract existed, pre-market wrote prose ("if a clean level
+# appears") and every session logged "no idea named a numeric level L" -> the
+# pipeline was structurally incapable of ever placing a trade. These tests pin
+# the machine-readable format so that regression is loud instead of silent.
+
+_GOOD_LINE = ("- IDEA: LMT | L=512.40 | stop=476.53 | target=584.00 | rr=2.0:1 "
+              "| sector=defense | catalyst=record backlog + Iran escalation")
+
+
+def _log(*sections):
+    return "# Research Log\n\n" + "\n\n".join(sections) + "\n"
+
+
+def _entry(day, *lines):
+    return f"## {day} — Pre-market Research\n### Trade Ideas\n" + "\n".join(lines)
+
+
+def test_parse_research_ideas_extracts_numeric_level():
+    text = _log(_entry("2026-07-31", _GOOD_LINE))
+    ideas = guard.parse_research_ideas(text, date(2026, 7, 31))
+    assert len(ideas) == 1
+    idea = ideas[0]
+    assert idea["symbol"] == "LMT"
+    assert idea["level"] == 512.40
+    assert idea["stop"] == 476.53
+    assert idea["target"] == 584.00
+    assert idea["rr"] == 2.0
+    assert idea["sector"] == "defense"
+    assert "record backlog" in idea["catalyst"]
+
+
+def test_parse_research_ideas_ignores_prose_ideas():
+    """The exact shape that produced 11 straight no-trade days."""
+    prose = ("1. LMT/RTX/NOC (defense) — watch for a confirmed post-open hold "
+             "above a fresh premarket high, stop -7%, target ~2:1 if a clean "
+             "level appears.")
+    text = _log(_entry("2026-07-31", prose))
+    assert guard.parse_research_ideas(text, date(2026, 7, 31)) == []
+
+
+def test_parse_research_ideas_only_reads_todays_section():
+    text = _log(_entry("2026-07-30", _GOOD_LINE),
+                _entry("2026-07-31", "- NO-TRADE: XOM — earnings blackout"))
+    assert guard.parse_research_ideas(text, date(2026, 7, 31)) == []
+    assert len(guard.parse_research_ideas(text, date(2026, 7, 30))) == 1
+
+
+def test_parse_research_ideas_missing_section_is_empty():
+    text = _log(_entry("2026-07-30", _GOOD_LINE))
+    assert guard.parse_research_ideas(text, date(2026, 7, 31)) == []
+
+
+def test_validate_research_idea_accepts_well_formed():
+    idea = guard.parse_research_ideas(_log(_entry("2026-07-31", _GOOD_LINE)),
+                                      date(2026, 7, 31))[0]
+    assert guard.validate_research_idea(idea) == []
+
+
+def test_validate_research_idea_rejects_stop_above_level():
+    line = ("- IDEA: LMT | L=100.00 | stop=105.00 | target=130.00 | rr=2.0:1 "
+            "| sector=defense | catalyst=x")
+    idea = guard.parse_research_ideas(_log(_entry("2026-07-31", line)),
+                                      date(2026, 7, 31))[0]
+    assert any("stop" in p for p in guard.validate_research_idea(idea))
+
+
+def test_validate_research_idea_rejects_target_below_level():
+    line = ("- IDEA: LMT | L=100.00 | stop=93.00 | target=95.00 | rr=2.0:1 "
+            "| sector=defense | catalyst=x")
+    idea = guard.parse_research_ideas(_log(_entry("2026-07-31", line)),
+                                      date(2026, 7, 31))[0]
+    assert any("target" in p for p in guard.validate_research_idea(idea))
+
+
+def test_validate_research_idea_rejects_sub_2to1_rr():
+    line = ("- IDEA: LMT | L=100.00 | stop=93.00 | target=110.00 | rr=1.5:1 "
+            "| sector=defense | catalyst=x")
+    idea = guard.parse_research_ideas(_log(_entry("2026-07-31", line)),
+                                      date(2026, 7, 31))[0]
+    assert any("2:1" in p for p in guard.validate_research_idea(idea))
+
+
+def test_validate_research_idea_rejects_missing_catalyst():
+    line = ("- IDEA: LMT | L=100.00 | stop=93.00 | target=130.00 | rr=2.0:1 "
+            "| sector=defense | catalyst=TBD")
+    idea = guard.parse_research_ideas(_log(_entry("2026-07-31", line)),
+                                      date(2026, 7, 31))[0]
+    assert any("catalyst" in p for p in guard.validate_research_idea(idea))
+
+
+def test_confirms_entry_requires_close_above_level():
+    assert guard.confirms_entry({"c": 101.0, "l": 100.5}, 100.0) is True
+    assert guard.confirms_entry({"c": 99.0, "l": 98.0}, 100.0) is False
+
+
+def test_confirms_entry_allows_shallow_wick_but_not_deep_one():
+    # low may dip under L by up to 1%
+    assert guard.confirms_entry({"c": 101.0, "l": 99.5}, 100.0) is True
+    assert guard.confirms_entry({"c": 101.0, "l": 98.9}, 100.0) is False
+
+
+def test_cli_ideas_exits_nonzero_when_no_numeric_level(mem, tmp_path):
+    import subprocess, os
+    research = tmp_path / "RESEARCH-LOG.md"
+    research.write_text(_log(_entry(date.today().isoformat(),
+                                    "1. LMT — watch for a clean level.")),
+                        encoding="utf-8")
+    env = dict(os.environ)
+    env["GUARD_STATE_PATH"] = str(mem / "state.json")
+    env["GUARD_TRADES_PATH"] = str(mem / "trades.jsonl")
+    env["GUARD_RESEARCH_PATH"] = str(research)
+    out = subprocess.run([sys.executable, "scripts/guard.py", "ideas"],
+                         capture_output=True, text=True, env=env,
+                         stdin=subprocess.DEVNULL)
+    assert out.returncode == 1
+    assert "no idea" in (out.stdout + out.stderr).lower()
+
+
+def test_cli_ideas_emits_json_for_valid_idea(mem, tmp_path):
+    import subprocess, os
+    research = tmp_path / "RESEARCH-LOG.md"
+    research.write_text(_log(_entry(date.today().isoformat(), _GOOD_LINE)),
+                        encoding="utf-8")
+    env = dict(os.environ)
+    env["GUARD_STATE_PATH"] = str(mem / "state.json")
+    env["GUARD_TRADES_PATH"] = str(mem / "trades.jsonl")
+    env["GUARD_RESEARCH_PATH"] = str(research)
+    out = subprocess.run([sys.executable, "scripts/guard.py", "ideas"],
+                         capture_output=True, text=True, env=env,
+                         stdin=subprocess.DEVNULL)
+    assert out.returncode == 0
+    payload = json.loads(out.stdout)
+    assert payload[0]["symbol"] == "LMT" and payload[0]["level"] == 512.40

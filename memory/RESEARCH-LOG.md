@@ -237,3 +237,159 @@ HOLD — no held positions to protect. Two live shocks (new tariffs + Iran escal
 
 ### Decision
 HOLD — no held positions to protect. Ceasefire relief is genuine good news but lands directly ahead of FOMC (Wed) and four Big Tech earnings prints (Wed/Thu); XOM and defense theses both broke overnight as oil reversed. No idea has a confirmed entry trigger, and this week's event stacking argues for extra patience regardless. Reassess post-FOMC/earnings. Patience > activity.
+
+### Execution (market-open)
+- No idea named a level L for today (XOM: thesis broken/earnings blackout; defense: catalyst removed by ceasefire; broad market: no pre-event entry) — confirmation bar not applicable, no tickers checked.
+- Result: no trades
+
+### Midday
+- Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
+
+## 2026-07-28 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~19.0, up ~1.7% — highest in weeks, chip-driven risk-off. ([Investing.com](https://www.investing.com/indices/us-spx-vix-futures))
+- Futures red, tech-led: Nasdaq-100 futures -0.9%, S&P futures -0.2%. ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-tuesday-july-28-dow-sp-500-nasdaq-082832371.html))
+- Top catalyst: Asian memory-chip rout — Samsung -13.4% (worst day in ~20 yrs), SK Hynix -14.7%, KOSPI -10.8% (biggest drop since the March Iran conflict), on AI-infrastructure-financing worries + rising China competition. Spilling into US premarket: NVDA -1.2%, INTC/AMD >-3%, MU -5%. ([CNBC](https://www.cnbc.com/2026/07/28/sk-hynix-plunges-semiconductor-selloff-deepens-samsung-softbank.html), [CNBC Daily Open](https://www.cnbc.com/2026/07/28/daily-open-ai-boom-chip-selloff-sk-hynix.html))
+- FOMC decision Wed Jul 29, 2pm ET — fed funds expected to hold at 3.50-3.75% (~65% odds via CME FedWatch); no SEP/dot plot this meeting; September hike odds already ~82% per some analysts. Chair Warsh has dropped traditional forward guidance, adding uncertainty. ([CME Group](https://www.cmelitegroup.com/knowledge-hub/fomc-meeting-fed-decision-day/), [TradingKey](https://www.tradingkey.com/analysis/stocks/us-stocks/262054021-july-fomc-fed-oil-us-oil-tradingkey))
+- Earnings: MSFT + META report Wed (alongside FOMC); AAPL + AMZN report Thu (alongside June core PCE); KO/BA/F also this week. Mag7 capex (~$724B 2026, ~$950B 2027 combined) is the swing factor markets are fixated on. ([TradingKey](https://www.tradingkey.com/analysis/stocks/us-stocks/262054300-weekly-preview-fed-apple-microsoft-meta-amazon-earnings-reports-tradingkey), [Fortune](https://fortune.com/2026/07/26/big-tech-earnings-meta-microsoft-apple-amazon-market-revolt-ai-spending/))
+- Rotation theme intact: industrials/energy/consumer-defensive continuing to outperform (energy +22% YTD, industrials led by defense/grid-buildout); small-caps +21% YTD despite still trading at a historic discount to S&P. Today's chip rout reinforces the out-of-mega-cap-tech flow. ([Intellectia](https://intellectia.ai/blog/market-rotation-beyond-magnificent-7-july-2026), [AlphaBetaStock](https://alphabetastock.com/sector-rotation-industrials-energy-tech-narrowing-2026/))
+
+### Trade Ideas
+1. LMT/RTX/NOC (defense/industrials) — today's tech/chip rout could reinforce the rotation into defense/industrials, but the Iran ceasefire (holding since Jul 26-27) already removed the escalation catalyst that drove last week's rally; no fresh catalyst today. No pre-print entry — watch only for a confirmed post-open hold above recent highs if flows rotate here; stop -7%, target 2:1.
+2. XOM — thesis still broken (oil reversed hard last week on the ceasefire) and Q2 earnings land Friday Jul 31 — earnings blackout applies. No entry, stay off watchlist.
+3. Broad market / mega-cap tech (MSFT/META/AAPL/AMZN, NVDA/semis) — no entry of any kind. FOMC decision Wed + two of four Mag7 prints Wed, other two Thu, stacked directly on top of today's AI-financing-driven chip selloff. Any position (long or short) opened today holds through the single highest event-risk 48 hours of the summer. Wait for post-FOMC/post-earnings clarity.
+
+### Risk Factors
+- AI-infrastructure-financing fears (chip rout, Samsung/SK Hynix worst days in years) could keep spilling into US semis/mega-cap tech and broad risk appetite through the week.
+- FOMC Wed 2pm ET — even at ~65% hold odds, Warsh has dropped forward guidance, raising surprise risk; September-hike odds already elevated per some desks.
+- MSFT/META (Wed) + AAPL/AMZN (Thu) are index-moving; last week's TSLA -15%/GOOGL -7% reaction shows single-name AI-capex misses can trigger broad selloffs.
+- VIX ~19, highest in weeks — regime not calm, argues for smaller size/no size this week.
+- No held positions to protect currently, but event stacking (FOMC + 4 Mag7 prints in 2 days) makes this an unusually poor week to initiate new risk regardless of setup quality.
+
+### Decision
+HOLD — no held positions to protect. No idea has a confirmed entry trigger, defense/industrials catalyst is stale (ceasefire removed it), XOM is earnings-blackout, and initiating anything into mega-cap tech/semis right before FOMC (Wed) and four Big Tech prints (Wed/Thu) violates the "no pre-event entry" principle regardless of setup. Reassess post-FOMC/post-earnings later this week. Patience > activity.
+
+### Execution (market-open)
+- No idea named a level L for today (defense/industrials: catalyst stale post-ceasefire; XOM: earnings blackout; broad market/mega-cap tech: no pre-event entry ahead of FOMC + Mag7 prints) — confirmation bar not applicable, no tickers checked.
+- Result: no trades
+
+### Midday
+- Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
+
+## 2026-07-29 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~18.9, elevated but roughly flat overnight — still highest-in-weeks regime from the chip selloff. ([Investing.com](https://www.investing.com/indices/volatility-s-p-500))
+- Futures steadying: S&P +0.2%, Nasdaq-100 ~flat — but Nasdaq-100 sits on the brink of a technical correction after a 4th straight day of chip losses. ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-wednesday-july-29-dow-sp-500-nasdaq-082009165.html))
+- Major overnight escalation: the Iran-US ceasefire broke — Iran (IRGC) launched a surprise ballistic-missile attack on US forces in the Middle East; Jordan intercepted 5 missiles, US/Saudi forces struck Iran-linked PMF sites in Iraq in response. Reverses Sunday-Monday's de-escalation. ([CNN](https://www.cnn.com/2026/07/29/world/live-news/iran-trump-news), [OPB](https://www.opb.org/article/2026/07/28/the-us-says-it-thwarted-an-iranian-missile-attack-that-ended-a-brief-pause-in-fighting/))
+- Oil jumped on the renewed attack: Brent +3.4% to ~$86.97, WTI +3.6% to ~$82.09, bouncing off Tuesday's brief-calm low (~$84) but still well below last week's >$100 escalation peak. ([Bloomberg](https://www.bloomberg.com/news/articles/2026-07-28/latest-oil-market-news-and-analysis-for-july-29))
+- FOMC decision today 2pm ET (Chair Warsh press conference) — rates expected to hold at 3.50-3.75% (~62-65% odds per CME FedWatch/Polymarket); Warsh has dropped traditional forward guidance, raising surprise risk. ([CME Group](https://www.cmelitegroup.com/knowledge-hub/fomc-meeting-fed-decision-day/), Polymarket)
+- Big Tech earnings after close today: Microsoft (MSFT, est. $4.24 EPS / $87.63B rev) and Meta (META, est. $7.18 EPS / $60.22B rev, capex guide already raised to $125-145B) plus Qualcomm — both ~95% beat odds priced in, so FY27 capex commentary is the real stock-mover. ([TipRanks](https://www.tipranks.com/news/big-tech-earnings-showdown-meta-and-microsoft-in-focus-ahead-of-july-29-earnings-report), [Benzinga](https://www.benzinga.com/markets/options/26/07/60741589/microsoft-could-swing-189-billion-in-value-after-earnings))
+- Semiconductor selloff extending to a 4th straight day: NVDA, MU, AMD, INTC, SNDK all lower pre-market; SMH ETF down >3%, pressured by SK Hynix's guidance miss despite record results and Nvidia losing its title as most-valuable company to Apple amid AI-financing concerns (report of NVDA backstopping $250B OpenAI-linked data-center funding). ([TipRanks](https://www.tipranks.com/news/semiconductor-stocks-nvda-amd-micron-and-sndk-extend-their-sell-off-in-pre-market-today-july-29-what-triggered-the-latest-slide))
+- Rotation theme intact: energy (+21-22% YTD) and industrials (+12% YTD, defense/grid-buildout led) continuing to outperform mega-cap tech, which remains under AI-capex-financing pressure. ([AlphaBetaStock](https://alphabetastock.com/sector-rotation-industrials-energy-tech-narrowing-2026/))
+
+### Trade Ideas
+1. LMT/RTX/NOC (defense/industrials) — renewed Iran attack directly reignites the escalation catalyst that drove last week's 3-4% rally in these names. No pre-print entry; watch for a confirmed post-open hold above premarket high, stop -7%, target ~2:1 if a clean level forms today.
+2. XOM — oil bounce (+3.4-3.6%) is escalation-driven and reversible, and the name still reports Q2 earnings this Friday Jul 31 — earnings-blackout applies. No entry, stay off watchlist.
+3. Broad market / mega-cap tech / semis — no entry of any kind. FOMC (2pm ET) + MSFT/META/QCOM earnings after close stack directly on top of a 4th-day chip selloff and a fresh Iran-US military escalation. Any position opened today holds through the single highest event-risk window of the week. Wait for post-FOMC/post-earnings clarity.
+
+### Risk Factors
+- Iran-US conflict reignited overnight (ceasefire broken, missiles intercepted, retaliatory strikes in Iraq) — unpredictable, could escalate further intraday and whipsaw oil/risk sentiment either direction.
+- FOMC 2pm ET — even at ~62-65% hold odds, Warsh has dropped forward guidance, raising surprise-move risk on the decision and press conference.
+- MSFT/META/QCOM earnings after close — capex guidance is the real swing factor; last week's TSLA -15%/GOOGL -7% reaction shows AI-capex commentary can trigger broad tech selloffs.
+- Semiconductor selloff now 4 sessions running, Nasdaq-100 near correction — could keep dragging broad tech/risk sentiment through the session.
+- VIX ~18.9, still elevated — regime not calm, warrants smaller size/no size today regardless of setup.
+
+### Decision
+HOLD — no held positions to protect. No idea has a confirmed entry trigger pre-open. Today stacks a reignited Iran-US military conflict, the FOMC decision (2pm ET), and MSFT/META/QCOM earnings after close directly on top of a 4th-day chip selloff — the highest event-risk combination of the week. Defense/industrials (LMT/RTX/NOC) is worth watching for a confirmed post-open reaction to the Iran news; everything else stays off-limits until after FOMC/earnings clarity. Patience > activity.
+
+### Execution (market-open)
+- No idea named a numeric level L for today (LMT/RTX/NOC: "if a clean level forms today" — no level set; XOM: earnings blackout; broad market/tech: no pre-event entry ahead of FOMC + MSFT/META/QCOM) — confirmation bar not applicable, no tickers checked.
+- Result: no trades
+
+### Midday
+- Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
+
+## 2026-07-30 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~19.4, down ~6% overnight but still elevated after Wednesday's spike. ([Investing.com](https://www.investing.com/indices/us-spx-vix-futures))
+- Futures rebounding: S&P +0.3-0.4%, Dow +0.2%, Nasdaq-100 +0.7%, as markets try to steady ahead of inflation data. ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-thursday-july-30-dow-sp-500-nasdaq-082255995.html))
+- FOMC (Wed 2pm ET): Fed held rates 3.50-3.75% but on an unusually split 9-3 vote — Hammack, Kashkari, and Logan all dissented in favor of a hike. Warsh's shorter, guidance-light statement raised credibility questions; 30Y Treasury yield spiked to its highest since 2007. Dow fell ~1,100 points Wednesday, its worst day in over a year. ([CNBC](https://www.cnbc.com/2026/07/29/fed-rate-decision-july-2026.html), [CNBC](https://www.cnbc.com/2026/07/29/kevin-warsh-fed-treasury-yields-inflation-credibility-interest-rates.html))
+- Iran conflict re-escalated further overnight: after Tuesday's intercepted Iranian missile attack, the US completed retaliatory strikes on Iran; Trump says "it's our turn" and has vowed to "hit them very hard" again. Highly fluid, headline-driven. ([CNN](https://www.cnn.com/2026/07/29/world/live-news/iran-trump-news))
+- Big Tech earnings (after Wed close): Microsoft beat and raised, capex +70% to $41B, shares +2.4% AH. Meta missed badly — EPS $6.18 vs $7.22 est, net income -14% YoY, capex guide raised to $130-145B — shares -6.2% AH. Mixed signal for mega-cap tech open. ([CNBC](https://www.cnbc.com/2026/07/29/microsoft-aces-earnings-call-while-meta-frustration-grows-do-we-just-need-to-be-a-bit-more-patient.html))
+- Econ calendar today: Core PCE (Fed's preferred inflation gauge, ~8:30am ET, est. +0.1-0.2% MoM / ~3.3% YoY), Q2 GDP (est. +2.3%), and weekly jobless claims — all landing pre-open, could move rates/tape sharply. ([Investing.com](https://www.investing.com/news/stock-market-news/core-pce-price-index-gdp-and-jobless-claims-due-thursday-93CH-4821457))
+- Defense (LMT/RTX/NOC): all three posted record backlogs and raised FY26 guidance last week (book-to-bill 2.4-3.2x) — strong fundamentals, but that catalyst is now several sessions old and largely priced; renewed Iran-US strikes could reignite momentum. ([Foreign Policy Journal](https://www.foreignpolicyjournal.com/2026/07/26/lockheed-martin-nyse-lmt-rtx-nyse-rtx-and-northrop-grumman-nyse-noc-post-record-backlogs-raise-guidance-after-q2-results/))
+- XOM: still on earnings blackout, reports Q2 tomorrow (Fri Jul 31, consensus EPS ~$3.68-3.88). ([Alphastreet](https://news.alphastreet.com/exxon-mobil-xom-q2-2026-preview-eps-est-3-68-reports-july-31/))
+
+### Trade Ideas
+1. LMT/RTX/NOC (defense) — record backlogs/raised guidance from last week plus fresh Iran-US strikes overnight could reignite the rally, but no new pre-market catalyst level has formed since last week's earnings pop. No pre-open entry; watch for a confirmed post-open hold above a fresh premarket high, stop -7%, target ~2:1 if a clean level appears.
+2. XOM — earnings blackout continues (reports tomorrow). No entry, stay off watchlist.
+3. Broad market / mega-cap tech — no entry of any kind. Wednesday's Fed-driven selloff (worst day in over a year, credibility-questioning dissent, 30Y yield at an 18-year high) plus Core PCE/GDP/jobless claims all landing this morning plus mixed MSFT/META earnings reactions is too much stacked event risk. Wait for the data prints and post-open tape to clarify direction.
+
+### Risk Factors
+- Dow's ~1,100-point drop Wednesday was the worst single day in over a year, driven by a divided, credibility-challenged Fed — volatility regime not settled despite VIX pulling back this morning.
+- Iran-US conflict actively escalating (US just struck Iran, Trump vowing further "very hard" retaliation) — unpredictable, headline risk can move oil/defense/broad risk appetite intraday in either direction.
+- Core PCE + GDP + jobless claims all due pre-open — a hot inflation print on top of yesterday's yield spike could extend the selloff; a cool print could spark a sharp relief rally. Binary risk into the open.
+- Mega-cap tech crosscurrents: MSFT strength vs. META's earnings miss and rising capex fatigue narrative could pull the Nasdaq either way.
+- 30Y yield at its highest since 2007 — a standing headwind for equity valuations that isn't resolved by today's calm-ish futures.
+
+### Decision
+HOLD — no held positions to protect. Yesterday's Fed-driven selloff (worst day in over a year, hawkish 9-3 split, yield spike) plus an actively escalating Iran-US conflict plus this morning's Core PCE/GDP/jobless-claims data stack far too much event risk for a new entry before the tape shows a clean, confirmed post-data/post-open direction. Defense fundamentals remain strong but the catalyst is stale without a fresh level; mega-cap tech has no clear signal after mixed MSFT/META prints. Patience > activity.
+
+### Execution (market-open)
+- No idea named a numeric level L for today (LMT/RTX/NOC: "if a clean level appears" — no level set; XOM: earnings blackout; broad market/mega-cap tech: no entry ahead of stacked Fed/Iran/PCE event risk) — confirmation bar not applicable, no tickers checked.
+- Result: no trades
+
+### Midday
+- Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
+
+## 2026-07-31 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~18.5, elevated but off Wednesday's spike-highs. ([Investing.com](https://www.investing.com/indices/us-spx-vix-futures))
+- Futures higher: S&P +0.3%, Nasdaq-100 +0.5%, riding Thursday's 1.66% rally to a close of 7,437.63 on strong AI-earnings momentum. ([Bloomberg](https://www.bloomberg.com/news/articles/2026-07-30/stock-market-today-dow-s-p-live-updates))
+- Top catalyst: Big Tech earnings crosscurrents dominate the tape — Amazon (AMZN) beat and surged ~13% premarket on cloud/AI monetization strength, while Apple (AAPL) tumbled ~7.2% premarket on a Services and China revenue miss. Mixed signal for mega-cap tech open. ([TheStreet](https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-31-2026))
+- Iran-US conflict still widening: US launched a "heavy wave" of fresh strikes on Iran Thursday after the 5-night pause broke; strikes killed civilians on Qeshm Island per Iranian state media; Egypt's Damietta port was struck (first time Egypt drawn into the conflict); IRGC vows Strait of Hormuz stays disrupted and threatens retaliation. ([Bloomberg](https://www.bloomberg.com/news/articles/2026-07-30/us-launches-fresh-strikes-against-iran-as-war-escalates-again), [CNN](https://www.cnn.com/2026/07/30/world/live-news/iran-war-trump))
+- Oil calm despite the war: WTI ~$83.68 (+0.1%), Brent ~$89.34 (+0.35%) — Hormuz crude flows reported recovering to ~30-35% of pre-war levels, easing the spike-risk premium from earlier in the week. ([CNBC](https://www.cnbc.com/2026/07/31/oil-prices-today-brent-wti-hormuz-trump-iran-.html))
+- Defense (LMT/RTX/NOC): mixed/flat premarket (LMT +0.86%, RTX -0.40%, NOC -0.04%) despite the active war — last week's earnings-driven pop (record backlogs, raised FY26 guidance) is priced in and the war catalyst hasn't moved these names further today. ([Defense World](https://www.defenseworld.net/2026/07/31/promising-defense-stocks-to-follow-today-july-29th.html))
+- XOM reports Q2 2026 results before today's open (~8:30am CT call); consensus ~$3.68-3.87 EPS on ~$98B revenue, beat in each of the last 4 quarters (avg surprise +6%). Earnings-day volatility — no new position today regardless of print. ([Alphastreet](https://news.alphastreet.com/exxon-mobil-xom-q2-2026-preview-eps-est-3-68-reports-july-31/))
+- Econ calendar: Employment Cost Index at 8:30am ET, Michigan Consumer Sentiment (final) at 10am ET — lighter than the last two days, no Core PCE/GDP today (released Thursday, came in benign). ([Kiplinger](https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar))
+- Rotation: energy/industrials/defense still leading 2026 YTD, but Thursday's AI-earnings-driven tech rally (AMZN) and today's premarket action show money flowing back into mega-cap tech on strong prints, not away from it — rotation signal is muddier than prior weeks. ([Kalkine](https://kalkine.com/news/premium/us-sector-performance-analysis-energy-surges-as-investors-rotate-toward-defensive-and-value-oriented-sectors))
+
+### Trade Ideas
+1. AMZN — beat-and-raise earnings, ~13% premarket gap on cloud/AI strength. No pre-open entry: chasing a 13%+ gap has poor risk/reward and high gap-fill risk. Watch only for a confirmed hold above the premarket high on the first 30-min bar (CONFIRMED = bar close > L and bar low >= L*0.99); stop -7%, target 2:1 minimum if it qualifies.
+2. LMT/RTX/NOC (defense) — Iran war still active and widening (Egypt now involved, Hormuz disrupted) but premarket action is flat/mixed — no fresh catalyst move today, last week's guidance-raise pop already priced. No entry; watch only if headlines drive a fresh premarket high with room to confirm.
+3. XOM — reports Q2 earnings today before open. Earnings-day volatility, no defined pre-print level, thesis was already broken by the oil reversal two weeks ago. No entry, stay off watchlist today regardless of print.
+
+### Risk Factors
+- Iran-US conflict is actively widening (Egypt struck for the first time, IRGC vows Hormuz stays disrupted) — a headline escalation could spike oil and risk sentiment intraday despite today's calm open.
+- AAPL's ~7.2% premarket drop (Services/China miss) is a index-weight-heavy negative that could offset AMZN's positive pull on the Nasdaq/S&P — net tech direction is unsettled into the open.
+- XOM earnings this morning adds single-name volatility risk to the energy complex on a day already carrying war-driven oil-price uncertainty.
+- Friday session — end-of-week positioning/profit-taking on a strong Thursday close (+1.66%) could add chop regardless of headlines.
+- VIX ~18.5 still elevated versus the summer's calmer weeks — regime not fully settled even as futures point higher.
+
+### Decision
+HOLD — no held positions to protect. AMZN's gap is too large to chase without a confirmed post-open hold; defense catalyst (Iran war) hasn't moved LMT/RTX/NOC further today despite active widening of the conflict; XOM is in earnings-day blackout. No idea has a confirmed entry trigger pre-open. Reassess AMZN and defense on the post-open tape for a qualifying level. Patience > activity.
+
+### Execution (market-open)
+- AMZN: L=266.69 (premarket high) | bar 13:30Z l=262.01 c=269.16 -> NOT CONFIRMED (low 262.01 < L*0.99=264.02 — wick under the level exceeded 1%)
+- LMT/RTX/NOC: no fresh premarket high formed today (flat/mixed premarket per research) — no level L to check
+- XOM: earnings blackout, no entry regardless of print
+- Result: no trades
+
+### Midday
+- Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK

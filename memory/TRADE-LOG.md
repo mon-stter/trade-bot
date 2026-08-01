@@ -52,3 +52,38 @@ No positions yet. Bot launches next trading day.
 |---|---|---|---|---|---|
 | — | — | — | — | — | — |
 **Notes:** No trades placed today. Account still flat at $100,000 cash, no open positions. No trades this week (0/3). Not halted.
+
+### Jul 27 — EOD Snapshot (Day 8)
+**Portfolio:** $100,000.00 | **Cash:** $100,000.00 (100%) | **Day P&L:** $0 (0.0%) | **Phase P&L:** $0 (0.0%)
+| Ticker | Shares | Entry | Close | Unrealized P&L | Stop |
+|---|---|---|---|---|---|
+| — | — | — | — | — | — |
+**Notes:** No trades placed today. Account still flat at $100,000 cash, no open positions. No trades this week (0/3). Not halted.
+
+### Jul 28 — EOD Snapshot (Day 9)
+**Portfolio:** $100,000.00 | **Cash:** $100,000.00 (100%) | **Day P&L:** $0 (0.0%) | **Phase P&L:** $0 (0.0%)
+| Ticker | Shares | Entry | Close | Unrealized P&L | Stop |
+|---|---|---|---|---|---|
+| — | — | — | — | — | — |
+**Notes:** No trades placed today. Account still flat at $100,000 cash, no open positions. No trades this week (0/3). Not halted.
+
+### Jul 29 — EOD Snapshot (Day 10)
+**Portfolio:** $100,000.00 | **Cash:** $100,000.00 (100%) | **Day P&L:** $0 (0.0%) | **Phase P&L:** $0 (0.0%)
+| Ticker | Shares | Entry | Close | Unrealized P&L | Stop |
+|---|---|---|---|---|---|
+| — | — | — | — | — | — |
+**Notes:** No trades placed today. Account still flat at $100,000 cash, no open positions. No trades this week (0/3). Not halted.
+
+### Jul 30 — EOD Snapshot (Day 11)
+**Portfolio:** $100,000.00 | **Cash:** $100,000.00 (100%) | **Day P&L:** $0 (0.0%) | **Phase P&L:** $0 (0.0%)
+| Ticker | Shares | Entry | Close | Unrealized P&L | Stop |
+|---|---|---|---|---|---|
+| — | — | — | — | — | — |
+**Notes:** No trades placed today. Account still flat at $100,000 cash, no open positions. No trades this week (0/3). Not halted.
+
+### Jul 31 — EOD Snapshot (Day 12)
+**Portfolio:** $100,000.00 | **Cash:** $100,000.00 (100%) | **Day P&L:** $0 (0.0%) | **Phase P&L:** $0 (0.0%)
+| Ticker | Shares | Entry | Close | Unrealized P&L | Stop |
+|---|---|---|---|---|---|
+| — | — | — | — | — | — |
+**Notes:** No trades placed today. Account still flat at $100,000 cash, no open positions. No trades this week (0/3). Not halted.

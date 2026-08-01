@@ -97,3 +97,50 @@ None.
 
 ### Grade: C+
 Capital fully preserved and index-beating for a second straight week, zero rule violations — but 10 sessions with zero executions despite recurring real catalysts (XOM breakout, defense rally) means the process needs to prove it can act, not just avoid, before another B is earned.
+
+## Week ending Jul 31, 2026
+
+### Stats
+| Metric | Value |
+|---|---|
+| Starting portfolio (Monday baseline) | $100,000.00 |
+| Ending portfolio | $100,000.00 |
+| Week return | $0.00 (0.0%) |
+| S&P 500 week return | +1.05% (7,411.98 → 7,489.72) |
+| Trades (W/L/open) | 0 / 0 / 0 |
+| Win rate | N/A (no trades) |
+| Best trade | N/A |
+| Worst trade | N/A |
+| Profit factor | N/A |
+
+### Closed Trades
+| Ticker | Entry | Exit | P&L $ | P&L % | Days Held |
+|---|---|---|---|---|---|
+| — | — | — | — | — | — |
+
+### Open Positions
+None.
+
+### What Worked
+- Zero rule violations across all 5 sessions (Jul 27-31); every HOLD documented with a specific reason in RESEARCH-LOG.md.
+- Sidestepped real event risk while fully in cash: Wednesday's Fed-driven selloff (worst single day in over a year, hawkish 9-3 dissent, 30Y yield at an 18-year high) and the actively widening Iran-US-Egypt conflict.
+- The Jul 25 scheduling fix (market-open moved 13:30Z → 14:00Z) produced its first real confirmation check this week — AMZN on Jul 31 was mechanically evaluated (bar low $262.01 < L*0.99=$264.02) and correctly rejected per the coded rule, not skipped on vague judgment. First end-to-end proof the mechanism works.
+- Correctly held XOM off the watchlist all week under the earnings-blackout rule ahead of Friday's report.
+- Beat the S&P 500 by +1.05pp this week on capital preservation.
+
+### What Didn't
+- Third consecutive week, 15th consecutive session, with zero trades placed — even after the scheduling bug was fixed, the one real confirmation check this week (AMZN) still failed to clear the bar.
+- Stop discipline, trailing-stop logic, and the sector-exit rule remain completely untested after three full weeks live.
+- Defense sector thesis (LMT/RTX/NOC) has been tracked since mid-July but never produced a fresh premarket-high level this week to even attempt a confirmation check — an idea can go stale without ever being tested by the mechanism.
+- Still can't fully separate "process too strict" from "genuinely no valid setups" — this was one of the most event-dense 3-week stretches on record (Iran war escalating and de-escalating twice, Fed dissent, chip-sector rout, four Mag7 earnings prints).
+
+### Key Lessons
+- The Jul 25 scheduling fix was necessary but not sufficient on its own — it enabled the first mechanical confirmation check ever run (AMZN, Jul 31), which is real progress, but one data point cannot validate or invalidate the 1% wick threshold either way.
+- Three weeks of extraordinary macro event density (two Iran ceasefire/re-escalation cycles, a credibility-questioning Fed decision, a multi-day chip-sector crash) is a genuinely hard environment to justify new risk in — that's a separate question from whether the entry bar itself is well-calibrated, and both need more live data to answer.
+
+### Adjustments
+- No change to TRADING-STRATEGY.md this week. The confirmation-bar formula (added Jul 24, scheduling bug fixed Jul 25) has now fired exactly once — too small a sample to judge per the "2+ weeks proof" rule. Continue into week 4 and reassess once several real checks have accumulated.
+- No change to position sizing, stop, or trade-frequency rules — still untested, need actual trades first.
+
+### Grade: C
+Capital fully preserved and index-beating for a third straight week, zero rule violations, and the entry mechanism finally proved it can mechanically fire and reject a setup — but 15 sessions with zero executions is a pattern that needs to turn into an actual trade soon, not just a better-tested reason to keep holding.
