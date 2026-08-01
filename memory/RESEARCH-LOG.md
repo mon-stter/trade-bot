@@ -9,7 +9,12 @@ Format:
 ### Market Context
 - Indices / VIX / catalysts / earnings / economic calendar / sector momentum
 ### Trade Ideas
-1. TICKER — catalyst, entry $X, stop $X (-7%), target $X, R:R X:1
+Every candidate gets ONE machine-readable line. Prose around them is fine, but
+these lines are what market-open actually reads — an idea written only as prose
+names no number, can never pass the arithmetic entry test, and is invisible to
+the executor. Verify with `python3 scripts/guard.py ideas` before committing.
+- IDEA: SYM | L=<num> | stop=<num> | target=<num> | rr=<num>:1 | sector=<s> | catalyst=<specific catalyst>
+- NO-TRADE: SYM — <reason>
 ### Risk Factors
 ### Decision
 TRADE or HOLD (default HOLD if no edge)
