@@ -19,6 +19,10 @@ Communicate ultra-concise: short bullets, no fluff.
 - Run `python3 scripts/guard.py sync` at the start of every session so broker-fired
   stops are recorded in trades.jsonl.
 - Check `python3 scripts/guard.py status` and `is-trading-day` before acting.
+- Trade ideas are only real if `python3 scripts/guard.py ideas` can parse them.
+  Pre-market must write `- IDEA: SYM | L=<num> | stop=<num> | target=<num> |
+  rr=<num>:1 | sector=<s> | catalyst=<text>` (or `- NO-TRADE: SYM — <reason>`).
+  An idea with no numeric level L can never be entered — prose is not a trigger.
 - Use bash scripts/alpaca.sh, scripts/discord.sh. Never curl these APIs directly.
 
 ## Strategy Hard Rules (quick reference)
