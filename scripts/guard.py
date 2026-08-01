@@ -263,6 +263,19 @@ def validate_research_idea(idea):
     return problems
 
 
+def position_size(equity, cash, price, pct=MAX_POSITION_PCT):
+    """Whole shares to buy: the smaller of the 20%-of-equity cap and available
+    cash, floored. Flooring (never rounding) is what keeps the resulting cost
+    under the cap that validate_buy enforces, so sizing and the gate agree."""
+    price = float(price)
+    if price <= 0:
+        return 0
+    budget = min(float(equity) * pct, float(cash))
+    if budget <= 0:
+        return 0
+    return int(budget // price)
+
+
 def confirms_entry(bar, level):
     """The entry test: closed above L, and any dip under L was a <1% wick."""
     return float(bar["c"]) > level and float(bar["l"]) >= level * (1 - WICK_TOL)
@@ -563,6 +576,10 @@ def main(argv=None):
     sub.add_parser("check-risk")
     sub.add_parser("is-trading-day")
     i = sub.add_parser("ideas"); i.add_argument("--date", default=None)
+    z = sub.add_parser("size")
+    z.add_argument("--price", type=float, required=True)
+    z.add_argument("--equity", type=float, default=None)
+    z.add_argument("--cash", type=float, default=None)
     args = parser.parse_args(argv)
 
     if args.cmd == "status":
@@ -594,7 +611,15 @@ def main(argv=None):
         print(json.dumps([idea for idea, _ in usable], indent=2))
         return 0
 
+    if args.cmd == "size" and args.equity is not None and args.cash is not None:
+        print(position_size(args.equity, args.cash, args.price)); return 0
+
     client = AlpacaClient()
+    if args.cmd == "size":
+        acct = client.account()
+        print(position_size(float(acct["equity"]), float(acct["cash"]),
+                            args.price))
+        return 0
     if args.cmd == "is-trading-day":
         ok = is_trading_day(client, date.today())
         print("open" if ok else "closed"); return 0 if ok else 1
