@@ -68,8 +68,18 @@ sessions (Jul 27-30) passed with zero trades, and all four logged the same line:
 fixed on the PRODUCER side: pre-market was only ever asked for "catalyst + entry
 + stop + target + R:R", which it satisfied in prose — "watch for a confirmed hold
 above a fresh premarket high ... if a clean level appears". A prose entry names no
-number, the arithmetic test has nothing to test, and every session dead-ends. The
-bot was not being cautious; it was structurally incapable of buying.
+number, the arithmetic test has nothing to test, and the session dead-ends.
+
+Correction (same day, after Jul 31 data landed): "incapable of buying" overstates
+it. On Jul 31 pre-market did set a real level unprompted — AMZN L=266.69 from the
+premarket high — and market-open ran the first genuine mechanical check in the
+bot's history, rejecting it correctly (bar low 262.01 < L*0.99 = 264.02). So the
+producer CAN emit a level; nothing ever *required* it to, so it did roughly one
+day in five, and the same Jul 31 entry still left LMT/RTX/NOC with no level at
+all. The accurate diagnosis is an unenforced contract, not an impossible one:
+whether the bot could trade on a given day depended on whether that morning's
+write-up happened to contain a number. Discipline that only holds by luck is the
+thing being fixed here.
 
 Fixed by making the producer/consumer contract explicit and machine-checked:
 pre-market STEP 3b now pulls real bars and sets L from data (pre-market high /
