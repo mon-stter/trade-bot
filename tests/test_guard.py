@@ -1,5 +1,5 @@
 import sys, json
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
@@ -189,6 +189,50 @@ def test_is_trading_day_true_when_calendar_lists_today():
 def test_is_trading_day_false_when_calendar_empty():
     client = FakeClient(calendar=[])
     assert guard.is_trading_day(client, date(2026, 7, 15)) is False
+
+
+def _cal(day="2026-07-15"):
+    return FakeClient(calendar=[{"date": day, "open": "09:30", "close": "16:00"}])
+
+
+def test_confirm_bar_end_is_30min_after_open_in_utc_during_edt():
+    end = guard.confirm_bar_end(_cal(), date(2026, 7, 15))
+    assert end == datetime(2026, 7, 15, 14, 0, tzinfo=timezone.utc)
+
+
+def test_confirm_bar_end_shifts_with_dst_in_est():
+    """Same 09:30 local open is 15:00Z in winter, not 14:00Z — the gate must
+    follow the exchange calendar, never a hardcoded UTC hour."""
+    end = guard.confirm_bar_end(_cal("2026-01-15"), date(2026, 1, 15))
+    assert end == datetime(2026, 1, 15, 15, 0, tzinfo=timezone.utc)
+
+
+def test_confirm_bar_closed_false_while_bar_still_building():
+    now = datetime(2026, 7, 15, 13, 34, tzinfo=timezone.utc)  # 4 min into the bar
+    closed, remaining = guard.confirm_bar_closed(_cal(), date(2026, 7, 15), now=now)
+    assert closed is False
+    assert remaining == 26
+
+
+def test_confirm_bar_closed_true_at_the_instant_it_closes():
+    now = datetime(2026, 7, 15, 14, 0, tzinfo=timezone.utc)
+    closed, remaining = guard.confirm_bar_closed(_cal(), date(2026, 7, 15), now=now)
+    assert closed is True
+    assert remaining == 0
+
+
+def test_confirm_bar_closed_false_before_the_open():
+    now = datetime(2026, 7, 15, 11, 50, tzinfo=timezone.utc)  # premarket
+    closed, _ = guard.confirm_bar_closed(_cal(), date(2026, 7, 15), now=now)
+    assert closed is False
+
+
+def test_confirm_bar_closed_false_when_not_a_trading_day():
+    closed, remaining = guard.confirm_bar_closed(
+        FakeClient(calendar=[]), date(2026, 7, 18),
+        now=datetime(2026, 7, 18, 20, 0, tzinfo=timezone.utc))
+    assert closed is False
+    assert remaining is None
 
 
 def test_place_buy_rejected_by_gate_raises(mem):
@@ -595,3 +639,37 @@ def test_cli_size_prints_share_count(mem):
         capture_output=True, text=True, env=env, stdin=subprocess.DEVNULL)
     assert out.returncode == 0
     assert out.stdout.strip() == "40"
+
+
+# --- bar-closed gate must degrade safely ------------------------------------
+
+def test_market_tz_resolves():
+    assert guard.market_tz().key == guard.MARKET_TZ_NAME
+
+
+def test_market_tz_is_not_resolved_at_import():
+    """A container with no tz database must still be able to run halt/sell/
+    status. Resolving the zone at import time would kill the kill-switch."""
+    src = (Path(guard.__file__)).read_text(encoding="utf-8")
+    head = src.split("def market_tz", 1)[0]
+    assert "ZoneInfo(" not in head, "timezone must not be resolved at import"
+
+
+def test_bar_closed_gate_fails_closed_when_tz_unavailable(monkeypatch):
+    def boom():
+        raise RuntimeError("No time zone found with key America/New_York")
+    monkeypatch.setattr(guard, "market_tz", boom)
+    with pytest.raises(RuntimeError):
+        guard.confirm_bar_end(_cal(), date(2026, 7, 15))
+
+
+def test_bar_closed_cli_refuses_rather_than_assuming_closed(monkeypatch, capsys):
+    """The gate's job is to block buys; an unresolvable clock must read as
+    'not closed', never as 'go ahead'."""
+    def boom(*a, **k):
+        raise RuntimeError("no tz database")
+    monkeypatch.setattr(guard, "confirm_bar_closed", boom)
+    monkeypatch.setattr(guard, "AlpacaClient", lambda: _cal())
+    rc = guard.main(["bar-closed"])
+    assert rc == 1
+    assert "refusing to certify" in capsys.readouterr().err

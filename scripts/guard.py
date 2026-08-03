@@ -8,7 +8,7 @@ import sys
 import time
 import urllib.request
 import urllib.error
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -31,6 +31,8 @@ MAX_SECTOR_LOSSES = 2           # sit out a sector after 2 straight losses
 FILL_TRIES = 15
 FILL_DELAY = 1.0
 TRAIL_TIERS = ((0.20, 5.0), (0.15, 7.0))  # (min unrealized gain, trail %)
+CONFIRM_BAR_MINUTES = 30        # entry trigger reads the first 30-min session bar
+MARKET_TZ_NAME = "America/New_York"
 MIN_RR = 2.0                    # strategy floor: minimum 2:1 reward/risk
 WICK_TOL = 0.01                 # confirmation bar low may dip 1% under L
 PLACEHOLDER_CATALYSTS = {"", "tbd", "n/a", "na", "none", "-", "?", "unknown"}
@@ -385,6 +387,49 @@ def is_trading_day(client, ref):
     return any(c.get("date") == iso for c in cal)
 
 
+_MARKET_TZ = None
+
+
+def market_tz():
+    """Resolve the exchange timezone lazily.
+
+    Deliberately NOT resolved at import: a container shipped without a tz
+    database would otherwise take down every command in this file, including
+    `halt` and `sell`. Losing the bar-closed check is survivable; losing the
+    kill-switch is not."""
+    global _MARKET_TZ
+    if _MARKET_TZ is None:
+        from zoneinfo import ZoneInfo
+        _MARKET_TZ = ZoneInfo(MARKET_TZ_NAME)
+    return _MARKET_TZ
+
+
+def confirm_bar_end(client, ref):
+    """UTC datetime at which the first CONFIRM_BAR_MINUTES bar of the regular
+    session closes, or None if ref is not a trading day. Derived from the
+    exchange calendar in market-local time, so it is DST-correct."""
+    iso = ref.isoformat()
+    day = next((c for c in client.calendar(iso, iso) if c.get("date") == iso), None)
+    if day is None:
+        return None
+    hh, mm = (int(p) for p in day["open"].split(":"))
+    opened = datetime(ref.year, ref.month, ref.day, hh, mm, tzinfo=market_tz())
+    return (opened + timedelta(minutes=CONFIRM_BAR_MINUTES)).astimezone(timezone.utc)
+
+
+def confirm_bar_closed(client, ref, now=None):
+    """(closed, minutes_remaining). The entry trigger is defined on a CLOSED bar;
+    a partial bar can pass a test the full bar would fail, so buys must wait."""
+    end = confirm_bar_end(client, ref)
+    if end is None:
+        return False, None
+    now = now or datetime.now(timezone.utc)
+    if now >= end:
+        return True, 0
+    secs = (end - now).total_seconds()
+    return False, -int(-secs // 60)  # ceil, so a partial minute still reads as waiting
+
+
 def _resolve_fill(client, resp, symbol):
     """Return the filled order; on timeout cancel it and raise, so a stop is
     never placed for shares that were never bought."""
@@ -575,6 +620,7 @@ def main(argv=None):
     sub.add_parser("weekly-trades")
     sub.add_parser("check-risk")
     sub.add_parser("is-trading-day")
+    sub.add_parser("bar-closed")
     i = sub.add_parser("ideas"); i.add_argument("--date", default=None)
     z = sub.add_parser("size")
     z.add_argument("--price", type=float, required=True)
@@ -623,6 +669,18 @@ def main(argv=None):
     if args.cmd == "is-trading-day":
         ok = is_trading_day(client, date.today())
         print("open" if ok else "closed"); return 0 if ok else 1
+    if args.cmd == "bar-closed":
+        try:
+            closed, remaining = confirm_bar_closed(client, date.today())
+        except Exception as e:                      # incl. missing tz database
+            print(f"OPEN - cannot resolve market timezone ({e}); refusing to "
+                  f"certify the bar as closed", file=sys.stderr)
+            return 1                                # fail closed: no buys
+        if closed:
+            print("CLOSED"); return 0
+        if remaining is None:
+            print("OPEN - market closed today", file=sys.stderr); return 1
+        print(f"OPEN - {remaining}m remaining", file=sys.stderr); return 1
     if args.cmd == "check-risk":
         equity = float(client.account()["equity"])
         state = load_state()
