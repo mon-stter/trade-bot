@@ -583,3 +583,59 @@ def test_cli_ideas_emits_json_for_valid_idea(mem, tmp_path):
     assert out.returncode == 0
     payload = json.loads(out.stdout)
     assert payload[0]["symbol"] == "LMT" and payload[0]["level"] == 512.40
+
+
+# --- position sizing --------------------------------------------------------
+#
+# Until the level-contract fix, no trade ever reached the buy step, so "qty"
+# was never actually derived by anything. These pin the arithmetic so the first
+# live order is sized by rule rather than by whatever number looked reasonable.
+
+def test_position_size_uses_20pct_of_equity():
+    assert guard.position_size(100000, 100000, 500.0) == 40   # 20000/500
+
+
+def test_position_size_floors_partial_shares():
+    assert guard.position_size(100000, 100000, 300.0) == 66   # 20000/300 = 66.67
+
+
+def test_position_size_never_exceeds_the_20pct_cap():
+    equity, price = 100000, 512.40
+    qty = guard.position_size(equity, equity, price)
+    assert qty * price <= guard.MAX_POSITION_PCT * equity
+
+
+def test_position_size_is_capped_by_available_cash():
+    # 20% of equity is 20000, but only 5000 cash is left
+    assert guard.position_size(100000, 5000, 500.0) == 10
+
+
+def test_position_size_returns_zero_when_cash_cannot_buy_one_share():
+    assert guard.position_size(100000, 100, 500.0) == 0
+
+
+def test_position_size_returns_zero_for_bad_price():
+    assert guard.position_size(100000, 100000, 0) == 0
+
+
+def test_position_size_output_passes_validate_buy():
+    """The sizing helper must not produce an order the guard then blocks."""
+    account = {"equity": "100000", "cash": "100000", "daytrade_count": "0"}
+    qty = guard.position_size(100000, 100000, 512.40)
+    ok, reasons = guard.validate_buy(
+        {"symbol": "LMT", "qty": str(qty), "price": "512.40", "sector": "defense"},
+        account, [], 0, False)
+    assert ok, reasons
+
+
+def test_cli_size_prints_share_count(mem):
+    import subprocess, os
+    env = dict(os.environ)
+    env["GUARD_STATE_PATH"] = str(mem / "state.json")
+    env["GUARD_TRADES_PATH"] = str(mem / "trades.jsonl")
+    out = subprocess.run(
+        [sys.executable, "scripts/guard.py", "size", "--equity", "100000",
+         "--cash", "100000", "--price", "500"],
+        capture_output=True, text=True, env=env, stdin=subprocess.DEVNULL)
+    assert out.returncode == 0
+    assert out.stdout.strip() == "40"

@@ -75,8 +75,16 @@ same day — take the best one and leave the slot. The guard will BLOCK overflow
 ranking first just means the best idea is the one that gets through, not the first
 one alphabetically.
 
-STEP 4 — Execute each approved trade THROUGH THE GUARD (never raw alpaca.sh order):
+STEP 4 — SIZE the position by rule, never by eye:
+  python3 scripts/guard.py size --price <P>
+  This returns whole shares = min(20% of equity, available cash) / P, floored —
+  the largest size that still clears the guard's 20% cap. If it returns 0, skip
+  the trade (not enough cash for one share). Do not round it up.
+
+  Then execute THROUGH THE GUARD (never raw alpaca.sh order):
   python3 scripts/guard.py buy '{"symbol":"SYM","qty":"N","price":"P","thesis":"<catalyst>","sector":"<sector>","target":"<X>","rr":"<X:1>"}'
+  - N is the number from `guard.py size`; P is the ask from STEP 3b.
+  - thesis/sector/target/rr come from the parsed idea in STEP 1.
   - The guard validates all rules and places the -7% stop automatically.
   - If it prints "BLOCKED: <reason>", skip that trade and note the reason.
 

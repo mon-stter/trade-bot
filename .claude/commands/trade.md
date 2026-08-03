@@ -2,6 +2,8 @@
 description: Manual trade helper with rule validation. Usage — /trade SYMBOL SHARES buy|sell
 ---
 Args: SYMBOL SHARES SIDE. If missing, ask.
+0. If SHARES is unknown, `python3 scripts/guard.py size --price P` gives the
+   rule-max share count (20% of equity or available cash, whichever binds).
 1. bash scripts/alpaca.sh quote SYMBOL  (capture ask price P)
 2. For BUY: run
    python3 scripts/guard.py buy '{"symbol":"SYM","qty":"N","price":"P","thesis":"...","sector":"..."}'
