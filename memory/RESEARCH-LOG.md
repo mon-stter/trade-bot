@@ -398,3 +398,41 @@ HOLD — no held positions to protect. AMZN's gap is too large to chase without 
 
 ### Midday
 - Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
+
+## 2026-08-03 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~16.0, down sharply from last week's ~18.5-19.4 spike regime — risk-off has unwound. ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-monday-august-3-dow-sp-500-nasdaq-092516872.html))
+- Futures broadly higher: S&P +0.3-0.6%, Dow +0.56%, Nasdaq-100 +0.3%, Russell 2000 +0.55% — risk-on across the board. ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-monday-august-3-dow-sp-500-nasdaq-092516872.html), [Benzinga](https://www.benzinga.com/markets/prediction-markets/26/08/60863465/stock-market-will-sp-500-open-up-or-down-today-12))
+- Top catalyst: Trump called off a planned new wave of strikes on Iran over the weekend; negotiations (Strait of Hormuz reopening, denuclearization framework) resume today. Oil and Treasury yields eased on the news. ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-monday-august-3-dow-sp-500-nasdaq-092516872.html), [CNN](https://www.cnn.com/2026/08/02/world/live-news/iran-war-trump))
+- Defense (LMT/RTX/NOC) reaction: names "wobbling" on the de-escalation headlines per press coverage; our own premarket tape confirms it — LMT trading ~582, essentially flat to Friday's 582.74 close on very thin volume (a few hundred shares/bar). No fresh catalyst, war-premium catalyst now working against the trade. ([HeyGoTrade](https://www.heygotrade.com/en/blog/reposition-defense-stocks-noc-lmt-rtx-iran-ceasefire/))
+- AMZN continuing Friday's post-earnings strength (cloud/AI beat, +13% Fri) on a second, much smaller leg higher — premarket high 276.66 vs Friday's 271.58 close (+1.9%), steady volume all morning, no signs of gap-fill. ([Benzinga](https://www.benzinga.com/trading-ideas/movers/26/08/60864754/why-atkore-shares-are-trading-higher-by-26-here-are-20-stocks-moving-premarket))
+- NVDA/chip names: headline claims of an "AI-optimism rebound," but our own premarket bars show NVDA flat-to-down (~200, vs Friday's 202 close, drifting sideways/down all morning on light volume) — no confirming price action, treat the rebound narrative as unconfirmed today. ([Finviz](https://finviz.com/?a=5989476))
+- XOM: post-earnings (reported Thu Jul 31) pop has faded — premarket ~153.3-153.7 vs Friday's 155.44 close, pressured by oil easing on the Iran de-escalation. No fresh catalyst.
+- Econ calendar this week: July jobs report Friday Aug 7 is the marquee event; nothing major pre-open today. Consumer confidence hit a 5-month high (55.2) per early prints. ([Kiplinger](https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar), [ts2.tech](https://ts2.tech/en/stock-market-today-03-08-2026/))
+- Heavy earnings week ahead: AMD, Pfizer, Amgen, McDonald's, Shopify and others report this week — no positions held in any of these, no blackout conflicts today. ([ts2.tech](https://ts2.tech/en/stock-market-today-03-08-2026/))
+
+### Trade Ideas
+1. AMZN — continuation breakout candidate. Premarket high L=276.66 (steady volume, no gap-fill signs) vs Friday close 271.58. This is a fresh, much smaller leg (not chasing Friday's 13% pop). stop = L*0.93 = 257.35 (6.98% below L), target = L + 2x risk = 315.28, rr = 2.0:1.
+   - IDEA: AMZN | L=276.66 | stop=257.35 | target=315.28 | rr=2.0:1 | sector=mega-cap-tech | catalyst=Q2 cloud/AI beat, second-day continuation on steady premarket volume, no gap-fill
+2. LMT/RTX/NOC (defense) — Iran de-escalation (Trump called off new strikes, talks resume today) removes the war-premium catalyst that drove July's rally; premarket flat/thin volume, no fresh level. Catalyst now runs against the trade, not for it.
+   - NO-TRADE: LMT — de-escalation removes war catalyst; flat/thin premarket, no fresh level
+   - NO-TRADE: RTX — same de-escalation reasoning, no premarket catalyst today
+   - NO-TRADE: NOC — same de-escalation reasoning, no premarket catalyst today
+3. NVDA / semis — headline "AI-rebound" narrative not confirmed by actual premarket tape (flat-to-down, light volume). No level to trade against unconfirmed price action.
+   - NO-TRADE: NVDA — rebound narrative unconfirmed by premarket price action (flat-to-down on light volume)
+4. XOM — post-earnings pop faded, oil easing on Iran de-escalation works against the thesis, no fresh catalyst.
+   - NO-TRADE: XOM — post-earnings pop faded; oil easing on de-escalation; no fresh catalyst
+
+### Risk Factors
+- Iran de-escalation is fresh and fragile (Trump "called off" strikes, not a signed deal) — a headline reversal could snap back oil/defense/risk sentiment sharply and invalidate today's risk-on tape intraday.
+- AMZN chasing risk: even at a much smaller premarket gap than Friday, a two-day cloud/AI move can still gap-fill hard if the broader tech tape sours; confirmation bar (close > L and low >= L x 0.99) is the only thing standing between this and a repeat of Friday's rejected AMZN setup.
+- VIX ~16 is a fast, large drop from last week's ~18.5-19.4 — could mean genuine de-risking or complacency into a fragile geopolitical situation.
+- Heavy earnings week (AMD, Pfizer, Amgen, MCD, Shopify) — no current exposure, but sets up potential candidates/blackouts for later in the week.
+- NVDA/chip "rebound" headlines diverge from actual premarket price action — a reminder to trade the tape, not the narrative.
+
+### Decision
+HOLD entries pending open confirmation. AMZN is the only idea with a real, data-backed level (premarket high 276.66, steady volume, genuine second-leg continuation) — watch for CONFIRMED = bar close > L and bar low >= L x 0.99 on the first 30-min bar. Defense (Iran de-escalation killed the catalyst), NVDA/semis (narrative not confirmed by tape), and XOM (faded pop, no catalyst) are all NO-TRADE today. Patience > activity.
