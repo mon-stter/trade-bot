@@ -441,3 +441,6 @@ HOLD entries pending open confirmation. AMZN is the only idea with a real, data-
 - skipped — confirmation bar still open, fired at 13:36 UTC (`guard.py bar-closed` returned "OPEN - 24m remaining")
 - Sync: trade log in sync | Reconcile: all positions protected
 - Result: no trades (gate blocked; routine fired ~24m early)
+
+### Midday
+- Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
