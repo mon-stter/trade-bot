@@ -436,3 +436,8 @@ HOLD — no held positions to protect. AMZN's gap is too large to chase without 
 
 ### Decision
 HOLD entries pending open confirmation. AMZN is the only idea with a real, data-backed level (premarket high 276.66, steady volume, genuine second-leg continuation) — watch for CONFIRMED = bar close > L and bar low >= L x 0.99 on the first 30-min bar. Defense (Iran de-escalation killed the catalyst), NVDA/semis (narrative not confirmed by tape), and XOM (faded pop, no catalyst) are all NO-TRADE today. Patience > activity.
+
+### Execution (market-open)
+- skipped — confirmation bar still open, fired at 13:36 UTC (`guard.py bar-closed` returned "OPEN - 24m remaining")
+- Sync: trade log in sync | Reconcile: all positions protected
+- Result: no trades (gate blocked; routine fired ~24m early)
