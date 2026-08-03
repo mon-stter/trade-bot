@@ -10,7 +10,6 @@ import urllib.request
 import urllib.error
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent
 MEMORY = ROOT / "memory"
@@ -33,7 +32,7 @@ FILL_TRIES = 15
 FILL_DELAY = 1.0
 TRAIL_TIERS = ((0.20, 5.0), (0.15, 7.0))  # (min unrealized gain, trail %)
 CONFIRM_BAR_MINUTES = 30        # entry trigger reads the first 30-min session bar
-MARKET_TZ = ZoneInfo("America/New_York")
+MARKET_TZ_NAME = "America/New_York"
 MIN_RR = 2.0                    # strategy floor: minimum 2:1 reward/risk
 WICK_TOL = 0.01                 # confirmation bar low may dip 1% under L
 PLACEHOLDER_CATALYSTS = {"", "tbd", "n/a", "na", "none", "-", "?", "unknown"}
@@ -388,6 +387,23 @@ def is_trading_day(client, ref):
     return any(c.get("date") == iso for c in cal)
 
 
+_MARKET_TZ = None
+
+
+def market_tz():
+    """Resolve the exchange timezone lazily.
+
+    Deliberately NOT resolved at import: a container shipped without a tz
+    database would otherwise take down every command in this file, including
+    `halt` and `sell`. Losing the bar-closed check is survivable; losing the
+    kill-switch is not."""
+    global _MARKET_TZ
+    if _MARKET_TZ is None:
+        from zoneinfo import ZoneInfo
+        _MARKET_TZ = ZoneInfo(MARKET_TZ_NAME)
+    return _MARKET_TZ
+
+
 def confirm_bar_end(client, ref):
     """UTC datetime at which the first CONFIRM_BAR_MINUTES bar of the regular
     session closes, or None if ref is not a trading day. Derived from the
@@ -397,7 +413,7 @@ def confirm_bar_end(client, ref):
     if day is None:
         return None
     hh, mm = (int(p) for p in day["open"].split(":"))
-    opened = datetime(ref.year, ref.month, ref.day, hh, mm, tzinfo=MARKET_TZ)
+    opened = datetime(ref.year, ref.month, ref.day, hh, mm, tzinfo=market_tz())
     return (opened + timedelta(minutes=CONFIRM_BAR_MINUTES)).astimezone(timezone.utc)
 
 
@@ -654,12 +670,17 @@ def main(argv=None):
         ok = is_trading_day(client, date.today())
         print("open" if ok else "closed"); return 0 if ok else 1
     if args.cmd == "bar-closed":
-        closed, remaining = confirm_bar_closed(client, date.today())
+        try:
+            closed, remaining = confirm_bar_closed(client, date.today())
+        except Exception as e:                      # incl. missing tz database
+            print(f"OPEN - cannot resolve market timezone ({e}); refusing to "
+                  f"certify the bar as closed", file=sys.stderr)
+            return 1                                # fail closed: no buys
         if closed:
             print("CLOSED"); return 0
         if remaining is None:
-            print("OPEN — market closed today", file=sys.stderr); return 1
-        print(f"OPEN — {remaining}m remaining", file=sys.stderr); return 1
+            print("OPEN - market closed today", file=sys.stderr); return 1
+        print(f"OPEN - {remaining}m remaining", file=sys.stderr); return 1
     if args.cmd == "check-risk":
         equity = float(client.account()["equity"])
         state = load_state()

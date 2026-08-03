@@ -639,3 +639,37 @@ def test_cli_size_prints_share_count(mem):
         capture_output=True, text=True, env=env, stdin=subprocess.DEVNULL)
     assert out.returncode == 0
     assert out.stdout.strip() == "40"
+
+
+# --- bar-closed gate must degrade safely ------------------------------------
+
+def test_market_tz_resolves():
+    assert guard.market_tz().key == guard.MARKET_TZ_NAME
+
+
+def test_market_tz_is_not_resolved_at_import():
+    """A container with no tz database must still be able to run halt/sell/
+    status. Resolving the zone at import time would kill the kill-switch."""
+    src = (Path(guard.__file__)).read_text(encoding="utf-8")
+    head = src.split("def market_tz", 1)[0]
+    assert "ZoneInfo(" not in head, "timezone must not be resolved at import"
+
+
+def test_bar_closed_gate_fails_closed_when_tz_unavailable(monkeypatch):
+    def boom():
+        raise RuntimeError("No time zone found with key America/New_York")
+    monkeypatch.setattr(guard, "market_tz", boom)
+    with pytest.raises(RuntimeError):
+        guard.confirm_bar_end(_cal(), date(2026, 7, 15))
+
+
+def test_bar_closed_cli_refuses_rather_than_assuming_closed(monkeypatch, capsys):
+    """The gate's job is to block buys; an unresolvable clock must read as
+    'not closed', never as 'go ahead'."""
+    def boom(*a, **k):
+        raise RuntimeError("no tz database")
+    monkeypatch.setattr(guard, "confirm_bar_closed", boom)
+    monkeypatch.setattr(guard, "AlpacaClient", lambda: _cal())
+    rc = guard.main(["bar-closed"])
+    assert rc == 1
+    assert "refusing to certify" in capsys.readouterr().err

@@ -26,16 +26,17 @@ STEP 0 — Gate checks:
 
 STEP 0b — BAR-CLOSED GATE (hard stop; no buys before this passes):
   python3 scripts/guard.py bar-closed
-  Prints "OPEN — <mm>m remaining" and exits 1 if the session-open 30-min bar has not
-  finished, "CLOSED" and exits 0 once it has. This is derived from the bar's own
-  timestamp, so it is correct in both EDT and EST and does not depend on the cron.
+  Prints "OPEN - <mm>m remaining" and exits 1 if the session-open 30-min bar has not
+  finished, "CLOSED" and exits 0 once it has. This is derived from the exchange
+  calendar in market-local time, so it is correct in both EDT and EST and does not
+  depend on the cron. If the clock cannot be resolved at all it also exits 1 — the
+  gate fails closed, so an unresolvable clock blocks buys rather than waving them
+  through.
 
   If it exits non-zero: do NOT run STEP 3 or STEP 4. Positions still need protecting,
   so run STEP 2 (sync + reconcile), then skip to STEP 7 and record
   "skipped — confirmation bar still open, fired at <time>", then STEP 9. No buys.
 
-STEP 1 — Read TODAY's entry in memory/RESEARCH-LOG.md. If missing, run the pre-market
-research steps inline first — NEVER trade without documented research.
 STEP 1 — Load TODAY's candidate ideas — do not eyeball the prose, parse them:
   python3 scripts/guard.py ideas
   - Exit 0: prints a JSON array; each entry has symbol, level (L), stop, target,
