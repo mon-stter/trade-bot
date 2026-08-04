@@ -486,3 +486,9 @@ HOLD entries pending open confirmation. AMZN is the only idea with a real, data-
 
 ### Decision
 HOLD entries pending open confirmation. PLTR is the only idea with a real, data-backed level (premarket high 147.51, sustained volume, genuine post-earnings reaction) — watch for CONFIRMED = bar close > L and bar low >= L x 0.99 on the first 30-min bar. AMZN (faded, no fresh level), defense (de-escalation removed the catalyst, flat premarket), and CAT/MCD/AMD (earnings blackout) are all NO-TRADE today. Patience > activity.
+
+### Execution (market-open)
+- skipped — confirmation bar still open, fired at 13:36 UTC (`guard.py bar-closed` returned "OPEN - 24m remaining")
+- Candidates from `guard.py ideas`: 1 (PLTR)
+- Sync: trade log in sync | Reconcile: all positions protected
+- Result: no trades (gate blocked; routine fired ~24m early)
