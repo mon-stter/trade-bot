@@ -492,3 +492,6 @@ HOLD entries pending open confirmation. PLTR is the only idea with a real, data-
 - Candidates from `guard.py ideas`: 1 (PLTR)
 - Sync: trade log in sync | Reconcile: all positions protected
 - Result: no trades (gate blocked; routine fired ~24m early)
+
+### Midday
+- Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
