@@ -444,3 +444,45 @@ HOLD entries pending open confirmation. AMZN is the only idea with a real, data-
 
 ### Midday
 - Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
+
+## 2026-08-04 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open.
+
+### Market Context
+- VIX ~15.75-16.0, down further from last week's spike — calm vol regime holding. ([Investing.com](https://www.investing.com/indices/us-spx-500-futures))
+- S&P 500 futures +0.2-0.3%, Polymarket implying 77% odds of a higher open — Monday's tech-led reversal (best day in weeks) continuing, driven by renewed confidence in AI-capex payoff. ([Benzinga](https://www.benzinga.com/markets/prediction-markets/26/08/60896308/sp500-aug-4-open-up-or-down-polymarket-trump-iran-tech-rally-amazon-ai-earnings))
+- Top catalyst: Palantir (PLTR) blowout Q2 — EPS $0.41 vs $0.28 est, revenue $1.94B vs $1.80B est (+93% YoY), US commercial rev +149% YoY, FY26 US-commercial guide raised to >$3.42B from $3.22B. Stock +12% after Monday's close, extending the move premarket. Our own bars confirm real, sustained action: premarket high 147.51 (09:05-09:10Z) on steady volume all morning (not a thin/fading spike), last premarket print ~146.2. ([CNBC](https://www.cnbc.com/2026/08/03/palantir-pltr-earnings-q2-2026.html))
+- Iran-US talks ongoing, no fresh escalation — Trump says this is Tehran's "last chance" to sign a deal, negotiations continuing; de-escalation trend from last week intact. ([Al Jazeera](https://www.aljazeera.com/amp/news/liveblog/2026/8/3/iran-war-live-trump-says-talks-set-to-begin-tehran-urges-us-to-honour-mou))
+- Earnings before today's open: Caterpillar (CAT) and McDonald's (MCD), plus Pfizer, BP, Marathon Petroleum, Spotify, Toyota, Kimberly-Clark, Merck, Cummins, APTV, ADM and others — broad blackout list, none currently held. ([Benzinga](https://www.benzinga.com/markets/equities/26/08/60897120/stock-market-today-sp-500-dow-and-nasdaq-futures-rise-after-strong-monday-gains-mcdonalds-amd-palantir-in-focus))
+- AMD reports today after the close (implied ~8.7% move) — blackout today regardless of direction; stock has rallied toward $500 into the print on MSFT/PLTR-driven AI optimism. ([Benzinga](https://www.benzinga.com/markets/tech/26/08/60872788/amd-options-price-9-percent-earnings-move-history))
+- AMZN: no fresh catalyst today — premarket drifting down from Monday's 284.02 close to ~278, below Monday's range; second-leg continuation thesis from Aug 3 has faded, not extended. ([Benzinga](https://www.benzinga.com/markets/prediction-markets/26/08/60896308/sp500-aug-4-open-up-or-down-polymarket-trump-iran-tech-rally-amazon-ai-earnings))
+- Defense (LMT/RTX/NOC): our bars show LMT premarket high 586.22 vs Monday's 586.29 close — flat, thin volume (only 4 bars printed). Iran de-escalation continues to remove the war-premium catalyst; no fresh level.
+- Econ calendar: nothing major pre-open today (July jobs report is Friday Aug 7, the week's marquee event). ([Kiplinger](https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar))
+- Rotation: energy/industrials still leading 2026 YTD, but Monday's rally shows AI-capex-driven mega-cap tech pulling capital back in on strong prints (MSFT, PLTR) — rotation signal mixed today, not a clean move away from tech. ([AlphaBetaStock](https://alphabetastock.com/sector-rotation-industrials-energy-tech-narrowing-2026/))
+
+### Trade Ideas
+1. PLTR — post-earnings reaction (blowout Q2, raised guidance), real premarket level with sustained volume, not a thin spike. Premarket high L=147.51. stop = L*0.93 = 137.18 (7.0% below L), target = L + 2x risk = 168.17, rr = 2.0:1.
+   - IDEA: PLTR | L=147.51 | stop=137.18 | target=168.17 | rr=2.0:1 | sector=software-ai | catalyst=Q2 beat EPS 0.41 vs 0.28 est, rev +93% YoY, FY26 US-commercial guide raised to $3.42B+
+2. AMZN — no fresh premarket catalyst; price below Monday's close, prior continuation thesis faded rather than extended.
+   - NO-TRADE: AMZN — no fresh level, premarket trading below Monday's close, thesis faded
+3. LMT/RTX/NOC (defense) — Iran de-escalation talks continue, war-premium catalyst still absent; premarket flat/thin, no fresh level.
+   - NO-TRADE: LMT — flat premarket (586.22 vs 586.29 close), no fresh catalyst
+   - NO-TRADE: RTX — same de-escalation reasoning, no premarket catalyst today
+   - NO-TRADE: NOC — same de-escalation reasoning, no premarket catalyst today
+4. CAT/MCD — reporting Q2 before today's open.
+   - NO-TRADE: CAT — earnings blackout, reports this morning
+   - NO-TRADE: MCD — earnings blackout, reports this morning
+5. AMD — reports Q2 after today's close.
+   - NO-TRADE: AMD — earnings blackout, reports after close today
+
+### Risk Factors
+- PLTR chase risk: stock is already ~17% above Monday's pre-earnings close — even with sustained premarket volume, a large single-day post-earnings gap carries real gap-fill risk (see AMZN's rejected 13% gap setup on Jul 31). Confirmation bar (close > L and low >= L x 0.99) is the only thing standing between this idea and a repeat of that outcome.
+- Iran-US talks are fresh and unsigned ("last chance," not a deal) — a headline reversal could snap back risk sentiment and hit both broad tape and defense names in either direction intraday.
+- AMD reports after close today with an ~8.7% implied move and 7-of-12 negative next-day reactions historically — no exposure held, but a bad print could pressure semis/broad tech into tomorrow's open.
+- Heavy earnings morning (CAT, MCD, PFE, BP, MPC, and more) adds single-name and index-level volatility around the open independent of any position we'd take.
+- VIX ~15.75-16.0 is calm, but calm-into-a-big-earnings-week can mask complacency risk (AMD, SNDK, WDC, and others still reporting this week).
+
+### Decision
+HOLD entries pending open confirmation. PLTR is the only idea with a real, data-backed level (premarket high 147.51, sustained volume, genuine post-earnings reaction) — watch for CONFIRMED = bar close > L and bar low >= L x 0.99 on the first 30-min bar. AMZN (faded, no fresh level), defense (de-escalation removed the catalyst, flat premarket), and CAT/MCD/AMD (earnings blackout) are all NO-TRADE today. Patience > activity.
