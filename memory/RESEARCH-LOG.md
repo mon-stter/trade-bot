@@ -537,3 +537,9 @@ HOLD entries pending open confirmation. PLTR is the only idea with a real, data-
 
 ### Decision
 HOLD entries pending open confirmation. NVDA is the only idea with a real, data-backed level (premarket high 217.49, steady volume, two idiosyncratic catalysts diverging from a sector-wide selloff) — watch for CONFIRMED = bar close > L and bar low >= L x 0.99 on the first 30-min bar. AMD (broken post-earnings reaction), PLTR (post-spike fade), AMZN (no catalyst), and defense LMT/RTX/NOC (thin, mixed signal) are all NO-TRADE today. Patience > activity.
+
+### Execution (market-open)
+- Fired early at 13:35 UTC (target 14:00 UTC) — bar-closed gate: OPEN, 25m remaining.
+- Skipped — confirmation bar still open, fired at 13:35 UTC. No candidates evaluated, no buys.
+- Sync: trade log in sync. Reconcile: all positions protected.
+- Result: no trades
