@@ -495,3 +495,45 @@ HOLD entries pending open confirmation. PLTR is the only idea with a real, data-
 
 ### Midday
 - Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
+
+## 2026-08-05 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open. No trades this week (0/3).
+
+### Market Context
+- VIX futures ~17.9, up from last week's ~15.75-16 calm regime — vol ticking back up. ([Investing.com](https://www.investing.com/indices/us-spx-vix-futures))
+- S&P 500 futures +0.3%, Dow/SPY firm, but Nasdaq-100/QQQ soft (-0.05%) — a broad semiconductor selloff is dragging tech even as the wider tape is green. ([CNBC](https://www.cnbc.com/markets/pre-markets/))
+- Top catalyst: chip-sector selloff continues — AMD, INTC, MU sliding premarket after AMD's post-earnings drop; broader semis under pressure on memory-cost worries, China (CXMT) memory competition fears, and a repricing of AI-capex expectations after the year's rally. ([CNBC](https://www.cnbc.com/2026/07/29/chip-selloff-sk-hynix-samsung-softbank.html), [TipRanks](https://www.tipranks.com/news/amd-intc-mu-nvda-why-nvidia-stock-rises-in-pre-market-while-other-chip-stocks-slide-8-5-2026))
+- NVDA is the exception, bucking the selloff: +~2% premarket on two fresh catalysts — Foxconn/Hon Hai reported July sales +54.2% YoY (signals AI-infra demand), and SpaceX named NVDA its exclusive AI-chip supplier (Rubin GPUs/Vera CPUs for orbital data-center compute). Our own bars confirm real divergence: premarket high 217.49 (08:00Z), holding 215.5-216.7 all morning on steady volume (15k-70k/5min bar) — above yesterday's close (211.94) and above the prior 5-day high (213.06). ([TipRanks](https://www.tipranks.com/news/amd-intc-mu-nvda-why-nvidia-stock-rises-in-pre-market-while-other-chip-stocks-slide-8-5-2026), [Stocktwits](https://stocktwits.com/news-articles/markets/equity/nvda-stock-bucks-selloff-premarket-on-space-x-boost-foxconn-s-sales-update/cZo4Z8cRJII))
+- AMD: reported Q2 beat-and-raise Monday after close (rev $11.54B +50% YoY, EPS $1.66 vs $1.62 est, Q3 guide $13B vs $12.52B est) but stock fell ~8-9% after hours anyway — "beat wasn't enough" after a 140% YTD run. Premarket extending the decline (470-487 vs Monday's 518.58 close). Broken setup, no long entry. ([Yahoo Finance](https://finance.yahoo.com/markets/stocks/articles/amd-earnings-beat-estimates-stock-205710559.html))
+- PLTR: Monday's post-earnings spike (+12%, premarket high 147.51->confirmed test pending from Aug4) has faded — today's premarket (158-160) trades below Monday's close (162.66) and below Monday's high (164.52). No fresh level, thesis cooling.
+- AMZN: steady grind higher premarket (278->280.5, decent volume) but no fresh catalyst identified and still below Monday's close (284.02) and high (287.2) — a drift, not a breakout. No entry without a real catalyst.
+- Defense (LMT/RTX/NOC): extremely thin premarket (LMT one bar at 590.01 flat vs 589.33 close; RTX/NOC scattered single-digit-lot prints). Iran talks reportedly "in very progressive stages" per CNN, but a separate report says US missile-interceptor stockpile is "dangerously low" — mixed, non-actionable signal, no fresh level. ([CNN](https://www.cnn.com/2026/08/05/world/live-news/iran-war-trump))
+- Econ calendar: ADP employment (private payrolls, July) and ISM Services PMI both due today — no major surprise reported yet pre-open; next CPI/PPI/jobless-claims prints aren't until Aug 12/14, no FOMC this week. ([Markets Today](https://x.com/marketsday/status/2083580263351615562))
+- Iran-US: talks described as progressing (draft agreement reportedly circulating, Qatar mediating) but no signed deal; Trump says Hormuz reopens "soon" or a "harsh new attack" follows — fragile, headline-reversal risk both directions. ([CNN](https://www.cnn.com/2026/08/05/world/live-news/iran-war-trump))
+- Sector rotation (2026 YTD): energy/industrials/defense still leading, tech lagging on the pullback — but today's tape shows idiosyncratic names (NVDA) can buck sector-wide weakness on a name-specific catalyst. ([AlphaBetaStock](https://alphabetastock.com/sector-rotation-industrials-energy-tech-narrowing-2026/))
+
+### Trade Ideas
+1. NVDA — bucking a broad chip-sector selloff on two idiosyncratic catalysts (Foxconn July sales +54.2% YoY, SpaceX exclusive AI-chip supplier deal). Real premarket level with sustained volume all morning, not a thin spike; trading above yesterday's close and above the prior 5-day high.
+   - IDEA: NVDA | L=217.49 | stop=202.27 | target=247.93 | rr=2.0:1 | sector=semiconductors | catalyst=Foxconn/Hon Hai July sales +54.2% YoY signaling AI-infra demand + SpaceX picks NVDA as exclusive AI-chip supplier (Rubin/Vera), diverging vs AMD/INTC/MU selloff
+2. AMD — beat-and-raise Q2 but stock fell ~8-9% after hours and is extending losses premarket; broken reaction, no long thesis today.
+   - NO-TRADE: AMD — post-earnings reaction negative despite beat; premarket extending after-hours decline
+3. PLTR — Monday's earnings spike has faded; today's premarket trades below Monday's close and high, no fresh level.
+   - NO-TRADE: PLTR — post-spike fade, trading below Monday's close, thesis cooling
+4. AMZN — steady premarket drift but no identified catalyst and still below Monday's range; not a breakout.
+   - NO-TRADE: AMZN — no fresh catalyst, drifting below Monday's high/close
+5. LMT/RTX/NOC (defense) — extremely thin premarket volume, mixed Iran-talks/munitions-stockpile signal, no fresh level.
+   - NO-TRADE: LMT — flat/thin premarket (590.01 vs 589.33 close), no fresh catalyst
+   - NO-TRADE: RTX — thin premarket, no fresh level
+   - NO-TRADE: NOC — thin premarket, no fresh level
+
+### Risk Factors
+- NVDA chase risk: name-specific catalysts (Foxconn sales read-through, SpaceX deal) are real but sit inside a sector actively selling off on memory-cost/competition fears — a sector-wide leg down could drag NVDA with it despite the idiosyncratic news. Confirmation bar (close > L and low >= L x 0.99) is the only thing standing between this and a failed breakout.
+- Broad semiconductor selloff (AMD/INTC/MU) could spill into the wider Nasdaq/S&P if it deepens intraday.
+- Iran talks are fresh and unsigned; a headline reversal (Trump's "harsh new attack" threat) could snap risk sentiment in either direction, including into defense names we're currently passing on.
+- ADP/ISM Services data due this morning — a surprise miss/beat could move the tape materially around the open, ahead of NVDA's confirmation bar.
+- VIX ticking up (~17.9 vs last week's ~16) — modest but real re-pricing of risk into today's session.
+
+### Decision
+HOLD entries pending open confirmation. NVDA is the only idea with a real, data-backed level (premarket high 217.49, steady volume, two idiosyncratic catalysts diverging from a sector-wide selloff) — watch for CONFIRMED = bar close > L and bar low >= L x 0.99 on the first 30-min bar. AMD (broken post-earnings reaction), PLTR (post-spike fade), AMZN (no catalyst), and defense LMT/RTX/NOC (thin, mixed signal) are all NO-TRADE today. Patience > activity.
