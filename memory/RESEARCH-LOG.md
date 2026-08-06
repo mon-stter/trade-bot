@@ -588,3 +588,10 @@ HOLD entries pending open confirmation. NVDA is the only idea with a real, data-
 
 ### Decision
 HOLD entries pending open confirmation. Three ideas have real, data-backed levels today — LLY (premarket high 1184.58, sustained volume, clean earnings beat), DIS (premarket high 102.74, steady volume, earnings beat), and COP (premarket high 117.50, sustained volume despite bearish oil macro, earnings beat) — watch for CONFIRMED = bar close > L and bar low >= L x 0.99 on the first 30-min bar for each. NVDA/AMD (chip-sector selloff, no fresh breakout) and defense LMT/RTX/NOC (Hormuz progress killed the catalyst, near-zero volume) are all NO-TRADE today. Patience > activity; if all three confirm, respect the 3-trades/week cap and prioritize the highest-conviction setup.
+
+### Execution (market-open)
+- Fired early at 13:38 UTC (target 14:00 UTC) — bar-closed gate: OPEN, 22m remaining.
+- Candidates from `guard.py ideas`: 3 (LLY, DIS, COP) — parsed OK, not evaluated (gate blocked before STEP 3).
+- Skipped — confirmation bar still open, fired at 13:38 UTC. No buys.
+- Sync: trade log in sync. Reconcile: all positions protected.
+- Result: no trades
