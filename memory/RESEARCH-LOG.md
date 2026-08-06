@@ -546,3 +546,45 @@ HOLD entries pending open confirmation. NVDA is the only idea with a real, data-
 
 ### Midday
 - Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
+
+## 2026-08-06 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open. No trades this week (0/3).
+
+### Market Context
+- VIX ~15.8, down further from last week's ~17.9 tick-up — vol calm again. ([Yahoo Finance](https://finance.yahoo.com/quote/%5EVIX/))
+- S&P 500 futures +0.1%, Dow +0.2%, Nasdaq-100 -0.1% — mixed/flat tape as investors digest a heavy earnings wall; Dow at a record high. ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-thursday-august-6-dow-sp-nasdaq-091620000.html))
+- Top catalyst: chip-sector selloff — SanDisk and Western Digital beat Q4 estimates but gave cautious forward guidance; WDC -14%, SNDK -8-9% premarket, dragging SK Hynix (-6%), Micron (-3.4%), AMD (-1.9%, "sell the news" despite its own beat-and-raise Monday), and pressuring NVDA. ([invezz](https://invezz.com/news/2026/08/06/why-nvidia-micron-and-amd-are-down-pre-market-after-sandisk-shock/), [TradingKey](https://www.tradingkey.com/analysis/stocks/us-stocks/262082159-us-stock-sndk-wdc-skhy-mu-ai-tradingkey))
+- Iran/Strait of Hormuz: Iran and Oman reached an agreement on a shipping route through the Strait, raising prospects of resumed energy flows; oil (WTI/Brent) has fallen ~3 straight days on the de-escalation, Brent sub-$80. Bearish for the war-premium/defense trade and mixed for energy producers. ([Bloomberg](https://www.bloomberg.com/news/articles/2026-08-05/latest-oil-market-news-and-analysis-for-aug-6), [Irish Times](https://www.irishtimes.com/business/markets/2026/08/06/oil-holds-losses-as-iran-and-oman-reach-agreement-over-hormuz/))
+- Earnings beats driving individual gappers: Eli Lilly (LLY) EPS $8.38 vs $6.01 est (+$2.37), revenue +47.7% YoY; Disney (DIS) EPS beat by $0.20, revenue in line; ConocoPhillips (COP) Q2 beat estimates, revenue improved YoY (reported before the open). Our own bars confirm real, sustained premarket action in all three (not thin spikes). ([Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-thursday-august-6-dow-sp-nasdaq-091620000.html), [Nasdaq](https://www.nasdaq.com/articles/conocophillips-q2-earnings-beat-estimates-revenues-improve-y-y))
+- Sector momentum (2026 YTD): energy (+22%) and industrials (+16%) still the leaders; defense/aerospace in a structural upcycle but today's Hormuz progress removes the near-term war-premium catalyst. Tech lagging on the chip selloff. ([Morningstar](https://www.morningstar.com/stocks/energy-industrials-stocks-take-lead-market-rotation-continues), [stockcharts](https://articles.stockcharts.com/article/sector-momentum-favors-defense-qqq-yet-to-break-split-ndx-breadth/))
+- Econ calendar: July jobs report (nonfarm payrolls) due tomorrow, Friday Aug 7 — the week's marquee event; next CPI is Aug 12, no FOMC this week. ([Kiplinger](https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar))
+- Defense (LMT): our bars show almost no premarket volume today (2 prints total, last at 581 vs recent ~579-590 range) — Hormuz progress removes the catalyst entirely, no fresh level.
+- NVDA: premarket trading 218-220, essentially flat to yesterday's 219.22 close and below yesterday's 222.22 high — holding up relative to the sector-wide chip selloff but not making a fresh breakout; no confirmed new level today.
+
+### Trade Ideas
+1. LLY — post-earnings reaction, real beat (EPS +$2.37 vs est, revenue +47.7% YoY). Premarket high L=1184.58 (08:45Z), sustained trading through the morning, above yesterday's 1169.86 close. stop = L*0.93 = 1101.66, target = L + 2x risk = 1350.42, rr = 2.0:1.
+   - IDEA: LLY | L=1184.58 | stop=1101.66 | target=1350.42 | rr=2.0:1 | sector=healthcare-pharma | catalyst=Q2 EPS 8.38 vs 6.01 est, revenue +47.7% YoY, sustained premarket volume above prior close
+2. DIS — post-earnings reaction, EPS beat by $0.20, revenue in line. Premarket high L=102.74 (09:45Z), steady volume through the morning, above yesterday's 101.76 close. stop = L*0.93 = 95.55, target = L + 2x risk = 117.12, rr = 2.0:1.
+   - IDEA: DIS | L=102.74 | stop=95.55 | target=117.12 | rr=2.0:1 | sector=media-entertainment | catalyst=Q2 EPS beat by 0.20, revenue in line, steady premarket volume above prior close
+3. COP — post-earnings reaction, Q2 beat estimates (revenue improved YoY per Nasdaq recap), reported before today's open. Premarket high L=117.50 (08:30Z), sustained volume through the morning despite oil prices falling on the Hormuz de-escalation, above yesterday's 115.04 close. stop = L*0.93 = 109.28, target = L + 2x risk = 133.94, rr = 2.0:1.
+   - IDEA: COP | L=117.50 | stop=109.28 | target=133.94 | rr=2.0:1 | sector=energy | catalyst=Q2 earnings beat, revenue improved YoY, premarket gap holding despite falling oil prices
+4. NVDA / chip sector — SanDisk guidance shock dragging the whole chip complex (WDC -14%, SNDK -8%, SK Hynix -6%, Micron -3.4%, AMD -1.9%); NVDA holding relatively flat but not breaking out, no fresh level.
+   - NO-TRADE: NVDA — chip-sector selloff (SanDisk guidance shock); flat to yesterday's close, no fresh breakout level
+   - NO-TRADE: AMD — "sell the news" post-earnings, extending premarket decline
+5. LMT/RTX/NOC (defense) — Iran-Oman Hormuz shipping agreement removes near-term war-premium catalyst; near-zero premarket volume, no fresh level.
+   - NO-TRADE: LMT — near-zero premarket volume (2 prints), Hormuz progress kills the catalyst
+   - NO-TRADE: RTX — same Hormuz de-escalation reasoning, no premarket catalyst today
+   - NO-TRADE: NOC — same Hormuz de-escalation reasoning, no premarket catalyst today
+
+### Risk Factors
+- Three earnings-reaction ideas today (LLY, DIS, COP) is a heavier candidate load than usual — position sizing (20% cap each) and the 3-trades/week cap still apply; if all three confirm, that's the full week's allotment in one morning.
+- LLY chase risk: a very large-cap, high-priced name — gap is only ~1.3% above prior close, thinner margin for the confirmation bar than a bigger post-earnings gap.
+- COP's gap runs counter to the macro (oil falling on Hormuz de-escalation) — a genuine earnings-specific move, but a broader energy-sector leg down could still cap upside even if COP confirms.
+- Chip-sector selloff (SanDisk shock) is broad and could spill into the wider Nasdaq/tech tape intraday, pressuring DIS/media-adjacent names indirectly.
+- Iran-Oman Hormuz agreement is an interim shipping arrangement, not a final deal — a headline reversal could snap oil/defense sentiment back quickly.
+- July jobs report tomorrow (Aug 7) — no direct impact on today's session but could add volatility into Friday for any position still open.
+
+### Decision
+HOLD entries pending open confirmation. Three ideas have real, data-backed levels today — LLY (premarket high 1184.58, sustained volume, clean earnings beat), DIS (premarket high 102.74, steady volume, earnings beat), and COP (premarket high 117.50, sustained volume despite bearish oil macro, earnings beat) — watch for CONFIRMED = bar close > L and bar low >= L x 0.99 on the first 30-min bar for each. NVDA/AMD (chip-sector selloff, no fresh breakout) and defense LMT/RTX/NOC (Hormuz progress killed the catalyst, near-zero volume) are all NO-TRADE today. Patience > activity; if all three confirm, respect the 3-trades/week cap and prioritize the highest-conviction setup.
