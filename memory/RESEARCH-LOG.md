@@ -595,3 +595,6 @@ HOLD entries pending open confirmation. Three ideas have real, data-backed level
 - Skipped — confirmation bar still open, fired at 13:38 UTC. No buys.
 - Sync: trade log in sync. Reconcile: all positions protected.
 - Result: no trades
+
+### Midday
+- Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
