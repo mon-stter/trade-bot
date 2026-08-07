@@ -92,3 +92,16 @@ size, and the 3-trades/week cap remain untested and untouched.
 
 An all-NO-TRADE day is still a legitimate outcome. What is not legitimate is a day
 where no idea was even expressible as a number.
+
+Note (Aug 7 weekly review): the Jul 25 retiming of market-open to 14:00Z has not
+held. `guard.py bar-closed` output across Aug 3-7 shows market-open actually firing
+13:35-13:55 UTC every single session this week (5/5) — 5 to 25 minutes before the
+14:00Z target — and STEP 0b correctly blocked STEP 3/4 every time, so zero
+mechanical confirmation checks ran all week. Unlike the Jul 27-30 gap (no numeric
+level produced), pre-market this week reliably emitted valid `IDEA` lines with real
+premarket data on all 5 days (PLTR, NVDA, LLY/DIS/COP, NET/VST/ABNB) — the
+producer/consumer contract and the fail-safe gate both worked correctly. The
+remaining bug is the routine's wall-clock trigger itself, which is a scheduling/cron
+configuration problem, not a trading rule — outside what this file can fix directly.
+Flagging for the operator so it doesn't repeat silently. No risk rule (stop %,
+position size, trade cap) changed.

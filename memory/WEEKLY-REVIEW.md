@@ -144,3 +144,52 @@ None.
 
 ### Grade: C
 Capital fully preserved and index-beating for a third straight week, zero rule violations, and the entry mechanism finally proved it can mechanically fire and reject a setup — but 15 sessions with zero executions is a pattern that needs to turn into an actual trade soon, not just a better-tested reason to keep holding.
+
+## Week ending Aug 7, 2026
+
+### Stats
+| Metric | Value |
+|---|---|
+| Starting portfolio (Monday baseline) | $100,000.00 |
+| Ending portfolio | $100,000.00 |
+| Week return | $0.00 (0.0%) |
+| S&P 500 week return | +3.58% (7,489.72 → 7,757.64) |
+| Trades (W/L/open) | 0 / 0 / 0 |
+| Win rate | N/A (no trades) |
+| Best trade | N/A |
+| Worst trade | N/A |
+| Profit factor | N/A |
+
+### Closed Trades
+| Ticker | Entry | Exit | P&L $ | P&L % | Days Held |
+|---|---|---|---|---|---|
+| — | — | — | — | — | — |
+
+### Open Positions
+None.
+
+### What Worked
+- Zero rule violations across all 5 sessions (Aug 3-7); every decision documented in RESEARCH-LOG.md.
+- The Jul 31 producer-side fix now works as intended: pre-market generated real, data-backed numeric levels every single day this week — 8 valid `IDEA` lines across 5 sessions (PLTR, NVDA, LLY, DIS, COP, NET, VST, ABNB), the first full week without a "no numeric level" gap.
+- The STEP 0b bar-closed hard gate did exactly its job under real, repeated stress: it fired early every day and correctly blocked STEP 3/4 rather than trading on a partial, noisy bar.
+- Correctly stood aside from broken or negative post-earnings reactions (AMD Aug 5, CEG/DKNG Aug 7) and stale/faded setups (AMZN Aug 4-5, PLTR Aug 5, defense all week) without a single forced entry.
+- guard.py sync/reconcile ran clean every session — no unprotected positions, no halt triggered.
+
+### What Didn't
+- Market-open fired early on all 5 sessions this week (13:35-13:55 UTC, vs. the 14:00Z target set Jul 25) — the confirmation bar had not closed by the time the routine ran, so STEP 3/4 never executed once. Zero mechanical confirmation checks occurred in a week that produced 8 real candidate levels.
+- First week the bot actually lags the S&P 500 instead of beating it: $0 (0.0%) vs. S&P +3.58% — the prior three weeks' "beat the index" record came against a flat-to-down tape; this week shows the real cost of the scheduling bug once the market actually moves.
+- Friday's highest-conviction idea (NET, L=332.33) was never tested — the routine fired just 5 minutes early even on the fifth straight day of the same failure, showing the bug is systemic, not a one-off fluke.
+- 20 consecutive sessions (4 full weeks) with zero trades placed — stop discipline, trailing-stop logic, and the sector-exit rule remain completely untested.
+- The Jul 25 retiming fix has silently regressed or was never fully reliable — this week is the first hard evidence, via `bar-closed`'s own "OPEN - Nm remaining" output, that the trigger's wall-clock timing (not the strategy logic) is now the active blocker.
+
+### Key Lessons
+- The strategy's decision logic (entry checklist, confirmation arithmetic) is validated as sound and conservative — every session this week that reached STEP 3 would have run a real, defensible check. The unsolved problem is entirely upstream: the routine firing at the correct wall-clock time.
+- "Zero rule violations" stops being sufficient evidence of a well-functioning bot once the market actually moves — this week proves that discipline without execution capability still produces real opportunity cost (3.58pp of missed index performance), not just a defensible zero.
+- `guard.py bar-closed`'s "OPEN - Nm remaining" output is a standing diagnostic signal, not just a pass/fail gate — five straight early fires this week should have been treated as a scheduler/cron problem to escalate, not just an expected daily skip.
+
+### Adjustments
+- No change to Core Rules (stop %, position size, sector-exit, trade cap) — still zero trades to prove or disprove any of them.
+- Added a note to TRADING-STRATEGY.md documenting the Aug 3-7 early-fire pattern (5/5 sessions) for the operator to fix at the scheduling/cron layer. This is outside TRADING-STRATEGY.md's scope — it's an infra trigger-timing problem, not a trading-rule problem — but leaving it undocumented risks another silent multi-week gap like Jul 24-31.
+
+### Grade: D+
+Capital fully preserved and zero rule violations, and the entry mechanism finally proved it can reliably produce real, tradeable levels every session — but the bot lagged the S&P 500 by 3.58pp in the first week the market genuinely rallied, root-caused to a scheduling trigger that blocked all 5 sessions' confirmation checks before they could even run. Discipline without execution isn't enough once "no valid setups" is no longer the excuse.
