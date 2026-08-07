@@ -598,3 +598,48 @@ HOLD entries pending open confirmation. Three ideas have real, data-backed level
 
 ### Midday
 - Positions checked: 0 | cuts: 0 | tightened: 0 | risk: OK
+
+## 2026-08-07 — Pre-market Research
+### Account
+- Equity $100,000 / Cash $100,000 (100%) / Buying power $400,000 / Daytrade count 0
+- No open positions, no open orders. Not halted, trading day open. No trades this week (0/3).
+
+### Market Context
+- VIX futures ~17.1-17.4, up modestly from Thursday's ~15.8 — vol ticking up again ahead of the jobs print. ([Investing.com](https://www.investing.com/indices/us-spx-vix-futures))
+- S&P 500 futures little changed premarket after Thursday's second straight down day (S&P -0.2%, Nasdaq 100 -0.4%, Dow -464pts) — tape now leaning slightly positive, tech/precious metals leading. ([Bloomberg](https://www.bloomberg.com/news/articles/2026-08-06/stock-market-today-dow-s-p-live-updates), [CNBC](https://www.cnbc.com/markets/pre-markets/))
+- Marquee event: July jobs report (nonfarm payrolls) due 8:30 ET / 12:30Z today — consensus ~83-98k jobs added, unemployment steady at 4.2%, vs June's weak 57k. Releases AFTER this research snapshot (bars pulled through 10:45Z) but BEFORE both market-open's 14:00Z gate and the 30-min confirmation bar — a surprise here can reprice every level below before confirmation. ([CNBC](https://www.cnbc.com/2026/08/06/the-july-jobs-numbers-are-due-out-friday-heres-what-to-expect.html), [FactSet](https://insight.factset.com/total-nonfarm-payrolls-for-july-2026-are-projected-to-rise-by-97500))
+- Top catalyst: heavy earnings-reaction morning. ABNB beat (Q2 rev $3.6B +17% YoY, EPS $1.37 vs est +9.5%, FCF +30% to $1.25B, raised guide $4.69-4.77B vs $4.61B est) — premarket printed a real gap (152->165.68) but has faded steadily since its 08:40Z high, last ~163. NET beat-and-raise (EPS $0.29 vs $0.27 est, rev $696.1M vs $664.7M est, FY26 guide raised to $1.25-1.26 EPS/$2.86-2.87B rev) — premarket choppy but holding well above Thursday's 284.43 close, high 332.33. VST reports before today's open (est. EPS $2.43 vs $1.01 y/y, ~6.4% implied move) — premarket already gapping (141.38 close -> high 146.22) on steady volume ahead of the print, AI-datacenter power-demand theme. ([ABNB: tradingpedia](https://www.tradingpedia.com/2026/08/07/airbnb-jumps-after-record-quarter-and-higher-outlook/), [NET: Benzinga](https://www.benzinga.com/markets/earnings/26/08/61025673/cloudflare-stock-pops-on-q2-earnings-print-heres-why), [VST: Investing.com](https://www.investing.com/news/stock-market-news/vistra-stock-may-move-64-on-aug-7-earnings-release-93CH-4828804))
+- CEG: Thursday's earnings pop (EPS $2.55 vs $2.33 est, guide raised) failed intraday — opened 277.92, high 280, closed 261.1. Today's premarket is a modest bounce off that faded close (high 267.69), still well below Thursday's own high. Broken reaction, not a fresh breakout.
+- DKNG: Q2 EPS miss despite revenue beat, stock fell after the print — no long thesis.
+- TTWO: reports fiscal Q1 at 8:00 ET / 12:00Z today (unprecedented Friday earnings slot, GTA6 pre-order data the focus) — release lands after this snapshot, no reaction data yet; premarket currently just drifting (239->234.8) on pre-earnings positioning only.
+- Sector rotation (2026 YTD): energy (+22%), materials (+17%), industrials (+16%), staples (+15%) still leading; rotation out of tech persists broadly, though today's tape shows idiosyncratic earnings beats (ABNB, NET, VST) can pop individual names regardless of sector trend. ([ainvest](https://www.ainvest.com/news/yield-trap-sets-great-rotation-industrials-energy-beating-tech-2026-2605/))
+- Defense/Iran: no fresh headlines since Thursday's Iran-Oman Hormuz shipping agreement; war-premium catalyst remains absent, not rechecked further today given no new news.
+
+### Trade Ideas
+1. NET — Q2 beat-and-raise (EPS $0.29 vs $0.27 est, rev $696.1M vs $664.7M est, FY26 guide raised), premarket choppy but well-supported above Thursday's close on steady volume all morning, not a thin spike. Premarket high L=332.33 (08:00Z).
+   - IDEA: NET | L=332.33 | stop=309.07 | target=378.85 | rr=2.0:1 | sector=cybersecurity-cloud | catalyst=Q2 EPS 0.29 vs 0.27 est, rev 696.1M vs 664.7M est, FY26 guide raised to 1.25-1.26 EPS/2.86-2.87B rev
+2. VST — reports before today's open, premarket already gapping on steady volume (141.38 close -> high 146.22) ahead of the print on AI-datacenter power-demand theme; est. EPS $2.43 vs $1.01 y/y.
+   - IDEA: VST | L=146.22 | stop=135.98 | target=166.70 | rr=2.0:1 | sector=utilities-power | catalyst=Q2 earnings before open (est EPS 2.43 vs 1.01 y/y), premarket gap on steady volume, AI-datacenter power-demand tailwind
+3. ABNB — Q2 beat (rev +17% YoY, EPS +9.5% above est, raised guide) but premarket has faded hard since its early high, last trading ~163 vs the 165.68 peak — real catalyst, weakening follow-through.
+   - IDEA: ABNB | L=165.68 | stop=154.08 | target=188.88 | rr=2.0:1 | sector=travel-consumer | catalyst=Q2 rev +17% YoY, EPS 1.37 (+9.5% vs est), FCF +30%, guide raised to 4.69-4.77B vs 4.61B est — note premarket fading from high, weakest of the three
+4. CEG — Thursday's earnings pop already failed intraday (opened 277.92, high 280, closed 261.1); today's premarket is only a bounce off that faded close, not a fresh breakout.
+   - NO-TRADE: CEG — post-earnings reaction already broken (faded to close well below Thursday's high), today just a bounce
+5. DKNG — EPS miss despite revenue beat, stock fell after the print.
+   - NO-TRADE: DKNG — earnings miss (EPS), negative reaction
+6. TTWO — reports 12:00Z today, after this research snapshot; no post-earnings data yet.
+   - NO-TRADE: TTWO — earnings not yet released as of this research, no reaction data
+7. Defense (LMT/RTX/NOC) — no fresh news since Thursday's Hormuz de-escalation; not re-pulled today given no new catalyst.
+   - NO-TRADE: LMT — no fresh catalyst since Thursday's Hormuz de-escalation
+   - NO-TRADE: RTX — same reasoning, no fresh catalyst
+   - NO-TRADE: NOC — same reasoning, no fresh catalyst
+
+### Risk Factors
+- July jobs report drops at 12:30Z, AFTER this snapshot but BEFORE the 14:00Z market-open gate and the confirmation bar — a payrolls surprise (beat or miss) can invalidate any of today's premarket levels before they're ever tested. This is the dominant risk today.
+- Three earnings-reaction ideas again (NET, VST, ABNB) — same heavy-load situation as Aug 6; 20% position cap and 3-trades/week cap apply, prioritize highest-conviction if multiple confirm.
+- ABNB is the weakest of the three on setup quality — premarket already faded ~2.5 points off its high by the time of this research; a real risk it never even reaches L again, let alone confirms.
+- VST's level is set on pre-earnings premarket drift, not a confirmed post-print reaction — if actual results (out before 14:00Z) miss, the level could already be stale/wrong by market-open.
+- NET's premarket has been choppy (330 -> 326.55 -> 331.5 -> 329) rather than a clean holding pattern — real volume but more two-sided than a clean breakout.
+- CEG's failed post-earnings reaction is a reminder that a real beat-and-raise doesn't guarantee a level holds — relevant context for judging today's three live ideas too.
+
+### Decision
+HOLD entries pending open confirmation and pending the 12:30Z jobs report. NET, VST, and ABNB all have real, data-backed premarket levels — watch for CONFIRMED = bar close > L and bar low >= L x 0.99 on the first 30-min bar for each, ranked NET > VST > ABNB on setup quality (ABNB already fading). CEG (broken reaction), DKNG (EPS miss), TTWO (not yet reported), and defense LMT/RTX/NOC (no fresh catalyst) are all NO-TRADE today. Patience > activity; jobs report is the session's biggest wildcard.
